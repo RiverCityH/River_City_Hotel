@@ -8,6 +8,6 @@ namespace lib_entidades_dominio
         [Key] public virtual int Id { get; set; }
         public virtual string? Nombre { get; set; }
 
-        //[NotMapped] public virtual ICollection<Facturas>? Facturas { get; set; }
+        [NotMapped] public virtual ICollection<Departamentos>? Departamentos { get; set; }
     }
 }

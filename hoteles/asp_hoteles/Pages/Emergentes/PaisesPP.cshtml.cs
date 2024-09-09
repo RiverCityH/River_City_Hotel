@@ -3,15 +3,18 @@ using lib_entidades_dominio;
 using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace asp_hoteles.Pages.Emergentes
 {
-    public class PaisesModel : PageModel
+    public class PaisesPPModel : PageModel
     {
         private PaisesAplicacion? paisesAplicacion = null;
         public bool MostrarLista = true;
+        public HttpContext? ContextHttp { get; set; }
+        public ViewDataDictionary? DataView { get; set; }
 
-        public PaisesModel(PaisesAplicacion p_paisesAplicacion)
+        public PaisesPPModel(PaisesAplicacion p_paisesAplicacion)
         {
             try
             {

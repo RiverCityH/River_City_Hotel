@@ -38,7 +38,7 @@ namespace mst_prueba_unitarias.Repositorios
 
         public void Buscar()
         {
-            lista = iRepositorio!.Buscar(x => x.Id != entidad!.Id);
+            lista = iRepositorio!.Buscar(x => x.Id == entidad!.Id);
             Assert.IsTrue(lista.Count > 0);
         }
 

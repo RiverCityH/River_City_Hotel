@@ -11,7 +11,7 @@ namespace lib_entidades_dominio
         public virtual int Departamento { get; set; }
 
         [ForeignKey("Departamento")] public virtual Departamentos? _Departamentos { get; set; }
-        //[NotMapped] public virtual ICollection<Proveedores>? Proveedores { get; set; }
+        [NotMapped] public virtual ICollection<Proveedores>? Proveedores { get; set; }
 
     }
 }

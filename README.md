@@ -15,6 +15,7 @@
 
 - dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.20
 - dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.20
+- dotnet add package Newtonsoft.Json --version 13.0.3
 
 - dotnet remove package System.Data.SqlClient
 

@@ -88,6 +88,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ya existe el empleado.
+        /// </summary>
+        public static string lbExisteEmpleado {
+            get {
+                return ResourceManager.GetString("lbExisteEmpleado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ya existe el pais.
         /// </summary>
         public static string lbExistePais {
@@ -120,6 +129,15 @@ namespace lib_lenguajes {
         public static string lbNoExisteDepartamento {
             get {
                 return ResourceManager.GetString("lbNoExisteDepartamento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No existe el empleado.
+        /// </summary>
+        public static string lbNoExisteEmpleado {
+            get {
+                return ResourceManager.GetString("lbNoExisteEmpleado", resourceCulture);
             }
         }
         

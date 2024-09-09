@@ -257,6 +257,22 @@ BEGIN
 		'GJugugs54s56df', 0, 0, NULL, @ciudad, 1);
 END
 
+IF NOT EXISTS (SELECT 1 FROM [Personas] WHERE [Documento] = '134588')
+BEGIN
+	SET @ciudad = (SELECT [Id] FROM [Ciudades] WHERE [Nombre] = 'Medellin');
+	SET @tipo_documento = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Cedula');
+	SET @genero = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Masculino');
+
+	INSERT INTO [Personas] (
+		[TipoDocumento],[Documento],[Nombre],[FechaNacimiento],
+		[Celular],[Genero],[Direccion],[Email],[Contraseña],
+		[Confirmar],[Restablecer],[Token],[Ciudad],[Activo])
+	VALUES (
+		@tipo_documento, '134588', 'Persona de prueba',GETDATE(), 
+		'3004567852',@genero, 'Cra 75 # 24 - 16', 'juan@email.com',
+		'GJugugs54s56df', 0, 0, NULL, @ciudad, 1);
+END
+
 DECLARE @persona INT
 DECLARE @cargo INT
 DECLARE @arl INT

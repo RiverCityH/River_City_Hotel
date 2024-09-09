@@ -1,0 +1,153 @@
+﻿@page
+@model asp_hoteles.Pages.Ventanas.PaisesModel
+@{
+    ViewData["Title"] = lib_lenguajes.RsMenu.lbPaises;
+}
+<center>
+    <div>
+        <form method="POST"
+            enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+
+            <div align="left">
+                <h3>@lib_lenguajes.RsMenu.lbPaises</h3>
+            </div>
+            <div align="left"
+                class="bt_panel_buttons">
+                <input type="image"
+                    value=""
+                    class="bt_refresh"
+                    asp-page-handler="BtRefrescar"
+                       disabled="@(!Model.MostrarLista)" />
+                <input type="image"
+                    value=""
+                    class="bt_new"
+                    asp-page-handler="BtNuevo"
+                       disabled="@(!Model.MostrarLista)" />
+                <input type="image"
+                    value=""
+                    class="bt_save"
+                    asp-page-handler="BtGuardar"
+                       disabled="@(Model.MostrarLista)" />
+                <input type="image"
+                    value=""
+                    class="bt_cancel"
+                    asp-page-handler="BtCancel"
+                       disabled="@(Model.MostrarLista)" />
+            </div>
+            
+            @if (!Model.MostrarLista ||
+                 Model.MostrarBorrar ||
+                 ViewData.ContainsKey("Mensaje"))
+            {
+                <input type="hidden"
+                   asp-for="@Model.Actual.Id" />
+            }
+            @if (Model.MostrarBorrar ||
+                 ViewData.ContainsKey("Mensaje"))
+            {
+                <input type="hidden"
+                   asp-for="@Model.Actual.Nombre" />
+            }
+
+            @if (!Model.MostrarLista &&
+                 !ViewData.ContainsKey("Mensaje"))
+            {
+                <div class="panel panel-default">
+                    <h3>@lib_lenguajes.RsPaises.lbSingular</h3>
+
+                    <div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPaises.lbNombre
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txSsn"
+                                    class="cts_forms form-control"
+                                    onchange="keyUp(this)"
+                                    asp-for="@Model.Actual.Nombre" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewData.ContainsKey("Mensaje"))
+            {
+                @await Html.PartialAsync(
+                    "../Emergentes/MensajesVE.cshtml")
+            }
+
+            @if (Model.MostrarBorrar)
+            {
+                <div class='popup'>
+                    <div class='pp_del_inner'>
+                        <div style='width:95%'>
+                            <input align="right"
+                                type="image"
+                                value=""
+                                class="bt_close"
+                                asp-page-handler="BtClose"
+                                asp-route-data="@ViewData["MostrarBorrar"]" />
+                            <h2 align="left">
+                                @lib_lenguajes.RsMenu.lbMensaje
+                            </h2>
+
+                            <h4 align="left">
+                                @lib_lenguajes.RsMenu.lbBorrarEntidad
+                            </h4>
+                            <h6 align="left">
+                                @Model.Actual.Nombre
+                            </h6>
+                            <br />
+                            <br />
+                            <input align="right"
+                                type="image"
+                                value=""
+                                class="bt_delete"
+                                asp-page-handler="BtBorrar" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.MostrarLista)
+            {
+                <div class="panel panel-default">
+                    <table class="tb_data table table-striped table-bordered table-hover">
+                        <tr>
+                            <th>
+                                @lib_lenguajes.RsPaises.clNombre
+                            </th>
+                            <th class="cl_actions">
+                                @lib_lenguajes.RsMenu.lbAction
+                            </th>
+                        </tr>
+                        @if (Model != null && Model.Lista != null)
+                        {
+                            @foreach (var item in Model.Lista)
+                            {
+                                <tr onmouseover="changeOver(this)"
+                                    onmouseout="changeOut(this)">
+                                    <td>@item.Nombre</td>
+                                    <td>
+                                        <input type="image"
+                                            value=""
+                                            class="bt_edit"
+                                            asp-page-handler="BtModificar"
+                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(item.Id)" />
+                                        <input type="image"
+                                            value=""
+                                            class="bt_delete"
+                                            asp-page-handler="BtBorrarVal"
+                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(item.Id)" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                </div>
+            }
+        </form>
+    </div>
+</center>

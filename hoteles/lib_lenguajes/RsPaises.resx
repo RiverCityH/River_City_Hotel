@@ -117,43 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbAction" xml:space="preserve">
-    <value>Acciones</value>
+  <data name="clNombre" xml:space="preserve">
+    <value>NOMBRE</value>
   </data>
-  <data name="lbActivo" xml:space="preserve">
-    <value>Activo</value>
+  <data name="lbNombre" xml:space="preserve">
+    <value>Nombre: </value>
   </data>
-  <data name="lbApp" xml:space="preserve">
-    <value>Hoteles+</value>
-  </data>
-  <data name="lbAño" xml:space="preserve">
-    <value>2024</value>
-  </data>
-  <data name="lbBorrarEntidad" xml:space="preserve">
-    <value>¿Desea borrar la siguiente información?</value>
-  </data>
-  <data name="lbCerrar" xml:space="preserve">
-    <value>Cerrar</value>
-  </data>
-  <data name="lbDepartamentos" xml:space="preserve">
-    <value>Departamentos</value>
-  </data>
-  <data name="lbEntrar" xml:space="preserve">
-    <value>Entrar</value>
-  </data>
-  <data name="lbInactivo" xml:space="preserve">
-    <value>Inactivo</value>
-  </data>
-  <data name="lbInicio" xml:space="preserve">
-    <value>Inicio</value>
-  </data>
-  <data name="lbLimpiar" xml:space="preserve">
-    <value>Limpiar</value>
-  </data>
-  <data name="lbMensaje" xml:space="preserve">
-    <value>Mensaje</value>
-  </data>
-  <data name="lbPaises" xml:space="preserve">
-    <value>Paises</value>
+  <data name="lbSingular" xml:space="preserve">
+    <value>Pais</value>
   </data>
 </root>

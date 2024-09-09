@@ -61,6 +61,24 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Acciones.
+        /// </summary>
+        public static string lbAction {
+            get {
+                return ResourceManager.GetString("lbAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activo.
+        /// </summary>
+        public static string lbActivo {
+            get {
+                return ResourceManager.GetString("lbActivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 2024.
         /// </summary>
         public static string lbAño {
@@ -75,6 +93,15 @@ namespace lib_lenguajes {
         public static string lbApp {
             get {
                 return ResourceManager.GetString("lbApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Desea borrar la siguiente información?.
+        /// </summary>
+        public static string lbBorrarEntidad {
+            get {
+                return ResourceManager.GetString("lbBorrarEntidad", resourceCulture);
             }
         }
         
@@ -106,6 +133,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inactivo.
+        /// </summary>
+        public static string lbInactivo {
+            get {
+                return ResourceManager.GetString("lbInactivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inicio.
         /// </summary>
         public static string lbInicio {
@@ -120,6 +156,15 @@ namespace lib_lenguajes {
         public static string lbLimpiar {
             get {
                 return ResourceManager.GetString("lbLimpiar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mensaje.
+        /// </summary>
+        public static string lbMensaje {
+            get {
+                return ResourceManager.GetString("lbMensaje", resourceCulture);
             }
         }
         

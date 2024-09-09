@@ -17,7 +17,7 @@ namespace lib_utilidades
             aes.IV = new byte[16];
         }
 
-        public static string Encrypt(string value)
+        public static string Encriptar(string value)
         {
             Create();
             ICryptoTransform encryptor = aes!.CreateEncryptor(aes.Key, aes.IV);

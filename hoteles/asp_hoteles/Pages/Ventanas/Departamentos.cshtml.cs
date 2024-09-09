@@ -14,7 +14,7 @@ namespace asp_hoteles.Pages.Ventanas
         public bool MostrarLista = true, 
             MostrarBorrar = false,
             MostrarPaises = false;
-        private PaisesPPModel? paisesPP = null;
+        public PaisesPPModel? paisesPP = null;
 
         public DepartamentosModel(
             DepartamentosAplicacion p_departamentosAplicacion,

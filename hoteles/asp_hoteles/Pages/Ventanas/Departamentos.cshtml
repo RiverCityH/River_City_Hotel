@@ -92,6 +92,18 @@
                     "../Emergentes/Mensajes.cshtml")
             }
 
+            @if (Model.MostrarPaises)
+            {
+                <div class='popup'>
+                    <div class='pp_inner'>
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                        "../Emergentes/PaisesPP.cshtml", Model.paisesPP)
+                        </div>
+                    </div>
+                </div>
+            }
+
             @if (Model.MostrarBorrar)
             {
                 <div class='popup'>

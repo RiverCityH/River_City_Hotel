@@ -21,7 +21,7 @@ namespace mst_prueba_unitarias.Repositorios
         }
 
         [TestMethod]
-        public void Executar()
+        public void Ejecutar()
         {
             Guardar();
             Listar();

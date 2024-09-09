@@ -3,7 +3,7 @@ using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace asp_hoteles.Pages
+namespace asp_hoteles.Views.Shared
 {
     public class IndexModel : PageModel
     {

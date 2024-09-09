@@ -1,8 +1,61 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@page
+@model asp_hoteles.Views.Shared.IndexModel
+@{
+    ViewData["Title"] = lib_lenguajes.RsMenu.lbHome;
 }
+@if (!Model.IsLogged)
+{
+    <div class="container" 
+         align="left" 
+         style="width:100%">
+        <h3>
+            @lib_lenguajes.RsMenu.lbTitle
+        </h3>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        <form method="POST">
+            <div style="width:60%">
+                <div class="form-group">
+                    <label class="control-label">
+                        @lib_lenguajes.RsMenu.lbUser
+                    </label>
+                    <input onchange="keyUp(this)" 
+                        asp-for="@Model.Email" 
+                        class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        @lib_lenguajes.RsMenu.lbPassword
+                    </label>
+                    <input type="password" 
+                        onchange="keyUp(this)" 
+                        asp-for="@Model.Password" 
+                        class="form-control" />
+                </div>
+
+                <input type="submit"
+                   value="@lib_lenguajes.RsMenu.lbClean"
+                    asp-page-handler="BtClean" 
+                    class="btn btn-default" />
+                <input type="submit"
+                   value="@lib_lenguajes.RsMenu.lbEnter"
+                    asp-page-handler="BtEnter" 
+                    class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">
+            @lib_lenguajes.RsMenu.lbTitle
+        </h1>
+
+        <form method="POST">
+            <input type="submit"
+               value="@lib_lenguajes.RsMenu.lbClose"
+                asp-page-handler="BtClose" 
+                class="btn btn-default" />
+        </form>
+    </div>
+}

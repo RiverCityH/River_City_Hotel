@@ -22,7 +22,7 @@ namespace mst_prueba_unitarias.Aplicaciones
         }
 
         [TestMethod]
-        public void Executar()
+        public void Ejecutar()
         {
             Guardar();
             Listar();

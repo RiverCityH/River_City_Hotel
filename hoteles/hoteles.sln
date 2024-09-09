@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_repositorios", "lib_repositorios\lib_repositorios.csproj", "{0148D797-446C-4728-B6D6-D975FFDB5C33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_hoteles", "asp_hoteles\asp_hoteles.csproj", "{3E001B9B-C4A7-4010-81E2-1F47C2571AA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_hoteles", "asp_hoteles\asp_hoteles.csproj", "{3D1BD6ED-F60C-4EEA-97BC-42D7A6661B1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{0148D797-446C-4728-B6D6-D975FFDB5C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0148D797-446C-4728-B6D6-D975FFDB5C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0148D797-446C-4728-B6D6-D975FFDB5C33}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E001B9B-C4A7-4010-81E2-1F47C2571AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E001B9B-C4A7-4010-81E2-1F47C2571AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E001B9B-C4A7-4010-81E2-1F47C2571AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E001B9B-C4A7-4010-81E2-1F47C2571AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1BD6ED-F60C-4EEA-97BC-42D7A6661B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1BD6ED-F60C-4EEA-97BC-42D7A6661B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1BD6ED-F60C-4EEA-97BC-42D7A6661B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1BD6ED-F60C-4EEA-97BC-42D7A6661B1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

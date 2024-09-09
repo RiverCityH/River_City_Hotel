@@ -186,27 +186,26 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public void OnPostBtSeleccionarPais(string id)
+        public void OnPostBtSeleccionarPais(string data)
         {
             try
             {
-                /*ShowList = false;
-                if (!CheckLogged())
+                MostrarLista = false;
+                if (!ChequearUsuario())
                     return;
-                if (ppTypes == null)
-                {
-                    ppTypes = new PersonTypesPP();
-                    ppTypes.HttpContext = this.HttpContext;
-                    ppTypes.ViewData = this.ViewData;
-                    ppTypes.Load();
-                }
-                var selected = ppTypes.List!.
-                    FirstOrDefault(x => x.Id.ToString() == ConverterHideID.Decrypt(data));
-                if (selected == null || Current == null)
+                if (paisesPP == null)
+                    return;
+                paisesPP!.ContextHttp = this.HttpContext;
+                paisesPP!.DataView = this.ViewData;
+                paisesPP!.OnPostBtRefrescar();
+
+                var seleccionado = paisesPP.Lista!.
+                    FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
+                if (seleccionado == null || Actual == null)
                     return;
                 ModelState.Clear();
-                Current.Type = selected.Id;
-                Current.PersonType = selected;*/
+                Actual!.Pais = seleccionado.Id;
+                Actual!._Pais = seleccionado;
             }
             catch (Exception ex)
             {

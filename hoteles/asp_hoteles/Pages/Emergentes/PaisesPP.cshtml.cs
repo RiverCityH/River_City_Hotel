@@ -10,7 +10,6 @@ namespace asp_hoteles.Pages.Emergentes
     public class PaisesPPModel : PageModel
     {
         private PaisesAplicacion? paisesAplicacion = null;
-        public bool MostrarLista = true;
         public HttpContext? ContextHttp { get; set; }
         public ViewDataDictionary? DataView { get; set; }
 

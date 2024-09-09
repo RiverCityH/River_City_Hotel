@@ -121,9 +121,15 @@
     <value>Error guardando en base de datos</value>
   </data>
   <data name="lbExistePais" xml:space="preserve">
-    <value>Ya existe ese pais</value>
+    <value>Ya existe el pais</value>
+  </data>
+  <data name="lbExisteTipo" xml:space="preserve">
+    <value>Ya existe el tipo</value>
   </data>
   <data name="lbNoExistePais" xml:space="preserve">
     <value>No existe el pais</value>
+  </data>
+  <data name="lbNoExisteTipo" xml:space="preserve">
+    <value>No existe el tipo</value>
   </data>
 </root>

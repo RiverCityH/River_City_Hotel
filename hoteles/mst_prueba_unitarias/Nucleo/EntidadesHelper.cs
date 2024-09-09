@@ -71,7 +71,7 @@ namespace mst_prueba_unitarias.Nucleo
             return new Empleados()
             {
                 Id = 0,
-                Persona = 1,
+                Persona = 2,
                 Cargo = 6,
                 ARL = 9,
                 Pension = 11,

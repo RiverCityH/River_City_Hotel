@@ -28,6 +28,7 @@ namespace lib_aplicaciones.Implementaciones
             Expression<Func<Empleados, bool>>? condiciones = null;
             switch (tipo.ToUpper())
             {
+                case "PERSONA": condiciones = x => x.Persona == entidad.Persona; break;
                 default: condiciones = x => x.Id != 0; break;
             }
             return this.iRepositorio.Buscar(condiciones);

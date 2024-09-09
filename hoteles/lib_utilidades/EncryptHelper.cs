@@ -34,5 +34,21 @@ namespace lib_utilidades
             }
         }
 
+        public static string Desencriptar(string value)
+        {
+            Create();
+            byte[] buffer = Convert.FromBase64String(value);
+            ICryptoTransform decryptor = aes!.CreateDecryptor(aes.Key, aes.IV);
+            using (MemoryStream memoryStream = new MemoryStream(buffer))
+            {
+                using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                {
+                    using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                    {
+                        return streamReader.ReadToEnd();
+                    }
+                }
+            }
+        }
     }
 }

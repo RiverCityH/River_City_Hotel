@@ -20,6 +20,22 @@ namespace asp_hoteles.Nucleo
                 return string.Empty;
             }
         }
+
+        public static string Desencriptar(object data)
+        {
+            try
+            {
+                if (data == null)
+                    return string.Empty;
+
+                return EncryptHelper.Desencriptar(data.ToString()!);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+                return string.Empty;
+            }
+        }
     }
 
     public class ConvertirBool

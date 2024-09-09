@@ -64,5 +64,51 @@ namespace asp_hoteles.Pages.Ventanas
                 LogHelper.Log(ex);
             }
         }
+
+        public virtual void OnPostBtNuevo()
+        {
+            try
+            {
+                if (!ChequearUsuario())
+                    return;
+                MostrarLista = false;
+                Actual = new Paises();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+            }
+        }
+
+        public virtual void OnPostBtModificar(string data)
+        {
+            try
+            {
+                if (!ChequearUsuario())
+                    return;
+                MostrarLista = false;
+                OnPostBtRefrescar();
+                Actual = Lista!
+                    .FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+            }
+        }
+
+        public void OnPostBtCancelar()
+        {
+            try
+            {
+                MostrarLista = true;
+                MostrarBorrar = false;
+                OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+            }
+        }
     }
 }

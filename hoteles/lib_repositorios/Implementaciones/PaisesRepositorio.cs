@@ -1,13 +1,13 @@
 ﻿using lib_entidades_dominio;
 using System.Linq.Expressions;
 
-namespace lib_repositorios.Repositorios
+namespace lib_repositorios.Implementaciones
 {
-    public class DepartamentosRepositorio
+    public class PaisesRepositorio
     {
         private Conexion? conexion;
 
-        public DepartamentosRepositorio(Conexion conexion)
+        public PaisesRepositorio(Conexion conexion)
         {
             this.conexion = conexion;
         }
@@ -17,38 +17,38 @@ namespace lib_repositorios.Repositorios
             this.conexion!.StringConnection = string_conexion;
         }
 
-        public List<Departamentos> Listar()
+        public List<Paises> Listar()
         {
-            return conexion!.Listar<Departamentos>();
+            return conexion!.Listar<Paises>();
         }
 
-        public List<Departamentos> Buscar(Expression<Func<Departamentos, bool>> condiciones)
+        public List<Paises> Buscar(Expression<Func<Paises, bool>> condiciones)
         {
             return conexion!.Buscar(condiciones);
         }
 
-        public Departamentos Guardar(Departamentos entidad)
+        public Paises Guardar(Paises entidad)
         {
             conexion!.Guardar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public Departamentos Modificar(Departamentos entidad)
+        public Paises Modificar(Paises entidad)
         {
             conexion!.Modificar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public Departamentos Borrar(Departamentos entidad)
+        public Paises Borrar(Paises entidad)
         {
             conexion!.Borrar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public bool Existe(Expression<Func<Departamentos, bool>> condiciones)
+        public bool Existe(Expression<Func<Paises, bool>> condiciones)
         {
             return conexion!.Existe(condiciones);
         }

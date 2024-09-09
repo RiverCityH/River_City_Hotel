@@ -1,13 +1,13 @@
 ﻿using lib_entidades_dominio;
 using System.Linq.Expressions;
 
-namespace lib_repositorios.Repositorios
+namespace lib_repositorios.Implementaciones
 {
-    public class TiposRepositorio
+    public class CiudadesRepositorio
     {
         private Conexion? conexion;
 
-        public TiposRepositorio(Conexion conexion)
+        public CiudadesRepositorio(Conexion conexion)
         {
             this.conexion = conexion;
         }
@@ -17,38 +17,38 @@ namespace lib_repositorios.Repositorios
             this.conexion!.StringConnection = string_conexion;
         }
 
-        public List<Tipos> Listar()
+        public List<Ciudades> Listar()
         {
-            return conexion!.Listar<Tipos>();
+            return conexion!.Listar<Ciudades>();
         }
 
-        public List<Tipos> Buscar(Expression<Func<Tipos, bool>> condiciones)
+        public List<Ciudades> Buscar(Expression<Func<Ciudades, bool>> condiciones)
         {
             return conexion!.Buscar(condiciones);
         }
 
-        public Tipos Guardar(Tipos entidad)
+        public Ciudades Guardar(Ciudades entidad)
         {
             conexion!.Guardar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public Tipos Modificar(Tipos entidad)
+        public Ciudades Modificar(Ciudades entidad)
         {
             conexion!.Modificar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public Tipos Borrar(Tipos entidad)
+        public Ciudades Borrar(Ciudades entidad)
         {
             conexion!.Borrar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public bool Existe(Expression<Func<Tipos, bool>> condiciones)
+        public bool Existe(Expression<Func<Ciudades, bool>> condiciones)
         {
             return conexion!.Existe(condiciones);
         }

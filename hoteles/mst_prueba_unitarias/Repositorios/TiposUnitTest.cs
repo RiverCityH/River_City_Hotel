@@ -1,6 +1,6 @@
 using lib_entidades_dominio;
 using lib_repositorios;
-using lib_repositorios.Repositorios;
+using lib_repositorios.Implementaciones;
 using mst_prueba_unitarias.Nucleo;
 
 namespace mst_prueba_unitarias.Repositorios

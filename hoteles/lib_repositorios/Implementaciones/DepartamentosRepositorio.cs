@@ -1,13 +1,13 @@
 ﻿using lib_entidades_dominio;
 using System.Linq.Expressions;
 
-namespace lib_repositorios.Repositorios
+namespace lib_repositorios.Implementaciones
 {
-    public class CiudadesRepositorio
+    public class DepartamentosRepositorio
     {
         private Conexion? conexion;
 
-        public CiudadesRepositorio(Conexion conexion)
+        public DepartamentosRepositorio(Conexion conexion)
         {
             this.conexion = conexion;
         }
@@ -17,38 +17,38 @@ namespace lib_repositorios.Repositorios
             this.conexion!.StringConnection = string_conexion;
         }
 
-        public List<Ciudades> Listar()
+        public List<Departamentos> Listar()
         {
-            return conexion!.Listar<Ciudades>();
+            return conexion!.Listar<Departamentos>();
         }
 
-        public List<Ciudades> Buscar(Expression<Func<Ciudades, bool>> condiciones)
+        public List<Departamentos> Buscar(Expression<Func<Departamentos, bool>> condiciones)
         {
             return conexion!.Buscar(condiciones);
         }
 
-        public Ciudades Guardar(Ciudades entidad)
+        public Departamentos Guardar(Departamentos entidad)
         {
             conexion!.Guardar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public Ciudades Modificar(Ciudades entidad)
+        public Departamentos Modificar(Departamentos entidad)
         {
             conexion!.Modificar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public Ciudades Borrar(Ciudades entidad)
+        public Departamentos Borrar(Departamentos entidad)
         {
             conexion!.Borrar(entidad);
             conexion!.GuardarCambios();
             return entidad;
         }
 
-        public bool Existe(Expression<Func<Ciudades, bool>> condiciones)
+        public bool Existe(Expression<Func<Departamentos, bool>> condiciones)
         {
             return conexion!.Existe(condiciones);
         }

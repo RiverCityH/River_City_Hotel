@@ -1,4 +1,5 @@
 ﻿using lib_entidades_dominio;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace lib_repositorios.Implementaciones
@@ -19,12 +20,17 @@ namespace lib_repositorios.Implementaciones
 
         public List<Departamentos> Listar()
         {
-            return conexion!.Listar<Departamentos>();
+            return conexion!.ObtenerSet<Departamentos>()
+                .Include(x => x._Pais)
+                .ToList();
         }
 
         public List<Departamentos> Buscar(Expression<Func<Departamentos, bool>> condiciones)
         {
-            return conexion!.Buscar(condiciones);
+            return conexion!.ObtenerSet<Departamentos>()
+                .Where(condiciones)
+                .Include(x => x._Pais)
+                .ToList();
         }
 
         public Departamentos Guardar(Departamentos entidad)

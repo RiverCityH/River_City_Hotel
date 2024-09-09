@@ -1,5 +1,6 @@
 ﻿using lib_entidades_dominio;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace lib_repositorios
@@ -20,6 +21,11 @@ namespace lib_repositorios
         protected DbSet<Tipos>? Tipos { get; set; }
         protected DbSet<Personas>? Personas { get; set; }
         protected DbSet<Empleados>? Empleados { get; set; }
+
+        public virtual DbSet<T> ObtenerSet<T>() where T : class
+        {
+            return this.Set<T>();
+        }
 
         public virtual List<T> Listar<T>() where T : class
         {

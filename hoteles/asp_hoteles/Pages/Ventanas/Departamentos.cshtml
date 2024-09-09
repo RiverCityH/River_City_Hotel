@@ -48,6 +48,8 @@
             {
                 <input type="hidden"
                    asp-for="@Model.Actual!.Nombre" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Pais" />
             }
 
             @if (!Model.MostrarLista &&
@@ -142,7 +144,7 @@
                                 <tr onmouseover="changeOver(this)"
                                     onmouseout="changeOut(this)">
                                     <td>@elemento.Nombre</td>
-                                    <td>@elemento.Pais</td>
+                                    <td>@elemento._Pais!.Nombre</td>
                                     <td>
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbModicar"

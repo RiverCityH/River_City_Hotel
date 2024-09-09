@@ -41,6 +41,18 @@ CREATE TABLE [Ciudades]
 )
 GO
 
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Reserva')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Reserva', 'Facturas-Tipos', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Reserva')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Facturas', 'Facturas-Tipos', 1);
+END 
+
 IF NOT EXISTS (SELECT 1 FROM [Paises] WHERE [Nombre] = 'Colombia')
 BEGIN
 	INSERT INTO [Paises] ([Nombre])

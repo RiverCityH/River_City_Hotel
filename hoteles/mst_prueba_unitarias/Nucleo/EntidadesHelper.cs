@@ -13,6 +13,16 @@ namespace mst_prueba_unitarias.Nucleo
             };
         }
 
+        public static Departamentos ObtenerDepartamentos()
+        {
+            return new Departamentos()
+            {
+                Id = 0,
+                Nombre = "Prueba departamento",
+                Pais = 1,
+            };
+        }
+
         public static Tipos ObtenerTipos()
         {
             return new Tipos()

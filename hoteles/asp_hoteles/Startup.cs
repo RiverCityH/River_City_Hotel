@@ -1,7 +1,6 @@
 ﻿using lib_aplicaciones.Implementaciones;
 using lib_repositorios;
 using lib_repositorios.Implementaciones;
-using MicExtConfiguration = Microsoft.Extensions.Configuration;
 
 namespace asp_hoteles
 {

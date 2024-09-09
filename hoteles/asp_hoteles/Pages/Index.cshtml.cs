@@ -1,7 +1,6 @@
 ﻿using asp_hoteles.Nucleo;
 using lib_aplicaciones.Implementaciones;
 using lib_entidades_dominio;
-using lib_repositorios.Implementaciones;
 using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -30,7 +29,7 @@ namespace asp_hoteles.Pages
         {
             try
             {
-                var user = HttpContext.Session.GetObject<string>("User");
+                var user = HttpContext.Session.GetObject<string>("Usuario");
                 if (user != null)
                 {
                     IsLogged = true;
@@ -77,10 +76,15 @@ namespace asp_hoteles.Pages
                     Contraseña = this.Contraseña,
                 };
                 var personas = personasAplicacion!.Buscar(persona, "LOGIN");
+                if (personas.Count <= 0)
+                {
+                    OnPostBtClean();
+                    return;
+                }
 
                 OnPostBtClean();
                 ViewData["Logged"] = true;
-                HttpContext.Session.SetObject("User", Email!);
+                HttpContext.Session.SetObject("Usuario", Email!);
                 IsLogged = true;
             }
             catch (Exception ex)

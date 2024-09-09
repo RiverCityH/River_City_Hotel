@@ -77,7 +77,22 @@ namespace mst_prueba_unitarias.Nucleo
                 Pension = 11,
                 EPS = 10,
                 TipoSangre = 14,
-                EstadoCivil= 16
+                EstadoCivil = 16
+            };
+
+        }
+        public static Proveedores ObtenerProveedores()
+        {
+            return new Proveedores()
+            {
+                Id = 0,
+                TipoDocumento = 2,
+                Documento = "71980152",
+                Nombre = "Pablo Hernandez",
+                Celular = "30423956121",
+                Email = "pabloh@email.com",
+                Direccion = "Cl 85 # 92 - 16",
+                Ciudad = 1,
             };
         }
     }

@@ -4,11 +4,11 @@ using System.Linq.Expressions;
 
 namespace lib_aplicaciones.Implementaciones
 {
-    public class PersonasAplicacion
+    public class ProveedoresAplicacion
     {
-        private PersonasRepositorio iRepositorio;
+        private ProveedoresRepositorio iRepositorio;
 
-        public PersonasAplicacion(PersonasRepositorio iRepositorio)
+        public ProveedoresAplicacion(ProveedoresRepositorio iRepositorio)
         {
             this.iRepositorio = iRepositorio;
         }
@@ -18,31 +18,30 @@ namespace lib_aplicaciones.Implementaciones
             this.iRepositorio.Configurar(string_conexion);
         }
 
-        public List<Personas> Listar()
+        public List<Proveedores> Listar()
         {
             return this.iRepositorio.Listar();
         }
 
-        public List<Personas> Buscar(Personas entidad, string tipo)
+        public List<Proveedores> Buscar(Proveedores entidad, string tipo)
         {
-            Expression<Func<Personas, bool>>? condiciones = null;
+            Expression<Func<Proveedores, bool>>? condiciones = null;
             switch (tipo.ToUpper())
             {
                 case "DOCUMENTO": condiciones = x => x.Documento == entidad.Documento; break;
                 case "NOMBRE": condiciones = x => x.Nombre == entidad.Nombre; break;
-                case "LOGIN": condiciones = x => x.Email == entidad.Email && x.Contraseña == entidad.Contraseña && x.Activo; break;
                 default: condiciones = x => x.Id != 0; break;
             }
             return this.iRepositorio.Buscar(condiciones);
         }
 
-        public Personas Guardar(Personas entidad)
+        public Proveedores Guardar(Proveedores entidad)
         {
             entidad.Id = 0;
             if (this.iRepositorio.Existe(
                     x => x.Documento == entidad.Documento))
             {
-                throw new Exception("lbExistePersona");
+                throw new Exception("lbExisteProveedor");
             }
 
             entidad = this.iRepositorio.Guardar(entidad);
@@ -53,30 +52,30 @@ namespace lib_aplicaciones.Implementaciones
             return entidad;
         }
 
-        public Personas Modificar(Personas entidad)
+        public Proveedores Modificar(Proveedores entidad)
         {
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {
-                throw new Exception("lbNoExistePersona");
+                throw new Exception("lbNoExisteProveedor");
             }
             if (this.iRepositorio.Existe(
                     x => x.Id != entidad.Id &&
                          x.Nombre == entidad.Nombre))
             {
-                throw new Exception("lbExistePersona");
+                throw new Exception("lbExisteProveedor");
             }
 
             entidad = this.iRepositorio.Modificar(entidad);
             return entidad;
         }
 
-        public Personas Borrar(Personas entidad)
+        public Proveedores Borrar(Proveedores entidad)
         {
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {
-                throw new Exception("lbNoExistePersona");
+                throw new Exception("lbNoExisteProveedor");
             }
             entidad = this.iRepositorio.Borrar(entidad);
             return entidad;

@@ -18,6 +18,7 @@ namespace lib_repositorios
         protected DbSet<Departamentos>? Departamentos { get; set; }
         protected DbSet<Ciudades>? Ciudades { get; set; }
         protected DbSet<Tipos>? Tipos { get; set; }
+        protected DbSet<Personas>? Personas { get; set; }
 
         public virtual List<T> Listar<T>() where T : class
         {

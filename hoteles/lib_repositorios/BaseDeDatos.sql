@@ -299,3 +299,10 @@ BEGIN
 	VALUES (
 		@persona, @cargo,@arl,@pension,@eps,@tipoSangre,@estadoCivil);
 END
+
+SELECT * FROM Paises;
+SELECT * FROM Departamentos;
+SELECT * FROM Ciudades;
+SELECT * FROM Tipos;
+SELECT * FROM Personas;
+SELECT * FROM Empleados;

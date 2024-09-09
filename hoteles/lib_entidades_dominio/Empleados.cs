@@ -21,5 +21,6 @@ namespace lib_entidades_dominio
         [ForeignKey("EPS")] public virtual Tipos? _EPS { get; set; }
         [ForeignKey("TipoSangre")] public virtual Tipos? _TipoSangre { get; set; }
         [ForeignKey("EstadoCivil")] public virtual Tipos? _EstadoCivil { get; set; }
+
     }
 }

@@ -11,7 +11,6 @@ namespace asp_hoteles.Pages.Ventanas
     {
         private PaisesAplicacion? paisesAplicacion = null;
         public bool MostrarLista = true, MostrarBorrar = false;
-        public IFormFile? FormFile { get; set; }
 
         public PaisesModel(PaisesAplicacion p_paisesAplicacion)
         {
@@ -34,8 +33,8 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                var user = HttpContext!.Session.GetObject<string>("Usuario");
-                if (user == null)
+                var usario = HttpContext!.Session.GetObject<string>("Usuario");
+                if (usario == null)
                 {
                     HttpContext.Response.Redirect("/");
                     return false;

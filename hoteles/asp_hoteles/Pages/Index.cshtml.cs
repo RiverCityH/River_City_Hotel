@@ -10,7 +10,7 @@ namespace asp_hoteles.Pages
     public class IndexModel : PageModel
     {
         private PersonasAplicacion? personasAplicacion = null;
-        public bool IsLogged = false;
+        public bool EstaLogueado = false;
 
         public IndexModel(PersonasAplicacion p_personasAplicacion)
         {
@@ -33,7 +33,7 @@ namespace asp_hoteles.Pages
                 var user = HttpContext.Session.GetObject<string>("Usuario");
                 if (user != null)
                 {
-                    IsLogged = true;
+                    EstaLogueado = true;
                     ViewData["Logueado"] = true;
                 }
             }
@@ -46,7 +46,7 @@ namespace asp_hoteles.Pages
         [BindProperty] public string? Email { get; set; }
         [BindProperty] public string? Contraseña { get; set; }
 
-        public void OnPostBtClean()
+        public void OnPostBtLimpiar()
         {
             try
             {
@@ -59,14 +59,14 @@ namespace asp_hoteles.Pages
             }
         }
 
-        public void OnPostBtEnter()
+        public void OnPostBtEntrar()
         {
             try
             {
                 if (string.IsNullOrEmpty(Email) &&
                     string.IsNullOrEmpty(Contraseña))
                 {
-                    OnPostBtClean();
+                    OnPostBtLimpiar();
                     return;
                 }
 
@@ -79,14 +79,14 @@ namespace asp_hoteles.Pages
                 var personas = personasAplicacion!.Buscar(persona, "LOGIN");
                 if (personas.Count <= 0)
                 {
-                    OnPostBtClean();
+                    OnPostBtLimpiar();
                     return;
                 }
 
-                OnPostBtClean();
+                OnPostBtLimpiar();
                 ViewData["Logueado"] = true;
                 HttpContext.Session.SetObject("Usuario", Email!);
-                IsLogged = true;
+                EstaLogueado = true;
             }
             catch (Exception ex)
             {
@@ -94,13 +94,13 @@ namespace asp_hoteles.Pages
             }
         }
 
-        public void OnPostBtClose()
+        public void OnPostBtCerrar()
         {
             try
             {
                 HttpContext.Session.Clear();
                 HttpContext.Response.Redirect("/");
-                IsLogged = false;
+                EstaLogueado = false;
             }
             catch (Exception ex)
             {

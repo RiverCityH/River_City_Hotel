@@ -1,9 +1,9 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = lib_lenguajes.RsIndex.lbTitulo;
+    ViewData["Titulo"] = lib_lenguajes.RsIndex.lbTitulo;
 }
-@if (!Model.IsLogged)
+@if (!Model.EstaLogueado)
 {
     <div class="container"
          align="left"
@@ -34,11 +34,11 @@
 
                 <input type="submit"
                    value="@lib_lenguajes.RsMenu.lbLimpiar"
-                   asp-page-handler="BtClean"
+                   asp-page-handler="BtLimpiar"
                    class="btn btn-default" />
                 <input type="submit"
                    value="@lib_lenguajes.RsMenu.lbEntrar"
-                   asp-page-handler="BtEnter"
+                   asp-page-handler="BtEntrar"
                    class="btn btn-default" />
             </div>
         </form>
@@ -54,7 +54,7 @@ else
         <form method="POST">
             <input type="submit"
                value="@lib_lenguajes.RsMenu.lbCerrar"
-               asp-page-handler="BtClose"
+               asp-page-handler="BtCerrar"
                class="btn btn-default" />
         </form>
     </div>

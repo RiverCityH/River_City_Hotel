@@ -1,7 +1,7 @@
 ﻿@page
 @model asp_hoteles.Pages.Ventanas.PaisesModel
 @{
-    ViewData["Title"] = lib_lenguajes.RsMenu.lbPaises;
+    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbPaises;
 }
 <center>
     <div>
@@ -14,26 +14,22 @@
             </div>
             <div align="left"
                 class="bt_panel_buttons">
-                <input type="image"
-                    value=""
-                    class="bt_refresh"
+                <input value=""
+                    class="bt_refrescar"
                     asp-page-handler="BtRefrescar"
-                       disabled="@(!Model.MostrarLista)" />
-                <input type="image"
-                    value=""
-                    class="bt_new"
+                    disabled="@(!Model.MostrarLista)" />
+                <input value=""
+                    class="bt_nuevo"
                     asp-page-handler="BtNuevo"
-                       disabled="@(!Model.MostrarLista)" />
-                <input type="image"
-                    value=""
-                    class="bt_save"
+                    disabled="@(!Model.MostrarLista)" />
+                <input value=""
+                    class="bt_guardar"
                     asp-page-handler="BtGuardar"
-                       disabled="@(Model.MostrarLista)" />
-                <input type="image"
-                    value=""
-                    class="bt_cancel"
-                    asp-page-handler="BtCancel"
-                       disabled="@(Model.MostrarLista)" />
+                    disabled="@(Model.MostrarLista)" />
+                <input value=""
+                    class="bt_cancelar"
+                    asp-page-handler="BtCancelar"
+                    disabled="@(Model.MostrarLista)" />
             </div>
             
             @if (!Model.MostrarLista ||

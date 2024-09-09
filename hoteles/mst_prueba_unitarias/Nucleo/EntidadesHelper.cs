@@ -12,5 +12,16 @@ namespace mst_prueba_unitarias.Nucleo
                 Nombre = "Prueba pais",
             };
         }
+
+        public static Tipos ObtenerTipos()
+        {
+            return new Tipos()
+            {
+                Id = 0,
+                Nombre = "Prueba tipo",
+                Tabla = "Test",
+                Accion = 0
+            };
+        }
     }
 }

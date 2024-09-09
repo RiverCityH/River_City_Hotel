@@ -103,6 +103,23 @@ CREATE TABLE [Proveedores]
 )
 GO
 
+CREATE TABLE [Facturas]
+(
+	[Id] INT NOT NULL IDENTITY (1, 1),
+	[Numero] INT NOT NULL,
+	[Persona] INT NOT NULL,
+	[Fecha] SMALLDATETIME NOT NULL,
+	[Total] DECIMAL(10,2) NOT NULL,
+	[MetodoPago] INT NOT NULL,
+	[Tipo] INT NOT NULL,
+	[Activo] BIT NOT NULL,
+	CONSTRAINT [PK_Facturas] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Facturas__Persona] FOREIGN KEY ([Persona]) REFERENCES [Personas] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Facturas__MetodoPago] FOREIGN KEY ([MetodoPago]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Facturas__Tipo] FOREIGN KEY ([Tipo]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+)
+GO
+
 IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Reserva')
 BEGIN
 	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
@@ -223,6 +240,18 @@ BEGIN
 	VALUES ('Soltero', 'EstadoCivil', 0);
 END 
 
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Tarjeta')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Tarjeta', 'MetodoPago', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Efectivo')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Efectivo', 'MetodoPago', 0);
+END 
+
 IF NOT EXISTS (SELECT 1 FROM [Paises] WHERE [Nombre] = 'Colombia')
 BEGIN
 	INSERT INTO [Paises] ([Nombre])
@@ -330,6 +359,22 @@ BEGIN
 	VALUES (
 		@tipo_documento, '21467814', 'Distri Hoteles','30423906634', 
 		'distrihotel@email.com', 'Cl 75 # 92 - 16', @ciudad);
+END
+
+DECLARE @persona INT
+DECLARE @metodopago INT
+DECLARE @tipo INT
+
+SET @persona = (SELECT [Id] FROM [Personas] WHERE [Documento] = '4561321');
+IF NOT EXISTS (SELECT 1 FROM [Facturas] WHERE [Persona] = @persona)
+BEGIN
+	SET @metodopago = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Efectivo');
+	SET @tipo = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Reserva');
+
+	INSERT INTO [Facturas] (
+		[Numero],[Persona],[Fecha],[Total],[MetodoPago],[Tipo],[Activo])
+	VALUES (
+		'45446',@persona,GETDATE(),25.20,@metodopago,@tipo,1);
 END
 
 SELECT * FROM Paises;

@@ -34,7 +34,7 @@ namespace asp_hoteles.Pages
                 if (user != null)
                 {
                     IsLogged = true;
-                    ViewData["Logged"] = true;
+                    ViewData["Logueado"] = true;
                 }
             }
             catch (Exception ex)
@@ -84,7 +84,7 @@ namespace asp_hoteles.Pages
                 }
 
                 OnPostBtClean();
-                ViewData["Logged"] = true;
+                ViewData["Logueado"] = true;
                 HttpContext.Session.SetObject("Usuario", Email!);
                 IsLogged = true;
             }

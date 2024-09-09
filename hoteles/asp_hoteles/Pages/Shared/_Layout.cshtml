@@ -45,18 +45,21 @@
                                 @lib_lenguajes.RsMenu.lbInicio
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
+                        @if (ViewData.ContainsKey("Logueado"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" 
                                 asp-area="" asp-page="/Paises">
-                                @lib_lenguajes.RsMenu.lbPaises
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
+                                    @lib_lenguajes.RsMenu.lbPaises
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" 
                                 asp-area="" asp-page="/Departamentos">
-                                @lib_lenguajes.RsMenu.lbDepartamentos
-                            </a>
-                        </li>
+                                    @lib_lenguajes.RsMenu.lbDepartamentos
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

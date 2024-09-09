@@ -64,7 +64,7 @@
                                 @lib_lenguajes.RsDepartamentos.lbNombre
                             </label>
                             <div class="col-lg-6">
-                                <input id="txSsn"
+                                <input id="txNombre"
                                     class="cts_forms form-control"
                                     onchange="keyUp(this)"
                                     asp-for="@Model.Actual!.Nombre" />
@@ -76,10 +76,11 @@
                                 @lib_lenguajes.RsDepartamentos.lbPais
                             </label>
                             <div class="col-lg-6">
-                                <input id="txSsn"
+                                <input id="txPais"
+                                    disabled="disabled"
                                     class="cts_forms form-control"
                                     onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!.Pais" />
+                                    asp-for="@Model.Actual!._Pais!.Nombre" />
                             </div>
                         </div>
                     </div>

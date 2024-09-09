@@ -88,7 +88,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public virtual void OnPostBtModificar(string id)
+        public virtual void OnPostBtModificar(string data)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace asp_hoteles.Pages.Ventanas
                 MostrarLista = false;
                 OnPostBtRefrescar();
                 Actual = Lista!
-                    .FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(id));
+                    .FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
             }
             catch (Exception ex)
             {

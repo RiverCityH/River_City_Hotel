@@ -22,14 +22,14 @@ namespace lib_lenguajes {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class RsMenu {
+    public class RsIndex {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal RsMenu() {
+        internal RsIndex() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace lib_lenguajes {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("lib_lenguajes.RsMenu", typeof(RsMenu).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("lib_lenguajes.RsIndex", typeof(RsIndex).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,38 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aplicación de hoteles.
+        ///   Looks up a localized string similar to Bienvenido.
         /// </summary>
-        public static string lbApp {
+        public static string lbBienvenido {
             get {
-                return ResourceManager.GetString("lbApp", resourceCulture);
+                return ResourceManager.GetString("lbBienvenido", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cerrar.
+        ///   Looks up a localized string similar to Contraseña: .
         /// </summary>
-        public static string lbCerrar {
+        public static string lbContraseña {
             get {
-                return ResourceManager.GetString("lbCerrar", resourceCulture);
+                return ResourceManager.GetString("lbContraseña", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entrar.
+        ///   Looks up a localized string similar to Inicio.
         /// </summary>
-        public static string lbEntrar {
+        public static string lbTitle {
             get {
-                return ResourceManager.GetString("lbEntrar", resourceCulture);
+                return ResourceManager.GetString("lbTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Limpiar.
+        ///   Looks up a localized string similar to Usuario: .
         /// </summary>
-        public static string lbLimpiar {
+        public static string lbUsuario {
             get {
-                return ResourceManager.GetString("lbLimpiar", resourceCulture);
+                return ResourceManager.GetString("lbUsuario", resourceCulture);
             }
         }
     }

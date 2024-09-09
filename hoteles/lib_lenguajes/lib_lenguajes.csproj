@@ -12,6 +12,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RsErrores.resx</DependentUpon>
     </Compile>
+    <Compile Update="RsIndex.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RsIndex.resx</DependentUpon>
+    </Compile>
     <Compile Update="RsMenu.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -23,6 +28,10 @@
     <EmbeddedResource Update="RsErrores.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RsErrores.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RsIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RsIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="RsMenu.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

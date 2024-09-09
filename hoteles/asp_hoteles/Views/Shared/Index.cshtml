@@ -1,7 +1,7 @@
 ﻿@page
 @model asp_hoteles.Views.Shared.IndexModel
 @{
-    ViewData["Title"] = lib_lenguajes.RsMenu.lbHome;
+    ViewData["Title"] = lib_lenguajes.RsIndex.lbTitle;
 }
 @if (!Model.IsLogged)
 {
@@ -9,14 +9,14 @@
          align="left" 
          style="width:100%">
         <h3>
-            @lib_lenguajes.RsMenu.lbTitle
+            @lib_lenguajes.RsIndex.lbTitle
         </h3>
 
         <form method="POST">
             <div style="width:60%">
                 <div class="form-group">
                     <label class="control-label">
-                        @lib_lenguajes.RsMenu.lbUser
+                        @lib_lenguajes.RsIndex.lbUsuario
                     </label>
                     <input onchange="keyUp(this)" 
                         asp-for="@Model.Email" 
@@ -24,20 +24,20 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">
-                        @lib_lenguajes.RsMenu.lbPassword
+                        @lib_lenguajes.RsIndex.lbContraseña
                     </label>
                     <input type="password" 
                         onchange="keyUp(this)" 
-                        asp-for="@Model.Password" 
+                        asp-for="@Model.Contraseña" 
                         class="form-control" />
                 </div>
 
                 <input type="submit"
-                   value="@lib_lenguajes.RsMenu.lbClean"
+                   value="@lib_lenguajes.RsMenu.lbLimpiar"
                     asp-page-handler="BtClean" 
                     class="btn btn-default" />
                 <input type="submit"
-                   value="@lib_lenguajes.RsMenu.lbEnter"
+                   value="@lib_lenguajes.RsMenu.lbEntrar"
                     asp-page-handler="BtEnter" 
                     class="btn btn-default" />
             </div>
@@ -48,12 +48,12 @@ else
 {
     <div class="text-center">
         <h1 class="display-4">
-            @lib_lenguajes.RsMenu.lbTitle
+            @lib_lenguajes.RsIndex.lbBienvenido
         </h1>
 
         <form method="POST">
             <input type="submit"
-               value="@lib_lenguajes.RsMenu.lbClose"
+               value="@lib_lenguajes.RsMenu.lbCerrar"
                 asp-page-handler="BtClose" 
                 class="btn btn-default" />
         </form>

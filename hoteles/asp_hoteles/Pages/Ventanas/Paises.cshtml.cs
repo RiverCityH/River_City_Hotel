@@ -97,6 +97,21 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
+        public virtual void OnPostBtGuardar()
+        {
+            try
+            {
+                MostrarLista = false;
+                Actual = paisesAplicacion!.Guardar(Actual!);
+                MostrarLista = true;
+                OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+            }
+        }
+
         public void OnPostBtCancelar()
         {
             try

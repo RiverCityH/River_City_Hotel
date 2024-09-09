@@ -74,7 +74,7 @@ namespace asp_hoteles.Pages
                 {
                     Id = 0,
                     Email = this.Email,
-                    Contraseña = this.Contraseña,
+                    Contraseña = EncryptHelper.Encriptar(this.Contraseña!),
                 };
                 var personas = personasAplicacion!.Buscar(persona, "LOGIN");
                 if (personas.Count <= 0)

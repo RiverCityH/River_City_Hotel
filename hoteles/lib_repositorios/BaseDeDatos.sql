@@ -254,7 +254,8 @@ BEGIN
 	VALUES (
 		@tipo_documento, '4561321', 'Juan Esteban Rios',GETDATE(), 
 		'3004567852',@genero, 'Cra 75 # 24 - 16', 'juan@email.com',
-		'GJugugs54s56df', 0, 0, NULL, @ciudad, 1);
+		'R3PkoE6RJmq6Q42lhfKzmQ==', 0, 0, NULL, @ciudad, 1);
+	-- GJugugs54s56df Contraseña
 END
 
 IF NOT EXISTS (SELECT 1 FROM [Personas] WHERE [Documento] = '134588')
@@ -269,8 +270,9 @@ BEGIN
 		[Confirmar],[Restablecer],[Token],[Ciudad],[Activo])
 	VALUES (
 		@tipo_documento, '134588', 'Persona de prueba',GETDATE(), 
-		'3004567852',@genero, 'Cra 75 # 24 - 16', 'juan@email.com',
-		'GJugugs54s56df', 0, 0, NULL, @ciudad, 1);
+		'3004567852',@genero, 'Cra 75 # 24 - 16', 'test@email.com',
+		'Wya7ZA1yjymnqyhiS1/FmQ==', 0, 0, NULL, @ciudad, 1);
+	-- dfg654Iiu76877 Contraseña
 END
 
 DECLARE @persona INT

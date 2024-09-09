@@ -41,13 +41,13 @@
                  ViewData.ContainsKey("Mensaje"))
             {
                 <input type="hidden"
-                   asp-for="@Model.Actual.Id" />
+                   asp-for="@Model.Actual!.Id" />
             }
             @if (Model.MostrarBorrar ||
                  ViewData.ContainsKey("Mensaje"))
             {
                 <input type="hidden"
-                   asp-for="@Model.Actual.Nombre" />
+                   asp-for="@Model.Actual!.Nombre" />
             }
 
             @if (!Model.MostrarLista &&

@@ -1,17 +1,19 @@
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllersWithViews();
+using Microsoft.AspNetCore.Hosting;
 
-var app = builder.Build();
-
-if (!app.Environment.IsDevelopment())
+namespace asp_hoteles
 {
-    app.UseExceptionHandler("/Home/Error");
-}
-app.UseStaticFiles();
-app.UseRouting();
-app.UseAuthorization();
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-app.Run();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
+}

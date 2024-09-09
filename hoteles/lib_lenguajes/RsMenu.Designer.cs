@@ -79,6 +79,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Departamentos.
+        /// </summary>
+        public static string lbDepartamentos {
+            get {
+                return ResourceManager.GetString("lbDepartamentos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entrar.
         /// </summary>
         public static string lbEntrar {
@@ -93,6 +102,15 @@ namespace lib_lenguajes {
         public static string lbLimpiar {
             get {
                 return ResourceManager.GetString("lbLimpiar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paises.
+        /// </summary>
+        public static string lbPaises {
+            get {
+                return ResourceManager.GetString("lbPaises", resourceCulture);
             }
         }
     }

@@ -6,21 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\lib_aplicaciones\lib_aplicaciones.csproj" />
-    <ProjectReference Include="..\lib_entidades_dominio\lib_entidades_dominio.csproj" />
-    <ProjectReference Include="..\lib_lenguajes\lib_lenguajes.csproj" />
-    <ProjectReference Include="..\lib_repositorios\lib_repositorios.csproj" />
-    <ProjectReference Include="..\lib_utilidades\lib_utilidades.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Emergentes\" />
-    <Folder Include="Views\Paginas\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
-
 </Project>

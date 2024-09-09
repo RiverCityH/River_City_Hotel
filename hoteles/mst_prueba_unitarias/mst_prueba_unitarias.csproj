@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\asp_hoteles\asp_hoteles.csproj" />
     <ProjectReference Include="..\lib_aplicaciones\lib_aplicaciones.csproj" />
     <ProjectReference Include="..\lib_entidades_dominio\lib_entidades_dominio.csproj" />
     <ProjectReference Include="..\lib_repositorios\lib_repositorios.csproj" />

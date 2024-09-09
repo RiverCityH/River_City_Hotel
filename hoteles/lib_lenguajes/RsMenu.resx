@@ -123,10 +123,16 @@
   <data name="lbCerrar" xml:space="preserve">
     <value>Cerrar</value>
   </data>
+  <data name="lbDepartamentos" xml:space="preserve">
+    <value>Departamentos</value>
+  </data>
   <data name="lbEntrar" xml:space="preserve">
     <value>Entrar</value>
   </data>
   <data name="lbLimpiar" xml:space="preserve">
     <value>Limpiar</value>
+  </data>
+  <data name="lbPaises" xml:space="preserve">
+    <value>Paises</value>
   </data>
 </root>

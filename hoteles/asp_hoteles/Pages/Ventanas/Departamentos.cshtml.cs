@@ -7,18 +7,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_hoteles.Pages.Ventanas
 {
-    public class PaisesModel : PageModel
+    public class DepartamentosModel : PageModel
     {
-        private PaisesAplicacion? paisesAplicacion = null;
+        private DepartamentosAplicacion? departamentosAplicacion = null;
         public bool MostrarLista = true, MostrarBorrar = false;
 
-        public PaisesModel(PaisesAplicacion p_paisesAplicacion)
+        public DepartamentosModel(DepartamentosAplicacion p_departamentosAplicacion)
         {
             try
             {
-                this.paisesAplicacion = this.paisesAplicacion == null ?
-                    p_paisesAplicacion : this.paisesAplicacion;
-                this.paisesAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
+                this.departamentosAplicacion = this.departamentosAplicacion == null ?
+                    p_departamentosAplicacion : this.departamentosAplicacion;
+                this.departamentosAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
             {
@@ -26,8 +26,8 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        [BindProperty] public Paises? Actual { get; set; }
-        [BindProperty] public List<Paises>? Lista { get; set; }
+        [BindProperty] public Departamentos? Actual { get; set; }
+        [BindProperty] public List<Departamentos>? Lista { get; set; }
 
         public bool ChequearUsuario()
         {
@@ -57,7 +57,7 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 if (!ChequearUsuario())
                     return;
-                Lista = paisesAplicacion!.Listar();
+                Lista = departamentosAplicacion!.Listar();
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace asp_hoteles.Pages.Ventanas
                 if (!ChequearUsuario())
                     return;
                 MostrarLista = false;
-                Actual = new Paises();
+                Actual = new Departamentos();
             }
             catch (Exception ex)
             {
@@ -103,9 +103,9 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 MostrarLista = false;
                 if (Actual!.Id == 0)
-                    Actual = paisesAplicacion!.Guardar(Actual!);
+                    Actual = departamentosAplicacion!.Guardar(Actual!);
                 else
-                    Actual = paisesAplicacion!.Modificar(Actual!);
+                    Actual = departamentosAplicacion!.Modificar(Actual!);
                 MostrarLista = true;
                 OnPostBtRefrescar();
             }
@@ -137,7 +137,7 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                Actual = paisesAplicacion!.Borrar(Actual!);
+                Actual = departamentosAplicacion!.Borrar(Actual!);
                 OnPostBtRefrescar();
             }
             catch (Exception ex)

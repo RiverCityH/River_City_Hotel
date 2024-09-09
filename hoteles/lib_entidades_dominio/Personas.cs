@@ -33,7 +33,7 @@ namespace lib_entidades_dominio
             [ForeignKey("Genero")] public virtual Tipos? _Genero { get; set; }
 
 
-            //[NotMapped] public virtual ICollection<Productos>? Productos { get; set; }
+            [NotMapped] public virtual ICollection<Empleados>? Empleados { get; set; }
 
 
         }

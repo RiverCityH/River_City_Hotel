@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lib_entidades_dominio
 {
@@ -26,6 +21,5 @@ namespace lib_entidades_dominio
         [ForeignKey("EPS")] public virtual Tipos? _EPS { get; set; }
         [ForeignKey("TipoSangre")] public virtual Tipos? _TipoSangre { get; set; }
         [ForeignKey("EstadoCivil")] public virtual Tipos? _EstadoCivil { get; set; }
-
     }
 }

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lib_entidades_dominio
 {
@@ -32,10 +27,7 @@ namespace lib_entidades_dominio
             [ForeignKey("TipoDocumento")] public virtual Tipos? _TipoDocumento { get; set; }
             [ForeignKey("Genero")] public virtual Tipos? _Genero { get; set; }
 
-
             [NotMapped] public virtual ICollection<Empleados>? Empleados { get; set; }
-
-
         }
     }
 }

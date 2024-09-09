@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlTypes;
 
 namespace lib_entidades_dominio
 {
@@ -22,7 +16,6 @@ namespace lib_entidades_dominio
         public virtual string? Lote { get; set; }
         public virtual int Categoria { get; set; }
         public virtual int Proveedor { get; set; }
-
 
         [ForeignKey("Categoria")] public virtual Tipos? _Categoria { get; set; }
         [ForeignKey("Proveedor")] public virtual Proveedores? _Proveedor { get; set; }

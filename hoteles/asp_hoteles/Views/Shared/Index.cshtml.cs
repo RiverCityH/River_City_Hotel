@@ -1,6 +1,7 @@
+using asp_hoteles.Nucleo;
+using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.IdentityModel.Logging;
 
 namespace asp_hoteles.Pages
 {
@@ -8,13 +9,13 @@ namespace asp_hoteles.Pages
     {
         public bool IsLogged = false;
         [BindProperty] public string? Email { get; set; }
-        [BindProperty] public string? Password { get; set; }
+        [BindProperty] public string? Contraseña { get; set; }
 
         public void OnGet()
         {
             try
             {
-                var user = HttpContext.Session.GetObject<string>("User");
+                var user = HttpContext.Session.GetObject<string>("Usuario");
                 if (user != null)
                 {
                     IsLogged = true;
@@ -32,7 +33,7 @@ namespace asp_hoteles.Pages
             try
             {
                 Email = string.Empty;
-                Password = string.Empty;
+                Contraseña = string.Empty;
             }
             catch (Exception ex)
             {
@@ -45,20 +46,20 @@ namespace asp_hoteles.Pages
             try
             {
                 if (string.IsNullOrEmpty(Email) &&
-                    string.IsNullOrEmpty(Password))
+                    string.IsNullOrEmpty(Contraseña))
                 {
                     OnPostBtClean();
                     return;
                 }
 
-                if (ServiceData.UserData != Email + "." + Password)
+                if (DatosGenerales.usuario_datos != Email + "." + Contraseña)
                 {
                     OnPostBtClean();
                     return;
                 }
                 OnPostBtClean();
                 ViewData["Logged"] = true;
-                HttpContext.Session.SetObject("User", Email);
+                HttpContext.Session.SetObject("Usuario", Email!);
                 IsLogged = true;
             }
             catch (Exception ex)

@@ -120,11 +120,23 @@
   <data name="lbErrorBaseDeDatos" xml:space="preserve">
     <value>Error guardando en base de datos</value>
   </data>
+  <data name="lbExisteCiudad" xml:space="preserve">
+    <value>Ya existe el ciudad</value>
+  </data>
+  <data name="lbExisteDepartamento" xml:space="preserve">
+    <value>Ya existe el departamento</value>
+  </data>
   <data name="lbExistePais" xml:space="preserve">
     <value>Ya existe el pais</value>
   </data>
   <data name="lbExisteTipo" xml:space="preserve">
     <value>Ya existe el tipo</value>
+  </data>
+  <data name="lbNoExisteCiudad" xml:space="preserve">
+    <value>No existe el ciudad</value>
+  </data>
+  <data name="lbNoExisteDepartamento" xml:space="preserve">
+    <value>No existe el departamento</value>
   </data>
   <data name="lbNoExistePais" xml:space="preserve">
     <value>No existe el pais</value>

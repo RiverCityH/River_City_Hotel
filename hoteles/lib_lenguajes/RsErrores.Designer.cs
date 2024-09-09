@@ -70,6 +70,24 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ya existe el ciudad.
+        /// </summary>
+        public static string lbExisteCiudad {
+            get {
+                return ResourceManager.GetString("lbExisteCiudad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ya existe el departamento.
+        /// </summary>
+        public static string lbExisteDepartamento {
+            get {
+                return ResourceManager.GetString("lbExisteDepartamento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ya existe el pais.
         /// </summary>
         public static string lbExistePais {
@@ -84,6 +102,24 @@ namespace lib_lenguajes {
         public static string lbExisteTipo {
             get {
                 return ResourceManager.GetString("lbExisteTipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No existe el ciudad.
+        /// </summary>
+        public static string lbNoExisteCiudad {
+            get {
+                return ResourceManager.GetString("lbNoExisteCiudad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No existe el departamento.
+        /// </summary>
+        public static string lbNoExisteDepartamento {
+            get {
+                return ResourceManager.GetString("lbNoExisteDepartamento", resourceCulture);
             }
         }
         

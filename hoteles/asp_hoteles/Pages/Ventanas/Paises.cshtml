@@ -14,21 +14,25 @@
             </div>
             <div align="left"
                 class="bt_panel_buttons">
-                <input value=""
-                    class="bt_refrescar"
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbRefrescar"
                     asp-page-handler="BtRefrescar"
+                    class="btn btn-default"
                     disabled="@(!Model.MostrarLista)" />
-                <input value=""
-                    class="bt_nuevo"
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbNuevo"
                     asp-page-handler="BtNuevo"
+                    class="btn btn-default"
                     disabled="@(!Model.MostrarLista)" />
-                <input value=""
-                    class="bt_guardar"
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbGuardar"
                     asp-page-handler="BtGuardar"
+                    class="btn btn-default"
                     disabled="@(Model.MostrarLista)" />
-                <input value=""
-                    class="bt_cancelar"
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbCancelar"
                     asp-page-handler="BtCancelar"
+                    class="btn btn-default"
                     disabled="@(Model.MostrarLista)" />
             </div>
             
@@ -61,7 +65,7 @@
                                 <input id="txSsn"
                                     class="cts_forms form-control"
                                     onchange="keyUp(this)"
-                                    asp-for="@Model.Actual.Nombre" />
+                                    asp-for="@Model.Actual!.Nombre" />
                             </div>
                         </div>
                     </div>
@@ -79,12 +83,11 @@
                 <div class='popup'>
                     <div class='pp_del_inner'>
                         <div style='width:95%'>
-                            <input align="right"
-                                type="image"
-                                value=""
-                                class="bt_close"
-                                asp-page-handler="BtClose"
-                                asp-route-data="@ViewData["MostrarBorrar"]" />
+                            <input type="submit"
+                               value="@lib_lenguajes.RsMenu.lbCerrar"
+                               asp-page-handler="BtCerrar"
+                               class="btn btn-default"
+                               asp-route-data="@ViewData["MostrarBorrar"]" />
                             <h2 align="left">
                                 @lib_lenguajes.RsMenu.lbMensaje
                             </h2>
@@ -93,15 +96,14 @@
                                 @lib_lenguajes.RsMenu.lbBorrarEntidad
                             </h4>
                             <h6 align="left">
-                                @Model.Actual.Nombre
+                                @Model.Actual!.Nombre
                             </h6>
                             <br />
                             <br />
-                            <input align="right"
-                                type="image"
-                                value=""
-                                class="bt_delete"
-                                asp-page-handler="BtBorrar" />
+                            <input type="submit"
+                               value="@lib_lenguajes.RsMenu.lbBorrar"
+                               asp-page-handler="BtBorrar"
+                               class="btn btn-default" />
                         </div>
                     </div>
                 </div>
@@ -121,22 +123,22 @@
                         </tr>
                         @if (Model != null && Model.Lista != null)
                         {
-                            @foreach (var item in Model.Lista)
+                            @foreach (var elemento in Model.Lista)
                             {
                                 <tr onmouseover="changeOver(this)"
                                     onmouseout="changeOut(this)">
-                                    <td>@item.Nombre</td>
+                                    <td>@elemento.Nombre</td>
                                     <td>
-                                        <input type="image"
-                                            value=""
-                                            class="bt_edit"
+                                        <input type="submit"
+                                            value="@lib_lenguajes.RsMenu.lBModicar"
                                             asp-page-handler="BtModificar"
-                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(item.Id)" />
-                                        <input type="image"
-                                            value=""
-                                            class="bt_delete"
+                                            class="btn btn-default"
+                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
+                                        <input type="submit"
+                                            value="@lib_lenguajes.RsMenu.lbBorrar"
                                             asp-page-handler="BtBorrarVal"
-                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(item.Id)" />
+                                            class="btn btn-default"
+                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
                                     </td>
                                 </tr>
                             }

@@ -1,0 +1,22 @@
+﻿/* Buttons -------------------- */
+.bt_panel_buttons {
+    background-color: lightgray;
+}
+
+.bt_refresh { background: url(../images/refresh.png); }
+.bt_close { background: url(../images/close.png); }
+.bt_accept { background: url(../images/accept.png); }
+.bt_edit { background: url(../images/edit.png); }
+.bt_delete { background: url(../images/delete.png); }
+.bt_cancel { background: url(../images/cancel.png); }
+.bt_save { background: url(../images/save.png); }
+.bt_new { background: url(../images/new.png); }
+
+.bt_refresh, .bt_close, .bt_accept, .bt_edit, .bt_delete, .bt_cancel, .bt_save, .bt_new {
+    width: 30px;
+    height: 30px;
+    background-color: lightgray;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

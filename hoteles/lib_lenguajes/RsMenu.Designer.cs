@@ -97,11 +97,29 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Borrar.
+        /// </summary>
+        public static string lbBorrar {
+            get {
+                return ResourceManager.GetString("lbBorrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ¿Desea borrar la siguiente información?.
         /// </summary>
         public static string lbBorrarEntidad {
             get {
                 return ResourceManager.GetString("lbBorrarEntidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        public static string lbCancelar {
+            get {
+                return ResourceManager.GetString("lbCancelar", resourceCulture);
             }
         }
         
@@ -129,6 +147,15 @@ namespace lib_lenguajes {
         public static string lbEntrar {
             get {
                 return ResourceManager.GetString("lbEntrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardar.
+        /// </summary>
+        public static string lbGuardar {
+            get {
+                return ResourceManager.GetString("lbGuardar", resourceCulture);
             }
         }
         
@@ -169,11 +196,38 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Editar.
+        /// </summary>
+        public static string lBModicar {
+            get {
+                return ResourceManager.GetString("lBModicar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuevo.
+        /// </summary>
+        public static string lbNuevo {
+            get {
+                return ResourceManager.GetString("lbNuevo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Paises.
         /// </summary>
         public static string lbPaises {
             get {
                 return ResourceManager.GetString("lbPaises", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cargar.
+        /// </summary>
+        public static string lbRefrescar {
+            get {
+                return ResourceManager.GetString("lbRefrescar", resourceCulture);
             }
         }
     }

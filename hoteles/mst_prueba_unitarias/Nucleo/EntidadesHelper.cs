@@ -65,5 +65,20 @@ namespace mst_prueba_unitarias.Nucleo
                 Activo = false
             };
         }
+
+        public static Empleados ObtenerEmpleados()
+        {
+            return new Empleados()
+            {
+                Id = 0,
+                Persona = 1,
+                Cargo = 6,
+                ARL = 9,
+                Pension = 11,
+                EPS = 10,
+                TipoSangre = 14,
+                EstadoCivil= 16
+            };
+        }
     }
 }

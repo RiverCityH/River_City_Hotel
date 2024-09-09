@@ -25,6 +25,7 @@
 	- Click derecho en el proyecto->Manage User Secret
 - Class Library
 - MSTest Test Project
+- ASP.NET Core Web App (Model-View-Controller)
 
 # Migration
 - View -> Other windows -> Package Manager Console

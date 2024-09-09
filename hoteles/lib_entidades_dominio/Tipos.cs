@@ -2,7 +2,7 @@
 
 namespace lib_entidades_dominio
 {
-    internal class Tipos
+    public class Tipos
     {
         [Key] public virtual int Id { get; set; }
         public virtual string? Nombre { get; set; }

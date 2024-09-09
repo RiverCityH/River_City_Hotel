@@ -23,6 +23,16 @@ namespace mst_prueba_unitarias.Nucleo
             };
         }
 
+        public static Ciudades ObtenerCiudades()
+        {
+            return new Ciudades()
+            {
+                Id = 0,
+                Nombre = "Prueba ciudad",
+                Departamento = 1,
+            };
+        }
+
         public static Tipos ObtenerTipos()
         {
             return new Tipos()

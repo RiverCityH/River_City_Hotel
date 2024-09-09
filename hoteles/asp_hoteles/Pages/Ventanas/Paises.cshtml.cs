@@ -102,7 +102,10 @@ namespace asp_hoteles.Pages.Ventanas
             try
             {
                 MostrarLista = false;
-                Actual = paisesAplicacion!.Guardar(Actual!);
+                if (Actual!.Id == 0)
+                    Actual = paisesAplicacion!.Guardar(Actual!);
+                else
+                    Actual = paisesAplicacion!.Modificar(Actual!);
                 MostrarLista = true;
                 OnPostBtRefrescar();
             }

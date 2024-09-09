@@ -255,7 +255,7 @@ BEGIN
 		@tipo_documento, '4561321', 'Juan Esteban Rios',GETDATE(), 
 		'3004567852',@genero, 'Cra 75 # 24 - 16', 'juan@email.com',
 		'R3PkoE6RJmq6Q42lhfKzmQ==', 0, 0, NULL, @ciudad, 1);
-	-- GJugugs54s56df Contraseña
+	-- GJugugs54s56df
 END
 
 IF NOT EXISTS (SELECT 1 FROM [Personas] WHERE [Documento] = '134588')
@@ -272,7 +272,7 @@ BEGIN
 		@tipo_documento, '134588', 'Persona de prueba',GETDATE(), 
 		'3004567852',@genero, 'Cra 75 # 24 - 16', 'test@email.com',
 		'Wya7ZA1yjymnqyhiS1/FmQ==', 0, 0, NULL, @ciudad, 1);
-	-- dfg654Iiu76877 Contraseña
+	-- dfg654Iiu76877
 END
 
 DECLARE @persona INT

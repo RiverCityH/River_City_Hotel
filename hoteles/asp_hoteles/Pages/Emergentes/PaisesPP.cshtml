@@ -17,12 +17,12 @@
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbRefrescar"
                     asp-page-handler="BtRefrescar"
-                    class="btn btn-default"
+                    class="btn btn-secondary"
                     disabled="@(!Model.MostrarLista)" />
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbCancelar"
                     asp-page-handler="BtCancelar"
-                    class="btn btn-default"
+                       class="btn btn-secondary"
                     disabled="@(Model.MostrarLista)" />
             </div>
             
@@ -55,7 +55,7 @@
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbSeleccionar"
                                             asp-page-handler="BtSeleccionar"
-                                            class="btn btn-default"
+                                            class="btn btn-secondary"
                                             asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
                                     </td>
                                 </tr>

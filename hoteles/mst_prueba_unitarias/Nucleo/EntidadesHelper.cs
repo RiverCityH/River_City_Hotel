@@ -62,7 +62,7 @@ namespace mst_prueba_unitarias.Nucleo
                 Restablecer = false,
                 Token = null,
                 Ciudad = 1,
-                Activo = false
+                Activo = true
             };
         }
 

@@ -61,7 +61,7 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Acciones.
+        ///   Looks up a localized string similar to ACCIONES.
         /// </summary>
         public static string lbAction {
             get {

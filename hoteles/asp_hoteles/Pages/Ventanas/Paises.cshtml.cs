@@ -30,7 +30,7 @@ namespace asp_hoteles.Pages.Ventanas
         [BindProperty] public Paises? Actual { get; set; }
         [BindProperty] public List<Paises>? Lista { get; set; }
 
-        public bool CheckLogged()
+        public bool ChequearUsuario()
         {
             try
             {
@@ -50,11 +50,13 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public void OnPostBtRefresh()
+        public virtual void OnGet() { OnPostBtRefrescar(); }
+
+        public void OnPostBtRefrescar()
         {
             try
             {
-                if (!CheckLogged())
+                if (!ChequearUsuario())
                     return;
                 Lista = paisesAplicacion!.Listar();
             }

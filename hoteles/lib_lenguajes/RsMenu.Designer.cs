@@ -230,5 +230,14 @@ namespace lib_lenguajes {
                 return ResourceManager.GetString("lbRefrescar", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleccionar.
+        /// </summary>
+        public static string lbSeleccionar {
+            get {
+                return ResourceManager.GetString("lbSeleccionar", resourceCulture);
+            }
+        }
     }
 }

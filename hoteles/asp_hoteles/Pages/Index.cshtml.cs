@@ -18,6 +18,7 @@ namespace asp_hoteles.Pages
             {
                 this.personasAplicacion = this.personasAplicacion == null ?
                     p_personasAplicacion : this.personasAplicacion;
+                this.personasAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
             {

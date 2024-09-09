@@ -17,7 +17,7 @@ namespace lib_entidades_dominio
         public virtual int Ciudad { get; set; }
 
         [ForeignKey("Ciudad")] public virtual Ciudades? _Ciudad { get; set; }
-        [ForeignKey("Tipo")] public virtual Tipos? _TipoDocumento { get; set; }
-        //[NotMapped] public virtual ICollection<Productos>? Productos { get; set; }
+        [ForeignKey("TipoDocumento")] public virtual Tipos? _TipoDocumento { get; set; }
+        [NotMapped] public virtual ICollection<Productos>? Productos { get; set; }
     }
 }

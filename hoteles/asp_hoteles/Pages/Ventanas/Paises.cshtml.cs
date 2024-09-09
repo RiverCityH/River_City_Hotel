@@ -4,6 +4,7 @@ using lib_entidades_dominio;
 using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace asp_hoteles.Pages.Ventanas
 {
@@ -107,6 +108,37 @@ namespace asp_hoteles.Pages.Ventanas
                 else
                     Actual = paisesAplicacion!.Modificar(Actual!);
                 MostrarLista = true;
+                OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+            }
+        }
+
+        public virtual void OnPostBtBorrarVal(string data)
+        {
+            try
+            {
+                if (!ChequearUsuario())
+                    return;
+                MostrarBorrar = true;
+                ViewData!["MostrarLista"] = MostrarLista;
+                OnPostBtRefrescar();
+                Actual = Lista!
+                    .FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+            }
+        }
+
+        public virtual void OnPostBtBorrar()
+        {
+            try
+            {
+                Actual = paisesAplicacion!.Borrar(Actual!);
                 OnPostBtRefrescar();
             }
             catch (Exception ex)

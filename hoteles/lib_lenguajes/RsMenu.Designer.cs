@@ -198,9 +198,9 @@ namespace lib_lenguajes {
         /// <summary>
         ///   Looks up a localized string similar to Editar.
         /// </summary>
-        public static string lBModicar {
+        public static string lbModicar {
             get {
-                return ResourceManager.GetString("lBModicar", resourceCulture);
+                return ResourceManager.GetString("lbModicar", resourceCulture);
             }
         }
         

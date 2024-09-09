@@ -75,7 +75,7 @@
             @if (ViewData.ContainsKey("Mensaje"))
             {
                 @await Html.PartialAsync(
-                    "../Emergentes/MensajesVE.cshtml")
+                    "../Emergentes/Mensajes.cshtml")
             }
 
             @if (Model.MostrarBorrar)
@@ -83,11 +83,6 @@
                 <div class='popup'>
                     <div class='pp_del_inner'>
                         <div style='width:95%'>
-                            <input type="submit"
-                               value="@lib_lenguajes.RsMenu.lbCerrar"
-                               asp-page-handler="BtCerrar"
-                               class="btn btn-default"
-                               asp-route-data="@ViewData["MostrarBorrar"]" />
                             <h2 align="left">
                                 @lib_lenguajes.RsMenu.lbMensaje
                             </h2>
@@ -103,6 +98,10 @@
                             <input type="submit"
                                value="@lib_lenguajes.RsMenu.lbBorrar"
                                asp-page-handler="BtBorrar"
+                               class="btn btn-default" />
+                            <input type="submit"
+                               value="@lib_lenguajes.RsMenu.lbCerrar"
+                               asp-page-handler="BtCerrar"
                                class="btn btn-default" />
                         </div>
                     </div>
@@ -130,7 +129,7 @@
                                     <td>@elemento.Nombre</td>
                                     <td>
                                         <input type="submit"
-                                            value="@lib_lenguajes.RsMenu.lBModicar"
+                                            value="@lib_lenguajes.RsMenu.lbModicar"
                                             asp-page-handler="BtModificar"
                                             class="btn btn-default"
                                             asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>

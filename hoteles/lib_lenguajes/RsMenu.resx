@@ -162,7 +162,7 @@
   <data name="lbMensaje" xml:space="preserve">
     <value>Mensaje</value>
   </data>
-  <data name="lBModicar" xml:space="preserve">
+  <data name="lbModicar" xml:space="preserve">
     <value>Editar</value>
   </data>
   <data name="lbNuevo" xml:space="preserve">

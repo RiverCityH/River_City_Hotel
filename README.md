@@ -15,7 +15,6 @@
 
 - dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.20
 - dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.20
-- dotnet add package Moq --version 4.20.71
 
 - dotnet remove package System.Data.SqlClient
 

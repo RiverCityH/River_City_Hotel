@@ -65,6 +65,27 @@ CREATE TABLE [Personas]
 )
 GO
 
+CREATE TABLE [Empleados]
+(
+	[Id] INT NOT NULL IDENTITY (1, 1),
+	[Persona] INT NOT NULL,
+	[Cargo] INT NOT NULL,
+	[ARL] INT NOT NULL,
+	[Pension] INT NOT NULL,
+	[EPS] INT NOT NULL,
+	[TipoSangre] INT NOT NULL,
+	[EstadoCivil] INT NOT NULL,
+	CONSTRAINT [PK_Empleados] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Empleados__Persona] FOREIGN KEY ([Persona]) REFERENCES [Personas] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Empleados__Cargo] FOREIGN KEY ([Cargo]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Empleados__ARL] FOREIGN KEY ([ARL]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Empleados__Pension] FOREIGN KEY ([Pension]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Empleados__EPS] FOREIGN KEY ([EPS]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Empleados__TipoSangre] FOREIGN KEY ([TipoSangre]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Empleados__EstadoCivil] FOREIGN KEY ([EstadoCivil]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+)
+GO
+
 IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Reserva')
 BEGIN
 	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
@@ -105,6 +126,84 @@ IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Femenino')
 BEGIN
 	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
 	VALUES ('Femenino', 'Generos', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Administrador')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Administrador', 'Cargo', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Recepcionista')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Recepcionista', 'Cargo', 1);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Vigilante')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Vigilante', 'Cargo', 2);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Positiva')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Positiva', 'ARL', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Sura')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Sura', 'ARL', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Colpensiones')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Colpensiones', 'Pension', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Protección')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Protección', 'Pension', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Sura')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Sura', 'EPS', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Savia')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Savia', 'EPS', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'O+')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('O+', 'TipoSangre', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'O-')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('O-', 'TipoSangre', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Casado')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Casado', 'EstadoCivil', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Soltero')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Soltero', 'EstadoCivil', 0);
 END 
 
 IF NOT EXISTS (SELECT 1 FROM [Paises] WHERE [Nombre] = 'Colombia')
@@ -156,4 +255,29 @@ BEGIN
 		@tipo_documento, '4561321', 'Juan Esteban Rios',GETDATE(), 
 		'3004567852',@genero, 'Cra 75 # 24 - 16', 'juan@email.com',
 		'GJugugs54s56df', 0, 0, NULL, @ciudad, 1);
+END
+
+DECLARE @persona INT
+DECLARE @cargo INT
+DECLARE @arl INT
+DECLARE @pension INT
+DECLARE @eps INT
+DECLARE @tipoSangre INT
+DECLARE @estadoCivil INT
+
+
+SET @persona = (SELECT [Id] FROM [Personas] WHERE [Documento] = '4561321');
+IF NOT EXISTS (SELECT 1 FROM [Empleados] WHERE [Persona] = @persona)
+BEGIN
+	SET @cargo = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Administrador');
+	SET @arl = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Positiva');
+	SET @pension = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Colpensiones');
+	SET @eps = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Sura');
+	SET @tipoSangre = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'O+');
+	SET @estadoCivil = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Casado');
+
+	INSERT INTO [Empleados] (
+		[Persona],[Cargo],[ARL],[Pension],[EPS],[TipoSangre],[EstadoCivil])
+	VALUES (
+		@persona, @cargo,@arl,@pension,@eps,@tipoSangre,@estadoCivil);
 END

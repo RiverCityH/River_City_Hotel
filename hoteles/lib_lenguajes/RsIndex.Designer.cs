@@ -81,9 +81,9 @@ namespace lib_lenguajes {
         /// <summary>
         ///   Looks up a localized string similar to Inicio.
         /// </summary>
-        public static string lbTitle {
+        public static string lbTitulo {
             get {
-                return ResourceManager.GetString("lbTitle", resourceCulture);
+                return ResourceManager.GetString("lbTitulo", resourceCulture);
             }
         }
         

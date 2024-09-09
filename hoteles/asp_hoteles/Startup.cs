@@ -1,4 +1,7 @@
-﻿using MicExtConfiguration = Microsoft.Extensions.Configuration;
+﻿using lib_aplicaciones.Implementaciones;
+using lib_repositorios;
+using lib_repositorios.Implementaciones;
+using MicExtConfiguration = Microsoft.Extensions.Configuration;
 
 namespace asp_hoteles
 {
@@ -13,6 +16,22 @@ namespace asp_hoteles
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Repositorios
+            services.AddScoped<Conexion, Conexion>();
+            services.AddScoped<PaisesRepositorio, PaisesRepositorio>();
+            services.AddScoped<DepartamentosRepositorio, DepartamentosRepositorio>();
+            services.AddScoped<CiudadesRepositorio, CiudadesRepositorio>();
+            services.AddScoped<TiposRepositorio, TiposRepositorio>();
+            services.AddScoped<PersonasRepositorio, PersonasRepositorio>();
+            services.AddScoped<EmpleadosRepositorio, EmpleadosRepositorio>();
+            // Aplicaciones
+            services.AddScoped<PaisesAplicacion, PaisesAplicacion>();
+            services.AddScoped<DepartamentosAplicacion, DepartamentosAplicacion>();
+            services.AddScoped<CiudadesAplicacion, CiudadesAplicacion>();
+            services.AddScoped<TiposAplicacion, TiposAplicacion>();
+            services.AddScoped<PersonasAplicacion, PersonasAplicacion>();
+            services.AddScoped<EmpleadosAplicacion, EmpleadosAplicacion>();
+
             services.AddRazorPages();
             services.AddMvc();
             services.AddSession(options =>

@@ -4,6 +4,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>6ab36b3f-d315-418c-a54b-d8f51c4e4971</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\lib_aplicaciones\lib_aplicaciones.csproj" />
+    <ProjectReference Include="..\lib_entidades_dominio\lib_entidades_dominio.csproj" />
+    <ProjectReference Include="..\lib_lenguajes\lib_lenguajes.csproj" />
+    <ProjectReference Include="..\lib_repositorios\lib_repositorios.csproj" />
+    <ProjectReference Include="..\lib_utilidades\lib_utilidades.csproj" />
+  </ItemGroup>
 
 </Project>

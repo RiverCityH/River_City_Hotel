@@ -8,8 +8,5 @@ namespace lib_entidades_dominio
         public virtual string? Nombre { get; set; }
         public virtual string? Tabla { get; set; }
         public virtual int Accion { get; set; }
-
-        //[NotMapped] public virtual ICollection<Facturas>? Facturas { get; set; }
     }
 }
-

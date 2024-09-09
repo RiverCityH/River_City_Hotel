@@ -61,7 +61,16 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aplicación de hoteles.
+        ///   Looks up a localized string similar to 2024.
+        /// </summary>
+        public static string lbAño {
+            get {
+                return ResourceManager.GetString("lbAño", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hoteles+.
         /// </summary>
         public static string lbApp {
             get {
@@ -93,6 +102,15 @@ namespace lib_lenguajes {
         public static string lbEntrar {
             get {
                 return ResourceManager.GetString("lbEntrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inicio.
+        /// </summary>
+        public static string lbInicio {
+            get {
+                return ResourceManager.GetString("lbInicio", resourceCulture);
             }
         }
         

@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" 
         content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Hoteles</title>
+    <title>
+        @ViewData["Title"] - @lib_lenguajes.RsMenu.lbApp
+    </title>
     <link rel="stylesheet" 
         href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" 
@@ -21,7 +23,7 @@
                 <a class="navbar-brand" 
                     asp-area="" 
                     asp-page="/Index">
-                    asp_hoteles
+                    @lib_lenguajes.RsMenu.lbApp
                 </a>
                 <button class="navbar-toggler" 
                     type="button" 
@@ -40,13 +42,19 @@
                             <a class="nav-link text-dark" 
                                 asp-area="" 
                                 asp-page="/Index">
-                                Home
+                                @lib_lenguajes.RsMenu.lbInicio
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" 
-                                asp-area="" asp-page="/Privacy">
-                                Privacy
+                                asp-area="" asp-page="/Paises">
+                                @lib_lenguajes.RsMenu.lbPaises
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" 
+                                asp-area="" asp-page="/Departamentos">
+                                @lib_lenguajes.RsMenu.lbDepartamentos
                             </a>
                         </li>
                     </ul>
@@ -63,7 +71,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - Hoteles
+            &copy; @lib_lenguajes.RsMenu.lbAño - @lib_lenguajes.RsMenu.lbApp
         </div>
     </footer>
 

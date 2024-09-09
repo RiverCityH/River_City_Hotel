@@ -118,7 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lbApp" xml:space="preserve">
-    <value>Aplicación de hoteles</value>
+    <value>Hoteles+</value>
+  </data>
+  <data name="lbAño" xml:space="preserve">
+    <value>2024</value>
   </data>
   <data name="lbCerrar" xml:space="preserve">
     <value>Cerrar</value>
@@ -128,6 +131,9 @@
   </data>
   <data name="lbEntrar" xml:space="preserve">
     <value>Entrar</value>
+  </data>
+  <data name="lbInicio" xml:space="preserve">
+    <value>Inicio</value>
   </data>
   <data name="lbLimpiar" xml:space="preserve">
     <value>Limpiar</value>

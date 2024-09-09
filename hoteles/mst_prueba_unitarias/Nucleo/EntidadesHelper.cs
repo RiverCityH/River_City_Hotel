@@ -48,10 +48,21 @@ namespace mst_prueba_unitarias.Nucleo
         {
             return new Personas()
             {
-                //Id = 0,
-                //Nombre = "Prueba tipo",
-                //Tabla = "Test",
-                //Accion = 0
+                Id = 0,
+                TipoDocumento = 2,
+                Documento = "25461321321",
+                Nombre = "Prueba personas",
+                FechaNacimiento = DateTime.Now,
+                Celular = "3692581478",
+                Genero = 4,
+                Direccion = "Cra 52 # 75 - 15",
+                Email = "test@email.com",
+                Contraseña = "HJGv32687ghjYUTug",
+                Confirmar = false,
+                Restablecer = false,
+                Token = null,
+                Ciudad = 1,
+                Activo = false
             };
         }
     }

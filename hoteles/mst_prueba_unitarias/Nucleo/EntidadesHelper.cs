@@ -43,5 +43,16 @@ namespace mst_prueba_unitarias.Nucleo
                 Accion = 0
             };
         }
+
+        public static Personas ObtenerPersonas()
+        {
+            return new Personas()
+            {
+                //Id = 0,
+                //Nombre = "Prueba tipo",
+                //Tabla = "Test",
+                //Accion = 0
+            };
+        }
     }
 }

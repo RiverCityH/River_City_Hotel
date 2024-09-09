@@ -101,7 +101,7 @@ BEGIN
 	VALUES ('Masculino', 'Generos', 0);
 END 
 
-IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Masculino')
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Femenino')
 BEGIN
 	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
 	VALUES ('Femenino', 'Generos', 0);

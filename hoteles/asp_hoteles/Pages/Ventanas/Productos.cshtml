@@ -45,7 +45,11 @@
                 <input type="hidden"
                    asp-for="@Model.Actual!.Categoria" />
                 <input type="hidden"
+                   asp-for="@Model.Actual!._Categoria!.Nombre" />
+                <input type="hidden"
                    asp-for="@Model.Actual!.Proveedor" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!._Proveedor!.Nombre" />
             }
             @if (Model.MostrarBorrar ||
                  ViewData.ContainsKey("Mensaje"))

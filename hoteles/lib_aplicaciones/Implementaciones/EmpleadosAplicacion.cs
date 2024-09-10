@@ -37,6 +37,13 @@ namespace lib_aplicaciones.Implementaciones
         public Empleados Guardar(Empleados entidad)
         {
             entidad.Id = 0;
+            entidad._Persona = null;
+            entidad._Cargo = null;
+            entidad._ARL = null;
+            entidad._Pension = null;
+            entidad._EPS = null;
+            entidad._TipoSangre = null;
+            entidad._EstadoCivil = null;
             if (this.iRepositorio.Existe(
                     x => x.Persona == entidad.Persona))
             {
@@ -53,6 +60,13 @@ namespace lib_aplicaciones.Implementaciones
 
         public Empleados Modificar(Empleados entidad)
         {
+            entidad._Persona = null;
+            entidad._Cargo = null;
+            entidad._ARL = null;
+            entidad._Pension = null;
+            entidad._EPS = null;
+            entidad._TipoSangre = null;
+            entidad._EstadoCivil = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {
@@ -71,6 +85,13 @@ namespace lib_aplicaciones.Implementaciones
 
         public Empleados Borrar(Empleados entidad)
         {
+            entidad._Persona = null;
+            entidad._Cargo = null;
+            entidad._ARL = null;
+            entidad._Pension = null;
+            entidad._EPS = null;
+            entidad._TipoSangre = null;
+            entidad._EstadoCivil = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {

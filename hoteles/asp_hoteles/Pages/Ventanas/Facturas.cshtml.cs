@@ -85,7 +85,11 @@ namespace asp_hoteles.Pages.Ventanas
                 if (!ChequearUsuario())
                     return;
                 MostrarLista = false;
-                Actual = new Facturas();
+                Actual = new Facturas()
+                {
+                    Fecha = DateTime.Now,
+                    Activo = true,
+                };
             }
             catch (Exception ex)
             {

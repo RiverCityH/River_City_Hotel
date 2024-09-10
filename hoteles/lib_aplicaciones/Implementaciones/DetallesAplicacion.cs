@@ -38,6 +38,8 @@ namespace lib_aplicaciones.Implementaciones
         public Detalles Guardar(Detalles entidad)
         {
             entidad.Id = 0;
+            entidad._Factura = null;
+            entidad._Producto = null;
             if (this.iRepositorio.Existe(
                     x => x.Factura == entidad.Factura && x.Producto == entidad.Producto))
             {
@@ -54,6 +56,8 @@ namespace lib_aplicaciones.Implementaciones
 
         public Detalles Modificar(Detalles entidad)
         {
+            entidad._Factura = null;
+            entidad._Producto = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {
@@ -73,6 +77,8 @@ namespace lib_aplicaciones.Implementaciones
 
         public Detalles Borrar(Detalles entidad)
         {
+            entidad._Factura = null;
+            entidad._Producto = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {

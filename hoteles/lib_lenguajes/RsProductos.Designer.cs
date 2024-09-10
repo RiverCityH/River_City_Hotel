@@ -61,11 +61,155 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CANT..
+        /// </summary>
+        public static string clCantidad {
+            get {
+                return ResourceManager.GetString("clCantidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CATEGORIA.
+        /// </summary>
+        public static string clCategoria {
+            get {
+                return ResourceManager.GetString("clCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CÓDIGO.
+        /// </summary>
+        public static string clCodigo {
+            get {
+                return ResourceManager.GetString("clCodigo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to COSTO.
+        /// </summary>
+        public static string clCosto {
+            get {
+                return ResourceManager.GetString("clCosto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FECHA ING..
+        /// </summary>
+        public static string clFechaIngreso {
+            get {
+                return ResourceManager.GetString("clFechaIngreso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FECHA VEN..
+        /// </summary>
+        public static string clFechaVencimiento {
+            get {
+                return ResourceManager.GetString("clFechaVencimiento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOTE.
+        /// </summary>
+        public static string clLote {
+            get {
+                return ResourceManager.GetString("clLote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NOMBRE.
         /// </summary>
         public static string clNombre {
             get {
                 return ResourceManager.GetString("clNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PROVEEDOR.
+        /// </summary>
+        public static string clProveedor {
+            get {
+                return ResourceManager.GetString("clProveedor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VALOR.
+        /// </summary>
+        public static string clValor {
+            get {
+                return ResourceManager.GetString("clValor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cantidad: .
+        /// </summary>
+        public static string lbCantidad {
+            get {
+                return ResourceManager.GetString("lbCantidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categoria: .
+        /// </summary>
+        public static string lbCategoria {
+            get {
+                return ResourceManager.GetString("lbCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código.
+        /// </summary>
+        public static string lbCodigo {
+            get {
+                return ResourceManager.GetString("lbCodigo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Costo: .
+        /// </summary>
+        public static string lbCosto {
+            get {
+                return ResourceManager.GetString("lbCosto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fecha ingreso: .
+        /// </summary>
+        public static string lbFechaIngreso {
+            get {
+                return ResourceManager.GetString("lbFechaIngreso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fechavencimiento: .
+        /// </summary>
+        public static string lbFechaVencimiento {
+            get {
+                return ResourceManager.GetString("lbFechaVencimiento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lote: .
+        /// </summary>
+        public static string lbLote {
+            get {
+                return ResourceManager.GetString("lbLote", resourceCulture);
             }
         }
         
@@ -79,11 +223,29 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Proveedor: .
+        /// </summary>
+        public static string lbProveedor {
+            get {
+                return ResourceManager.GetString("lbProveedor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Producto.
         /// </summary>
         public static string lbSingular {
             get {
                 return ResourceManager.GetString("lbSingular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor: .
+        /// </summary>
+        public static string lbValor {
+            get {
+                return ResourceManager.GetString("lbValor", resourceCulture);
             }
         }
     }

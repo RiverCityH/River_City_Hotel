@@ -1,5 +1,5 @@
 ﻿@page
-@model asp_hoteles.Pages.Ventanas.PersonasModel
+@model asp_hoteles.Pages.Ventanas.ProductosModel
 @{
     ViewData["Titulo"] = lib_lenguajes.RsMenu.lbProductos;
 }
@@ -43,77 +43,52 @@
                 <input type="hidden"
                    asp-for="@Model.Actual!.Id" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.TipoDocumento" />
+                   asp-for="@Model.Actual!.Categoria" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Ciudad" />
-                <input type="hidden"
-                   asp-for="@Model.Actual!.Genero" />
+                   asp-for="@Model.Actual!.Proveedor" />
             }
             @if (Model.MostrarBorrar ||
                  ViewData.ContainsKey("Mensaje"))
             {
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Documento" />
+                   asp-for="@Model.Actual!.Codigo" />
                 <input type="hidden"
                    asp-for="@Model.Actual!.Nombre" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.FechaNacimiento" />
+                   asp-for="@Model.Actual!.Valor" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Celular" />
+                   asp-for="@Model.Actual!.Costo" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Direccion" />
+                   asp-for="@Model.Actual!.Cantidad" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Email" />
+                   asp-for="@Model.Actual!.FechaIngreso" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Contraseña" />
+                   asp-for="@Model.Actual!.FechaVencimiento" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Confirmar" />
-                <input type="hidden"
-                   asp-for="@Model.Actual!.Restablecer" />
-                <input type="hidden"
-                   asp-for="@Model.Actual!.Token" />
-                <input type="hidden"
-                   asp-for="@Model.Actual!.Activo" />
+                   asp-for="@Model.Actual!.Lote" />
             }
 
             @if (!Model.MostrarLista &&
                  !ViewData.ContainsKey("Mensaje"))
             {
                 <div class="panel panel-default">
-                    <h3>@lib_lenguajes.RsPersonas.lbSingular</h3>
+                    <h3>@lib_lenguajes.RsProductos.lbSingular</h3>
 
                     <div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbTipoDocumento
+                                @lib_lenguajes.RsProductos.lbCodigo
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmTipoDocumentos"
-                                   disabled="disabled"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!._TipoDocumento!.Nombre" />
-                                <input type="submit"
-                                   value=" "
-                                   asp-page-handler="BtTipos"
-                                   asp-route-data="TipoDocumentos"
-                                   class="btn btn-secondary" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbDocumento
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmDocumento"
+                                <input id="nmCodigo"
                                     class="cts_forms form-control"
                                     onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!.Documento" />
+                                    asp-for="@Model.Actual!.Codigo" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbNombre
+                                @lib_lenguajes.RsProductos.lbNombre
                             </label>
                             <div class="col-lg-6">
                                 <input id="nmNombre"
@@ -124,134 +99,35 @@
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbFechaNacimiento
+                                @lib_lenguajes.RsProductos.lbProveedor
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmFechaNacimiento"
+                                <input id="nmProveedores"
+                                   disabled="disabled"
                                    class="cts_forms form-control"
                                    onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.FechaNacimiento" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbCelular
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmCelular"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Celular" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbGenero
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmGenero"
-                                    disabled="disabled"
-                                    class="cts_forms form-control"
-                                    onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!._Genero!.Nombre" />
+                                   asp-for="@Model.Actual!._Proveedor!.Nombre" />
                                 <input type="submit"
-                                    value=" "
-                                    asp-route-data="Generos"
-                                    asp-page-handler="BtTipos"
-                                    class="btn btn-secondary" />
+                                   value=" "
+                                   asp-page-handler="BtProveedores"
+                                   class="btn btn-secondary" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbDireccion
+                                @lib_lenguajes.RsProductos.lbCategoria
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmDireccion"
+                                <input id="nmCategoria"
+                                   disabled="disabled"
                                    class="cts_forms form-control"
                                    onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Direccion" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbEmail
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmEmail"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Email" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbContraseña
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmContraseña"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Contraseña" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbConfirmar
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmConfirmar"
-                                    class="cts_forms form-control"
-                                    onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!.Confirmar" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbRestablecer
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmRestablecer"
-                                    class="cts_forms form-control"
-                                    onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!.Restablecer" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbToken
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmToken"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Token" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbCiudad
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmCiudad"
-                                    disabled="disabled"
-                                    class="cts_forms form-control"
-                                    onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!._Ciudad!.Nombre" />
+                                   asp-for="@Model.Actual!._Categoria!.Nombre" />
                                 <input type="submit"
-                                    value=" "
-                                    asp-page-handler="BtCiudades"
-                                    class="btn btn-secondary" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbActivo
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmActivo"
-                                    class="cts_forms form-control"
-                                    onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!.Activo" />
+                                   value=" "
+                                   asp-page-handler="BtCategoria"
+                                   asp-route-data="Categorias"
+                                   class="btn btn-secondary" />
                             </div>
                         </div>
                     </div>
@@ -264,24 +140,13 @@
                     "../Emergentes/Mensajes.cshtml")
             }
 
-            @if (Model.MostrarCiudades)
-            {
-                <div class='popup'>
-                    <div class='pp_inner'>
-                        <div style='width:95%'>
-                            @await Html.PartialAsync(
-                                "../Emergentes/CiudadesPP.cshtml", Model.ciudadesPP)
-                        </div>
-                    </div>
-                </div>
-            }
             @if (Model.MostrarTipos)
             {
                 <div class='popup'>
                     <div class='pp_inner'>
                         <div style='width:95%'>
                             @await Html.PartialAsync(
-                        "../Emergentes/TiposPP.cshtml", Model.tiposPP)
+                                "../Emergentes/TiposPP.cshtml", Model.tiposPP)
                         </div>
                     </div>
                 </div>
@@ -300,8 +165,8 @@
                                 @lib_lenguajes.RsMenu.lbBorrarEntidad
                             </h4>
                             <h6 align="left">
-                                @Model.Actual!.Documento
-                                &nbsp;
+                                @Model.Actual!.Codigo
+                                , &nbsp;
                                 @Model.Actual!.Nombre
                             </h6>
                             <br />
@@ -325,19 +190,22 @@
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
                             <th>
-                                @lib_lenguajes.RsPersonas.clTipoDocumento
+                                @lib_lenguajes.RsProductos.clCodigo
                             </th>
                             <th>
-                                @lib_lenguajes.RsPersonas.clDocumento
+                                @lib_lenguajes.RsProductos.clNombre
                             </th>
                             <th>
-                                @lib_lenguajes.RsPersonas.clNombre
+                                @lib_lenguajes.RsProductos.clValor
                             </th>
                             <th>
-                                @lib_lenguajes.RsPersonas.clFechaNacimiento
+                                @lib_lenguajes.RsProductos.clCosto
                             </th>
                             <th>
-                                @lib_lenguajes.RsPersonas.clEmail
+                                @lib_lenguajes.RsProductos.clCantidad
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsProductos.clProveedor
                             </th>
                             <th class="cl_actions">
                                 @lib_lenguajes.RsMenu.lbAction
@@ -349,11 +217,12 @@
                             {
                                 <tr onmouseover="changeOver(this)"
                                     onmouseout="changeOut(this)">
-                                    <td>@elemento._TipoDocumento!.Nombre</td>
-                                    <td>@elemento.Documento</td>
+                                    <td>@elemento.Codigo</td>
                                     <td>@elemento.Nombre</td>
-                                    <td>@elemento.FechaNacimiento</td>
-                                    <td>@elemento.Email</td>
+                                    <td>@elemento.Valor</td>
+                                    <td>@elemento.Costo</td>
+                                    <td>@elemento.Cantidad</td>
+                                    <td>@elemento._Proveedor!.Nombre</td>
                                     <td>
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbModicar"

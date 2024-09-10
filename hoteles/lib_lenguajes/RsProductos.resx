@@ -117,13 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="clCantidad" xml:space="preserve">
+    <value>CANT.</value>
+  </data>
+  <data name="clCategoria" xml:space="preserve">
+    <value>CATEGORIA</value>
+  </data>
+  <data name="clCodigo" xml:space="preserve">
+    <value>CÓDIGO</value>
+  </data>
+  <data name="clCosto" xml:space="preserve">
+    <value>COSTO</value>
+  </data>
+  <data name="clFechaIngreso" xml:space="preserve">
+    <value>FECHA ING.</value>
+  </data>
+  <data name="clFechaVencimiento" xml:space="preserve">
+    <value>FECHA VEN.</value>
+  </data>
+  <data name="clLote" xml:space="preserve">
+    <value>LOTE</value>
+  </data>
   <data name="clNombre" xml:space="preserve">
     <value>NOMBRE</value>
+  </data>
+  <data name="clProveedor" xml:space="preserve">
+    <value>PROVEEDOR</value>
+  </data>
+  <data name="clValor" xml:space="preserve">
+    <value>VALOR</value>
+  </data>
+  <data name="lbCantidad" xml:space="preserve">
+    <value>Cantidad: </value>
+  </data>
+  <data name="lbCategoria" xml:space="preserve">
+    <value>Categoria: </value>
+  </data>
+  <data name="lbCodigo" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="lbCosto" xml:space="preserve">
+    <value>Costo: </value>
+  </data>
+  <data name="lbFechaIngreso" xml:space="preserve">
+    <value>Fecha ingreso: </value>
+  </data>
+  <data name="lbFechaVencimiento" xml:space="preserve">
+    <value>Fechavencimiento: </value>
+  </data>
+  <data name="lbLote" xml:space="preserve">
+    <value>Lote: </value>
   </data>
   <data name="lbNombre" xml:space="preserve">
     <value>Nombre: </value>
   </data>
+  <data name="lbProveedor" xml:space="preserve">
+    <value>Proveedor: </value>
+  </data>
   <data name="lbSingular" xml:space="preserve">
     <value>Producto</value>
+  </data>
+  <data name="lbValor" xml:space="preserve">
+    <value>Valor: </value>
   </data>
 </root>

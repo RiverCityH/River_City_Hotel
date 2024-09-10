@@ -37,6 +37,8 @@ namespace lib_aplicaciones.Implementaciones
         public Productos Guardar(Productos entidad)
         {
             entidad.Id = 0;
+            entidad._Proveedor = null;
+            entidad._Categoria = null;
             if (this.iRepositorio.Existe(
                     x => x.Nombre == entidad.Nombre))
             {
@@ -53,6 +55,8 @@ namespace lib_aplicaciones.Implementaciones
 
         public Productos Modificar(Productos entidad)
         {
+            entidad._Proveedor = null;
+            entidad._Categoria = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {
@@ -71,6 +75,8 @@ namespace lib_aplicaciones.Implementaciones
 
         public Productos Borrar(Productos entidad)
         {
+            entidad._Proveedor = null;
+            entidad._Categoria = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {

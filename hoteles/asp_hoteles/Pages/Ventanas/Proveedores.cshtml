@@ -114,6 +114,39 @@
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProveedores.lbCelular
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmCelular"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Celular" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProveedores.lbEmail
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmEmail"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProveedores.lbDireccion
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmDireccion"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Direccion" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
                                 @lib_lenguajes.RsPersonas.lbCiudad
                             </label>
                             <div class="col-lg-6">
@@ -137,7 +170,18 @@
                 @await Html.PartialAsync(
                     "../Emergentes/Mensajes.cshtml")
             }
-
+            
+            @if (Model.MostrarCiudades)
+            {
+                <div class='popup'>
+                    <div class='pp_inner'>
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                                "../Emergentes/CiudadesPP.cshtml", Model.ciudadesPP)
+                        </div>
+                    </div>
+                </div>
+            }
             @if (Model.MostrarTipos)
             {
                 <div class='popup'>

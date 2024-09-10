@@ -38,6 +38,8 @@ namespace lib_aplicaciones.Implementaciones
         public Proveedores Guardar(Proveedores entidad)
         {
             entidad.Id = 0;
+            entidad._TipoDocumento = null;
+            entidad._Ciudad = null;
             if (this.iRepositorio.Existe(
                     x => x.Documento == entidad.Documento))
             {
@@ -54,6 +56,8 @@ namespace lib_aplicaciones.Implementaciones
 
         public Proveedores Modificar(Proveedores entidad)
         {
+            entidad._TipoDocumento = null;
+            entidad._Ciudad = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {
@@ -72,6 +76,8 @@ namespace lib_aplicaciones.Implementaciones
 
         public Proveedores Borrar(Proveedores entidad)
         {
+            entidad._TipoDocumento = null;
+            entidad._Ciudad = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {

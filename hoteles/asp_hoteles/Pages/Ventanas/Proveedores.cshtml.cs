@@ -29,6 +29,8 @@ namespace asp_hoteles.Pages.Ventanas
                     p_ProveedoresAplicacion : this.proveedoresAplicacion;
                 this.tiposPP = this.tiposPP == null ?
                     p_tiposPP : this.tiposPP;
+                this.ciudadesPP = this.ciudadesPP == null ?
+                    p_ciudadesPP : this.ciudadesPP;
                 this.proveedoresAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
@@ -260,8 +262,8 @@ namespace asp_hoteles.Pages.Ventanas
                 switch (split[1].Trim())
                 {
                     case "TipoDocumentos":
-                        //Actual!.TipoDocumento = seleccionado.Id;
-                        //Actual!._TipoDocumento = seleccionado;
+                        Actual!.TipoDocumento = seleccionado.Id;
+                        Actual!._TipoDocumento = seleccionado;
                         break;
                 }
             }

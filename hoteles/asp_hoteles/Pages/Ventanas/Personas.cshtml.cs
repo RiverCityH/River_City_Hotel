@@ -85,7 +85,10 @@ namespace asp_hoteles.Pages.Ventanas
                 if (!ChequearUsuario())
                     return;
                 MostrarLista = false;
-                Actual = new Personas();
+                Actual = new Personas()
+                {
+                    FechaNacimiento = DateTime.Now
+                };
             }
             catch (Exception ex)
             {

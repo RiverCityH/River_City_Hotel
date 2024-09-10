@@ -39,6 +39,9 @@ namespace lib_aplicaciones.Implementaciones
         public Personas Guardar(Personas entidad)
         {
             entidad.Id = 0;
+            entidad._TipoDocumento = null;
+            entidad._Genero = null;
+            entidad._Ciudad = null;
             if (this.iRepositorio.Existe(
                     x => x.Documento == entidad.Documento))
             {
@@ -55,6 +58,9 @@ namespace lib_aplicaciones.Implementaciones
 
         public Personas Modificar(Personas entidad)
         {
+            entidad._TipoDocumento = null;
+            entidad._Genero = null;
+            entidad._Ciudad = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {

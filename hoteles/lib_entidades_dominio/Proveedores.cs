@@ -12,7 +12,7 @@ namespace lib_entidades_dominio
         public virtual string? Nombre { get; set; }
         public virtual string? Celular { get; set; }
         public virtual string? Email { get; set; }
-        public virtual string? Dirección { get; set; }
+        public virtual string? Direccion { get; set; }
         public virtual int Ciudad { get; set; }
 
         [ForeignKey("Ciudad")] public virtual Ciudades? _Ciudad { get; set; }

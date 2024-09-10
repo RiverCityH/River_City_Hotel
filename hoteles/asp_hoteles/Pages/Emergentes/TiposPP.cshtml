@@ -1,0 +1,62 @@
+﻿@model asp_hoteles.Pages.Emergentes.TiposPPModel
+@{
+
+}
+<center>
+    <div>
+        <div align="left">
+            <h3>@lib_lenguajes.RsMenu.lbTipos</h3>
+        </div>
+        <div align="left"
+            class="bt_panel_buttons">
+            <input type="submit"
+                value="@lib_lenguajes.RsMenu.lbRefrescar"
+                asp-page-handler="BtPaises"
+                class="btn btn-secondary" />
+        </div>
+            
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync(
+                "../Emergentes/Mensajes.cshtml")
+        }
+
+        <div class="panel panel-default">
+            <table class="tb_data table table-striped table-bordered table-hover">
+                <tr>
+                    <th>
+                        @lib_lenguajes.RsTipos.clNombre
+                    </th>
+                    <th>
+                        @lib_lenguajes.RsTipos.clTabla
+                    </th>
+                    <th>
+                        @lib_lenguajes.RsTipos.clAccion
+                    </th>
+                    <th class="cl_actions">
+                        @lib_lenguajes.RsMenu.lbAction
+                    </th>
+                </tr>
+                @if (Model != null && Model.Lista != null)
+                {
+                    @foreach (var elemento in Model.Lista)
+                    {
+                        <tr onmouseover="changeOver(this)"
+                            onmouseout="changeOut(this)">
+                            <td>@elemento.Nombre</td>
+                            <td>@elemento.Tabla</td>
+                            <td>@elemento.Accion</td>
+                            <td>
+                                <input type="submit"
+                                    value="@lib_lenguajes.RsMenu.lbSeleccionar"
+                                    asp-page-handler="BtSelPais"
+                                    class="btn btn-secondary"
+                                    asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</center>

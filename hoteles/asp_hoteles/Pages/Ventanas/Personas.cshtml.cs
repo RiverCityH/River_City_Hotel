@@ -15,10 +15,12 @@ namespace asp_hoteles.Pages.Ventanas
             MostrarBorrar = false,
             MostrarPaises = false;
         public CiudadesPPModel? ciudadesPP = null;
+        public TiposPPModel? tiposPP = null; 
 
         public PersonasModel(
             PersonasAplicacion p_PersonasAplicacion,
-            CiudadesPPModel p_ciudadesPP)
+            CiudadesPPModel p_ciudadesPP,
+            TiposPPModel p_tiposPP)
         {
             try
             {
@@ -26,6 +28,8 @@ namespace asp_hoteles.Pages.Ventanas
                     p_PersonasAplicacion : this.PersonasAplicacion;
                 this.ciudadesPP = this.ciudadesPP == null ?
                     p_ciudadesPP : this.ciudadesPP;
+                this.tiposPP = this.tiposPP == null ?
+                    p_tiposPP : this.tiposPP;
                 this.PersonasAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)

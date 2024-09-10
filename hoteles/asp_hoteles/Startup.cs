@@ -36,7 +36,8 @@ namespace asp_hoteles
             services.AddScoped<PaisesPPModel, PaisesPPModel>();
             services.AddScoped<DepartamentosPPModel, DepartamentosPPModel>();
             services.AddScoped<CiudadesPPModel, CiudadesPPModel>();
-
+            services.AddScoped<TiposPPModel, TiposPPModel>();
+            
             services.AddRazorPages();
             services.AddMvc();
             services.AddSession(options =>

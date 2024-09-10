@@ -25,6 +25,10 @@ namespace asp_hoteles
             services.AddScoped<TiposRepositorio, TiposRepositorio>();
             services.AddScoped<PersonasRepositorio, PersonasRepositorio>();
             services.AddScoped<EmpleadosRepositorio, EmpleadosRepositorio>();
+            services.AddScoped<ProveedoresRepositorio, ProveedoresRepositorio>();
+            services.AddScoped<ProductosRepositorio, ProductosRepositorio>();
+            services.AddScoped<FacturasRepositorio, FacturasRepositorio>();
+            services.AddScoped<DetallesRepositorio, DetallesRepositorio>();
             // Aplicaciones
             services.AddScoped<PaisesAplicacion, PaisesAplicacion>();
             services.AddScoped<DepartamentosAplicacion, DepartamentosAplicacion>();
@@ -32,6 +36,10 @@ namespace asp_hoteles
             services.AddScoped<TiposAplicacion, TiposAplicacion>();
             services.AddScoped<PersonasAplicacion, PersonasAplicacion>();
             services.AddScoped<EmpleadosAplicacion, EmpleadosAplicacion>();
+            services.AddScoped<ProveedoresAplicacion, ProveedoresAplicacion>();
+            services.AddScoped<ProductosAplicacion, ProductosAplicacion>();
+            services.AddScoped<FacturasAplicacion, FacturasAplicacion>();
+            services.AddScoped<DetallesAplicacion, DetallesAplicacion>();
             // Emergentes
             services.AddScoped<PaisesPPModel, PaisesPPModel>();
             services.AddScoped<DepartamentosPPModel, DepartamentosPPModel>();

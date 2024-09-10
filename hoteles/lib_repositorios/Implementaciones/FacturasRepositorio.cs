@@ -35,6 +35,7 @@ namespace lib_repositorios.Implementaciones
 
             var detalles = conexion.ObtenerSet<Detalles>()
                 .Where(x => ids_facturas.Any(y => y == x.Factura))
+                .Include(x => x._Producto)
                 .ToList();
             detalles.ForEach(delegate (Detalles detalle)
             {

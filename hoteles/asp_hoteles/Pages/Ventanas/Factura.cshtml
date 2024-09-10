@@ -36,6 +36,48 @@
                     disabled="@(Model.MostrarLista)" />
             </div>
             
+            <input type="hidden"
+                asp-for="@Model.id_factura" />
+                
+            <div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">
+                        @lib_lenguajes.RsFacturas.lbNumero
+                    </label>
+                    <div class="col-lg-6">
+                        <input id="nmFNumero"
+                            disabled="disabled"
+                            class="cts_forms form-control"
+                            onchange="keyUp(this)"
+                            asp-for="@Model.Factura!.Numero" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">
+                        @lib_lenguajes.RsFacturas.lbPersona
+                    </label>
+                    <div class="col-lg-6">
+                        <input id="nmFPersona"
+                            disabled="disabled"
+                            class="cts_forms form-control"
+                            onchange="keyUp(this)"
+                            asp-for="@Model.Factura!._Persona.Nombre" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">
+                        @lib_lenguajes.RsFacturas.lbTotal
+                    </label>
+                    <div class="col-lg-6">
+                        <input id="nmFTotal"
+                            disabled="disabled"
+                            class="cts_forms form-control"
+                            onchange="keyUp(this)"
+                            asp-for="@Model.Factura!.Total" />
+                    </div>
+                </div>
+            </div>
+
             @if (!Model.MostrarLista ||
                  Model.MostrarBorrar ||
                  ViewData.ContainsKey("Mensaje"))

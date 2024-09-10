@@ -28,6 +28,7 @@ namespace lib_aplicaciones.Implementaciones
             Expression<Func<Facturas, bool>>? condiciones = null;
             switch (tipo.ToUpper())
             {
+                case "ID": condiciones = x => x.Id == entidad.Id; break;
                 case "NUMERO": condiciones = x => x.Numero == entidad.Numero; break;
                 default: condiciones = x => x.Id != 0; break;
             }

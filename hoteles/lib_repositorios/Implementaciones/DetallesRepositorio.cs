@@ -21,6 +21,7 @@ namespace lib_repositorios.Implementaciones
         public List<Detalles> Listar()
         {
             return conexion!.ObtenerSet<Detalles>()
+                .Include(x => x._Factura)
                 .Include(x => x._Producto)
                 .ToList();
         }
@@ -29,6 +30,7 @@ namespace lib_repositorios.Implementaciones
         {
             return conexion!.ObtenerSet<Detalles>()
                 .Where(condiciones)
+                .Include(x => x._Factura)
                 .Include(x => x._Producto)
                 .ToList();
         }

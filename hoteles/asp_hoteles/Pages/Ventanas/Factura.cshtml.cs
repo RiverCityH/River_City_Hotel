@@ -10,6 +10,7 @@ namespace asp_hoteles.Pages.Ventanas
 {
     public class FacturaModel : PageModel
     {
+        private FacturasAplicacion? facturasAplicacion = null;
         private DetallesAplicacion? detallesAplicacion = null;
         public bool MostrarLista = true, 
             MostrarBorrar = false,
@@ -18,11 +19,14 @@ namespace asp_hoteles.Pages.Ventanas
         public ProductosPPModel? productosPP = null;
 
         public FacturaModel(
+            FacturasAplicacion p_facturasAplicacion,
             DetallesAplicacion p_detallesAplicacion,
             ProductosPPModel p_productosPP)
         {
             try
             {
+                this.facturasAplicacion = this.facturasAplicacion == null ?
+                    p_facturasAplicacion : this.facturasAplicacion;
                 this.detallesAplicacion = this.detallesAplicacion == null ?
                     p_detallesAplicacion : this.detallesAplicacion;
                 this.productosPP = this.productosPP == null ?
@@ -35,6 +39,8 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
+        [BindProperty] public int id_factura { get; set; }
+        [BindProperty] public Facturas? Factura { get; set; }
         [BindProperty] public Detalles? Actual { get; set; }
         [BindProperty] public List<Detalles>? Lista { get; set; }
 
@@ -58,7 +64,18 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public virtual void OnGet() { OnPostBtRefrescar(); }
+        public virtual void OnGet(string data) 
+        {
+            try
+            {
+                id_factura = Convert.ToInt32(EncryptHelper.Desencriptar(data));
+                OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            } 
+        }
 
         public void OnPostBtRefrescar()
         {
@@ -66,7 +83,20 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 if (!ChequearUsuario())
                     return;
-                Lista = detallesAplicacion!.Listar();
+                var detalle = new Detalles()
+                {
+                    Factura = id_factura,
+                };
+                Lista = detallesAplicacion!.Buscar(detalle, "Factura");
+
+                var factura = new Facturas()
+                {
+                    Id = id_factura,
+                };
+                var facturas = facturasAplicacion!.Buscar(factura, "ID");
+                if (facturas.Count < 0)
+                    return;
+                Factura = facturas.FirstOrDefault();
             }
             catch (Exception ex)
             {

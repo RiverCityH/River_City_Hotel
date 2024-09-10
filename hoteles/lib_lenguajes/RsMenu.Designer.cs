@@ -151,6 +151,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Empleados.
+        /// </summary>
+        public static string lbEmpleados {
+            get {
+                return ResourceManager.GetString("lbEmpleados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entrar.
         /// </summary>
         public static string lbEntrar {

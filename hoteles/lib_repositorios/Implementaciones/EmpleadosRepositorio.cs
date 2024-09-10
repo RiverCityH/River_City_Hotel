@@ -1,4 +1,6 @@
 ﻿using lib_entidades_dominio;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
 
 namespace lib_repositorios.Implementaciones
@@ -19,12 +21,28 @@ namespace lib_repositorios.Implementaciones
 
         public List<Empleados> Listar()
         {
-            return conexion!.Listar<Empleados>();
+            return conexion!.ObtenerSet<Empleados>()
+                .Include(x => x._Persona)
+                .Include(x => x._Cargo)
+                .Include(x => x._ARL)
+                .Include(x => x._Pension)
+                .Include(x => x._EPS)
+                .Include(x => x._TipoSangre)
+                .Include(x => x._EstadoCivil)
+                .ToList();
         }
 
         public List<Empleados> Buscar(Expression<Func<Empleados, bool>> condiciones)
         {
-            return conexion!.Buscar(condiciones);
+            return conexion!.ObtenerSet<Empleados>()
+                .Include(x => x._Persona)
+                .Include(x => x._Cargo)
+                .Include(x => x._ARL)
+                .Include(x => x._Pension)
+                .Include(x => x._EPS)
+                .Include(x => x._TipoSangre)
+                .Include(x => x._EstadoCivil)
+                .ToList();
         }
 
         public Empleados Guardar(Empleados entidad)

@@ -117,82 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbAction" xml:space="preserve">
-    <value>ACCIONES</value>
+  <data name="clARL" xml:space="preserve">
+    <value>ARL</value>
   </data>
-  <data name="lbActivo" xml:space="preserve">
-    <value>Activo</value>
+  <data name="clCargo" xml:space="preserve">
+    <value>CARGO</value>
   </data>
-  <data name="lbApp" xml:space="preserve">
-    <value>Hoteles+</value>
+  <data name="clEPS" xml:space="preserve">
+    <value>EPS</value>
   </data>
-  <data name="lbAño" xml:space="preserve">
-    <value>2024</value>
+  <data name="clEstadoCivil" xml:space="preserve">
+    <value>ESTADO CIVIL</value>
   </data>
-  <data name="lbBorrar" xml:space="preserve">
-    <value>Borrar</value>
+  <data name="clPension" xml:space="preserve">
+    <value>FONDO PEN.</value>
   </data>
-  <data name="lbBorrarEntidad" xml:space="preserve">
-    <value>¿Desea borrar la siguiente información?</value>
+  <data name="clPersona" xml:space="preserve">
+    <value>PERSONA</value>
   </data>
-  <data name="lbCancelar" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="clTipoSangre" xml:space="preserve">
+    <value>TIPO SANGRE</value>
   </data>
-  <data name="lbCerrar" xml:space="preserve">
-    <value>Cerrar</value>
+  <data name="lbARL" xml:space="preserve">
+    <value>ARL: </value>
   </data>
-  <data name="lbCiudades" xml:space="preserve">
-    <value>Ciudades</value>
+  <data name="lbCargo" xml:space="preserve">
+    <value>Cargo: </value>
   </data>
-  <data name="lbDepartamentos" xml:space="preserve">
-    <value>Departamentos</value>
+  <data name="lbEPS" xml:space="preserve">
+    <value>EPS: </value>
   </data>
-  <data name="lbEmpleados" xml:space="preserve">
-    <value>Empleados</value>
+  <data name="lbEstadoCivil" xml:space="preserve">
+    <value>Estado civil: </value>
   </data>
-  <data name="lbEntrar" xml:space="preserve">
-    <value>Entrar</value>
+  <data name="lbPension" xml:space="preserve">
+    <value>Fondo de pensiones:</value>
   </data>
-  <data name="lbGuardar" xml:space="preserve">
-    <value>Guardar</value>
+  <data name="lbPersona" xml:space="preserve">
+    <value>Persona: </value>
   </data>
-  <data name="lbInactivo" xml:space="preserve">
-    <value>Inactivo</value>
+  <data name="lbSingular" xml:space="preserve">
+    <value>Empleado</value>
   </data>
-  <data name="lbInicio" xml:space="preserve">
-    <value>Inicio</value>
-  </data>
-  <data name="lbLimpiar" xml:space="preserve">
-    <value>Limpiar</value>
-  </data>
-  <data name="lbMensaje" xml:space="preserve">
-    <value>Mensaje</value>
-  </data>
-  <data name="lbModicar" xml:space="preserve">
-    <value>Editar</value>
-  </data>
-  <data name="lbNuevo" xml:space="preserve">
-    <value>Nuevo</value>
-  </data>
-  <data name="lbPaises" xml:space="preserve">
-    <value>Paises</value>
-  </data>
-  <data name="lbPersonas" xml:space="preserve">
-    <value>Personas</value>
-  </data>
-  <data name="lbProductos" xml:space="preserve">
-    <value>Productos</value>
-  </data>
-  <data name="lbProveedores" xml:space="preserve">
-    <value>Proveedores</value>
-  </data>
-  <data name="lbRefrescar" xml:space="preserve">
-    <value>Cargar</value>
-  </data>
-  <data name="lbSeleccionar" xml:space="preserve">
-    <value>Escoger</value>
-  </data>
-  <data name="lbTipos" xml:space="preserve">
-    <value>Tipos</value>
+  <data name="lbTipoSangre" xml:space="preserve">
+    <value>Tipo sangre: </value>
   </data>
 </root>

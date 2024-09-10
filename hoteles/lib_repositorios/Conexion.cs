@@ -23,6 +23,7 @@ namespace lib_repositorios
         protected DbSet<Empleados>? Empleados { get; set; }
         protected DbSet<Proveedores>? Proveedores { get; set; }
         protected DbSet<Facturas>? Facturas { get; set; }
+        protected DbSet<Productos>? Productos { get; set; }
 
         public virtual DbSet<T> ObtenerSet<T>() where T : class
         {

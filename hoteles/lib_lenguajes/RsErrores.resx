@@ -135,6 +135,9 @@
   <data name="lbExistePais" xml:space="preserve">
     <value>Ya existe el pais</value>
   </data>
+  <data name="lbExisteProducto" xml:space="preserve">
+    <value>Ya existe el producto</value>
+  </data>
   <data name="lbExisteProveedor" xml:space="preserve">
     <value>Ya existe el proveedor</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="lbNoExistePais" xml:space="preserve">
     <value>No existe el pais</value>
+  </data>
+  <data name="lbNoExisteProducto" xml:space="preserve">
+    <value>No existe el producto</value>
   </data>
   <data name="lbNoExisteProveedor" xml:space="preserve">
     <value>No existe el proveedor</value>

@@ -36,7 +36,9 @@ namespace asp_hoteles.Pages.Emergentes
         {
             try
             {
-                Lista = TiposAplicacion!.Listar();
+                Lista = TiposAplicacion!.Listar()
+                    .Where(x => x.Tabla == DataView!["Tabla"]!.ToString())
+                    .ToList();
             }
             catch (Exception ex)
             {

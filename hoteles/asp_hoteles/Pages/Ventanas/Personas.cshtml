@@ -95,7 +95,8 @@
                                    asp-for="@Model.Actual!._TipoDocumento!.Nombre" />
                                 <input type="submit"
                                    value=" "
-                                   asp-page-handler="BtTipoDocumentos"
+                                   asp-page-handler="BtTipos"
+                                   asp-route-data="TipoDocumentos"
                                    class="btn btn-secondary" />
                             </div>
                         </div>
@@ -155,7 +156,8 @@
                                     asp-for="@Model.Actual!._Genero!.Nombre" />
                                 <input type="submit"
                                     value=" "
-                                    asp-page-handler="BtGeneros"
+                                    asp-route-data="Generos"
+                                    asp-page-handler="BtTipos"
                                     class="btn btn-secondary" />
                             </div>
                         </div>
@@ -262,13 +264,24 @@
                     "../Emergentes/Mensajes.cshtml")
             }
 
-            @if (Model.MostrarPaises)
+            @if (Model.MostrarCiudades)
             {
                 <div class='popup'>
                     <div class='pp_inner'>
                         <div style='width:95%'>
                             @await Html.PartialAsync(
                                 "../Emergentes/CiudadesPP.cshtml", Model.ciudadesPP)
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.MostrarTipos)
+            {
+                <div class='popup'>
+                    <div class='pp_inner'>
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                        "../Emergentes/TiposPP.cshtml", Model.tiposPP)
                         </div>
                     </div>
                 </div>

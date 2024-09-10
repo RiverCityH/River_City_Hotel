@@ -13,7 +13,8 @@ namespace asp_hoteles.Pages.Ventanas
         private PersonasAplicacion? PersonasAplicacion = null;
         public bool MostrarLista = true, 
             MostrarBorrar = false,
-            MostrarPaises = false;
+            MostrarTipos = false,
+            MostrarCiudades = false;
         public CiudadesPPModel? ciudadesPP = null;
         public TiposPPModel? tiposPP = null; 
 
@@ -177,7 +178,7 @@ namespace asp_hoteles.Pages.Ventanas
             try
             {
                 MostrarLista = false;
-                MostrarPaises = true;
+                MostrarCiudades = true;
                 if (!ChequearUsuario())
                     return;
                 ciudadesPP!.ContextHttp = this.HttpContext;
@@ -203,13 +204,72 @@ namespace asp_hoteles.Pages.Ventanas
                 ciudadesPP!.DataView = this.ViewData;
                 ciudadesPP!.OnPostBtRefrescar();
 
-                var seleccionado = ciudadesPP.Lista!.
+                var seleccionado = ciudadesPP!.Lista!.
                     FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
                 if (seleccionado == null || Actual == null)
                     return;
                 ModelState.Clear();
                 Actual!.Ciudad = seleccionado.Id;
                 Actual!._Ciudad = seleccionado;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+            }
+        }
+
+        public void OnPostBtTipos(string data)
+        {
+            try
+            {
+                MostrarLista = false;
+                MostrarTipos = true;
+                if (!ChequearUsuario())
+                    return;
+                tiposPP!.ContextHttp = this.HttpContext;
+                tiposPP!.DataView = this.ViewData;
+                tiposPP!.DataView["Tabla"] = data;
+                tiposPP!.OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex);
+            }
+        }
+
+        public void OnPostBtSelTipo(string data)
+        {
+            try
+            {
+                var split = data.Split("||");
+
+                MostrarLista = false;
+                if (!ChequearUsuario())
+                    return;
+                if (tiposPP == null)
+                    return;
+                tiposPP!.ContextHttp = this.HttpContext;
+                tiposPP!.DataView = this.ViewData;
+                tiposPP!.DataView["Tabla"] = split[1].Trim();
+                tiposPP!.OnPostBtRefrescar();
+
+                var seleccionado = tiposPP!.Lista!.
+                    FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(split[0].Trim()));
+                if (seleccionado == null || Actual == null)
+                    return;
+                ModelState.Clear();
+
+                switch (split[1].Trim())
+                {
+                    case "TipoDocumentos":
+                        Actual!.TipoDocumento = seleccionado.Id;
+                        Actual!._TipoDocumento = seleccionado;
+                        break;
+                    case "Generos":
+                        Actual!.Genero = seleccionado.Id;
+                        Actual!._Genero = seleccionado;
+                        break;
+                }
             }
             catch (Exception ex)
             {

@@ -13,7 +13,7 @@ namespace asp_hoteles.Pages.Ventanas
         private CiudadesAplicacion? CiudadesAplicacion = null;
         public bool MostrarLista = true, 
             MostrarBorrar = false,
-            MostrarPaises = false;
+            MostrarDepartamentos = false;
         public DepartamentosPPModel? departamentosPP = null;
 
         public CiudadesModel(
@@ -173,7 +173,7 @@ namespace asp_hoteles.Pages.Ventanas
             try
             {
                 MostrarLista = false;
-                MostrarPaises = true;
+                MostrarDepartamentos = true;
                 if (!ChequearUsuario())
                     return;
                 departamentosPP!.ContextHttp = this.HttpContext;

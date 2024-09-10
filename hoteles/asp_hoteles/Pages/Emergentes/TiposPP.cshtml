@@ -27,12 +27,6 @@
                     <th>
                         @lib_lenguajes.RsTipos.clNombre
                     </th>
-                    <th>
-                        @lib_lenguajes.RsTipos.clTabla
-                    </th>
-                    <th>
-                        @lib_lenguajes.RsTipos.clAccion
-                    </th>
                     <th class="cl_actions">
                         @lib_lenguajes.RsMenu.lbAction
                     </th>
@@ -44,14 +38,12 @@
                         <tr onmouseover="changeOver(this)"
                             onmouseout="changeOut(this)">
                             <td>@elemento.Nombre</td>
-                            <td>@elemento.Tabla</td>
-                            <td>@elemento.Accion</td>
                             <td>
                                 <input type="submit"
                                     value="@lib_lenguajes.RsMenu.lbSeleccionar"
-                                    asp-page-handler="BtSelPais"
+                                    asp-page-handler="BtSelTipo"
                                     class="btn btn-secondary"
-                                    asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
+                                    asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id) || @Model.DataView!["Tabla"]!.ToString() "/>
                             </td>
                         </tr>
                     }

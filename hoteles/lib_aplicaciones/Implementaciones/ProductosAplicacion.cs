@@ -39,8 +39,9 @@ namespace lib_aplicaciones.Implementaciones
             entidad.Id = 0;
             entidad._Proveedor = null;
             entidad._Categoria = null;
+            entidad.FechaIngreso = DateTime.Now;
             if (this.iRepositorio.Existe(
-                    x => x.Nombre == entidad.Nombre))
+                    x => x.Codigo == entidad.Codigo))
             {
                 throw new Exception("lbExisteProducto");
             }
@@ -64,7 +65,7 @@ namespace lib_aplicaciones.Implementaciones
             }
             if (this.iRepositorio.Existe(
                     x => x.Id != entidad.Id &&
-                         x.Nombre == entidad.Nombre))
+                         x.Codigo == entidad.Codigo))
             {
                 throw new Exception("lbExisteProducto");
             }

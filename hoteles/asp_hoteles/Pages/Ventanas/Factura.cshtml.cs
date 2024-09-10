@@ -137,10 +137,23 @@ namespace asp_hoteles.Pages.Ventanas
                 CargarFactura();
                 Actual!.Factura = Factura!.Id;
                 Actual!.Total = Actual!.Valor * Actual!.Cantidad;
+
                 if (Actual!.Id == 0)
                     Actual = detallesAplicacion!.Guardar(Actual!);
                 else
                     Actual = detallesAplicacion!.Modificar(Actual!);
+
+                decimal total = 0.0m;
+                var detalles = Factura!.Detalles!.ToList();
+                if (detalles.Any(x => x.Id == Actual!.Id))
+                    detalles.Remove(detalles.FirstOrDefault(x => x.Id == Actual!.Id)!);
+                detalles.Add(Actual!);
+
+                foreach (var detalle in detalles)
+                    total += detalle.Total;
+                Factura.Total = total;
+                Factura = facturasAplicacion!.Modificar(Factura!);
+
                 MostrarLista = true;
                 OnPostBtRefrescar();
             }

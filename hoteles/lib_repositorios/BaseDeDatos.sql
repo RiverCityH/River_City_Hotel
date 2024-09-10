@@ -328,7 +328,6 @@ DECLARE @eps INT
 DECLARE @tipoSangre INT
 DECLARE @estadoCivil INT
 
-
 SET @persona = (SELECT [Id] FROM [Personas] WHERE [Documento] = '4561321');
 IF NOT EXISTS (SELECT 1 FROM [Empleados] WHERE [Persona] = @persona)
 BEGIN

@@ -13,8 +13,7 @@ namespace asp_hoteles.Pages.Ventanas
         private ProductosAplicacion? ProductosAplicacion = null;
         public bool MostrarLista = true, 
             MostrarBorrar = false,
-            MostrarTipos = false,
-            MostrarCiudades = false;
+            MostrarTipos = false;
         public TiposPPModel? tiposPP = null; 
 
         public ProductosModel(

@@ -54,15 +54,14 @@ namespace lib_aplicaciones.Implementaciones
         public Detalles Modificar(Detalles entidad)
         {
             if (!this.iRepositorio.Existe(
-                    x => x.Id != entidad.Id &&
-                    x.Factura == entidad.Factura && 
-                    x.Producto == entidad.Producto))
+                    x => x.Id == entidad.Id))
             {
                 throw new Exception("lbNoExisteDetalle");
             }
             if (this.iRepositorio.Existe(
                     x => x.Id != entidad.Id &&
-                         x.Factura == entidad.Factura && x.Producto == entidad.Producto))
+                    x.Factura == entidad.Factura && 
+                    x.Producto == entidad.Producto))
             {
                 throw new Exception("lbExisteDetalle");
             }

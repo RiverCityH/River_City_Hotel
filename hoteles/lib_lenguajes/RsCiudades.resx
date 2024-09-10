@@ -123,6 +123,9 @@
   <data name="clNombre" xml:space="preserve">
     <value>NOMBRE</value>
   </data>
+  <data name="clPais" xml:space="preserve">
+    <value>PAIS</value>
+  </data>
   <data name="lbDepartamento" xml:space="preserve">
     <value>Departamento: </value>
   </data>

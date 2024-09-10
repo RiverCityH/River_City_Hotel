@@ -79,6 +79,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PAIS.
+        /// </summary>
+        public static string clPais {
+            get {
+                return ResourceManager.GetString("clPais", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Departamento: .
         /// </summary>
         public static string lbDepartamento {

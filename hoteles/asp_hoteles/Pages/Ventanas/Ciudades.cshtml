@@ -145,10 +145,13 @@
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
                             <th>
-                                @lib_lenguajes.RsCiudades.clNombre
+                                @lib_lenguajes.RsCiudades.clPais
                             </th>
                             <th>
                                 @lib_lenguajes.RsCiudades.clDepartamento
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsCiudades.clNombre
                             </th>
                             <th class="cl_actions">
                                 @lib_lenguajes.RsMenu.lbAction
@@ -160,8 +163,9 @@
                             {
                                 <tr onmouseover="changeOver(this)"
                                     onmouseout="changeOut(this)">
-                                    <td>@elemento.Nombre</td>
+                                    <td>@elemento._Departamento!._Pais!.Nombre</td>
                                     <td>@elemento._Departamento!.Nombre</td>
+                                    <td>@elemento.Nombre</td>
                                     <td>
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbModicar"

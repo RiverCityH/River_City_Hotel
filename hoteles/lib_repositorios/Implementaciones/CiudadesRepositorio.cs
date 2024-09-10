@@ -22,6 +22,7 @@ namespace lib_repositorios.Implementaciones
         {
             return conexion!.ObtenerSet<Ciudades>()
                 .Include(x => x._Departamento)
+                .Include(x => x._Departamento!._Pais)
                 .ToList();
         }
 
@@ -30,6 +31,7 @@ namespace lib_repositorios.Implementaciones
             return conexion!.ObtenerSet<Ciudades>()
                 .Where(condiciones)
                 .Include(x => x._Departamento)
+                .Include(x => x._Departamento!._Pais)
                 .ToList();
         }
 

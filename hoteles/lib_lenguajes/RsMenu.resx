@@ -147,6 +147,9 @@
   <data name="lbDepartamentos" xml:space="preserve">
     <value>Departamentos</value>
   </data>
+  <data name="lbDetalles" xml:space="preserve">
+    <value>Detalles</value>
+  </data>
   <data name="lbEmpleados" xml:space="preserve">
     <value>Empleados</value>
   </data>

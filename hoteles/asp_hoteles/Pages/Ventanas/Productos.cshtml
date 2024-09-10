@@ -99,6 +99,72 @@
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProductos.lbValor
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmValor"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Valor" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProductos.lbCosto
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmCosto"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Costo" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProductos.lbCantidad
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmCantidad"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Cantidad" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProductos.lbFechaIngreso
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmFechaIngreso"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.FechaIngreso" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProductos.lbFechaVencimiento
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmFechaVencimiento"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.FechaVencimiento" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProductos.lbLote
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmLote"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Lote" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
                                 @lib_lenguajes.RsProductos.lbProveedor
                             </label>
                             <div class="col-lg-6">
@@ -125,8 +191,8 @@
                                    asp-for="@Model.Actual!._Categoria!.Nombre" />
                                 <input type="submit"
                                    value=" "
-                                   asp-page-handler="BtCategoria"
-                                   asp-route-data="Categorias"
+                                   asp-page-handler="BtTipos"
+                                   asp-route-data="Categoría"
                                    class="btn btn-secondary" />
                             </div>
                         </div>

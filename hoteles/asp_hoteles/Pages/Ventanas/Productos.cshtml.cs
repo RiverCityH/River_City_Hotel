@@ -211,9 +211,9 @@ namespace asp_hoteles.Pages.Ventanas
 
                 switch (split[1].Trim())
                 {
-                    case "TipoDocumentos":
-                        //Actual!.TipoDocumento = seleccionado.Id;
-                        //Actual!._TipoDocumento = seleccionado;
+                    case "Categoría":
+                        Actual!.Categoria = seleccionado.Id;
+                        Actual!._Categoria = seleccionado;
                         break;
                 }
             }

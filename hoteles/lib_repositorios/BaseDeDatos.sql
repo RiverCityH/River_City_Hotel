@@ -86,7 +86,6 @@ CREATE TABLE [Empleados]
 )
 GO
 
-
 CREATE TABLE [Proveedores]
 (
 	[Id] INT NOT NULL IDENTITY (1, 1),
@@ -106,7 +105,7 @@ GO
 CREATE TABLE [Facturas]
 (
 	[Id] INT NOT NULL IDENTITY (1, 1),
-	[Numero] INT NOT NULL,
+	[Numero] NVARCHAR(35) NOT NULL,
 	[Persona] INT NOT NULL,
 	[Fecha] SMALLDATETIME NOT NULL,
 	[Total] DECIMAL(10,2) NOT NULL,
@@ -369,9 +368,11 @@ BEGIN
 	SET @tipo = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Reserva');
 
 	INSERT INTO [Facturas] (
-		[Numero],[Persona],[Fecha],[Total],[MetodoPago],[Tipo],[Activo])
+		[Numero],[Persona],[Fecha],[Total],
+		[MetodoPago],[Tipo],[Activo])
 	VALUES (
-		'45446',@persona,GETDATE(),25.20,@metodopago,@tipo,1);
+		'F0254', @persona, GETDATE(), 25.20,
+		@metodopago, @tipo, 1);
 END
 
 SELECT * FROM Paises;

@@ -95,12 +95,13 @@ namespace mst_prueba_unitarias.Nucleo
                 Ciudad = 1,
             };
         }
+
         public static Facturas ObtenerFacturas()
         {
             return new Facturas()
             {
                 Id = 0,
-                Numero = "24546",
+                Numero = "T01",
                 Persona = 2,
                 Fecha = DateTime.Now,
                 Total = 24.4m,

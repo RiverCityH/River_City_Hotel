@@ -1,17 +1,17 @@
-﻿@model asp_hoteles.Pages.Emergentes.DepartamentosPPModel
+﻿@model asp_hoteles.Pages.Emergentes.CiudadesPPModel
 @{
 
 }
 <center>
     <div>
         <div align="left">
-            <h3>@lib_lenguajes.RsMenu.lbDepartamentos</h3>
+            <h3>@lib_lenguajes.RsMenu.lbCiudades</h3>
         </div>
         <div align="left"
             class="bt_panel_buttons">
             <input type="submit"
                 value="@lib_lenguajes.RsMenu.lbRefrescar"
-                asp-page-handler="BtDepartamentos"
+                asp-page-handler="BtCiudades"
                 class="btn btn-secondary" />
         </div>
             
@@ -25,10 +25,10 @@
             <table class="tb_data table table-striped table-bordered table-hover">
                 <tr>
                     <th>
-                        @lib_lenguajes.RsDepartamentos.clNombre
+                        @lib_lenguajes.RsCiudades.clNombre
                     </th>
                     <th>
-                        @lib_lenguajes.RsDepartamentos.clPais
+                        @lib_lenguajes.RsCiudades.clDepartamento
                     </th>
                     <th class="cl_actions">
                         @lib_lenguajes.RsMenu.lbAction
@@ -41,7 +41,7 @@
                         <tr onmouseover="changeOver(this)"
                             onmouseout="changeOut(this)">
                             <td>@elemento.Nombre</td>
-                            <td>@elemento._Pais!.Nombre</td>
+                            <td>@elemento._Departamento!.Nombre</td>
                             <td>
                                 <input type="submit"
                                     value="@lib_lenguajes.RsMenu.lbSeleccionar"

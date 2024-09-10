@@ -35,6 +35,7 @@ namespace asp_hoteles
             // Emergentes
             services.AddScoped<PaisesPPModel, PaisesPPModel>();
             services.AddScoped<DepartamentosPPModel, DepartamentosPPModel>();
+            services.AddScoped<CiudadesPPModel, CiudadesPPModel>();
 
             services.AddRazorPages();
             services.AddMvc();

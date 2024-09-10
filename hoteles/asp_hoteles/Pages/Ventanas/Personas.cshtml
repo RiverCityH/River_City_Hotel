@@ -1,7 +1,7 @@
 ﻿@page
-@model asp_hoteles.Pages.Ventanas.TiposModel
+@model asp_hoteles.Pages.Ventanas.PersonasModel
 @{
-    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbTipos;
+    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbPersonas;
 }
 <center>
     <div>
@@ -10,7 +10,7 @@
             @Html.AntiForgeryToken()
 
             <div align="left">
-                <h3>@lib_lenguajes.RsMenu.lbTipos</h3>
+                <h3>@lib_lenguajes.RsMenu.lbPersonas</h3>
             </div>
             <div align="left"
                 class="bt_panel_buttons">
@@ -22,7 +22,7 @@
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbNuevo"
                     asp-page-handler="BtNuevo"
-                       class="btn btn-secondary"
+                    class="btn btn-secondary"
                     disabled="@(!Model.MostrarLista)" />
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbGuardar"
@@ -32,7 +32,7 @@
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbCancelar"
                     asp-page-handler="BtCancelar"
-                       class="btn btn-secondary"
+                    class="btn btn-secondary"
                     disabled="@(Model.MostrarLista)" />
             </div>
             
@@ -42,56 +42,73 @@
             {
                 <input type="hidden"
                    asp-for="@Model.Actual!.Id" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.TipoDocumento" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Ciudad" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Genero" />
             }
             @if (Model.MostrarBorrar ||
                  ViewData.ContainsKey("Mensaje"))
             {
                 <input type="hidden"
+                   asp-for="@Model.Actual!.Documento" />
+                <input type="hidden"
                    asp-for="@Model.Actual!.Nombre" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Tabla" />
+                   asp-for="@Model.Actual!.FechaNacimiento" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Accion" />
+                   asp-for="@Model.Actual!.Celular" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Direccion" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Email" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Contraseña" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Confirmar" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Restablecer" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Token" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Activo" />
             }
 
             @if (!Model.MostrarLista &&
                  !ViewData.ContainsKey("Mensaje"))
             {
                 <div class="panel panel-default">
-                    <h3>@lib_lenguajes.RsTipos.lbSingular</h3>
+                    <h3>@lib_lenguajes.RsPersonas.lbSingular</h3>
 
                     <div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsTipos.lbNombre
+                                @lib_lenguajes.RsPersonas.lbNombre
                             </label>
                             <div class="col-lg-6">
-                                <input id="tNombre"
+                                <input id="txNombre"
                                     class="cts_forms form-control"
                                     onchange="keyUp(this)"
                                     asp-for="@Model.Actual!.Nombre" />
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsTipos.lbTabla
+                                @lib_lenguajes.RsPersonas.lbCiudad
                             </label>
                             <div class="col-lg-6">
-                                <input id="tNombre"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Tabla" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsTipos.lbAccion
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="tNombre"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Accion" />
+                                <input id="txPais"
+                                    disabled="disabled"
+                                    class="cts_forms form-control"
+                                    onchange="keyUp(this)"
+                                    asp-for="@Model.Actual!._Ciudad!.Nombre" />
+                                <input type="submit"
+                                    value=" "
+                                    asp-page-handler="BtCiudades"
+                                    class="btn btn-secondary" />
                             </div>
                         </div>
                     </div>
@@ -102,6 +119,18 @@
             {
                 @await Html.PartialAsync(
                     "../Emergentes/Mensajes.cshtml")
+            }
+
+            @if (Model.MostrarPaises)
+            {
+                <div class='popup'>
+                    <div class='pp_inner'>
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                                "../Emergentes/CiudadesPP.cshtml", Model.ciudadesPP)
+                        </div>
+                    </div>
+                </div>
             }
 
             @if (Model.MostrarBorrar)
@@ -117,6 +146,8 @@
                                 @lib_lenguajes.RsMenu.lbBorrarEntidad
                             </h4>
                             <h6 align="left">
+                                @Model.Actual!.Documento
+                                &nbsp;
                                 @Model.Actual!.Nombre
                             </h6>
                             <br />
@@ -140,13 +171,19 @@
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
                             <th>
-                                @lib_lenguajes.RsTipos.clNombre
+                                @lib_lenguajes.RsPersonas.clTipoDocumento
                             </th>
                             <th>
-                                @lib_lenguajes.RsTipos.clTabla
+                                @lib_lenguajes.RsPersonas.clDocumento
                             </th>
                             <th>
-                                @lib_lenguajes.RsTipos.clAccion
+                                @lib_lenguajes.RsPersonas.clNombre
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsPersonas.clFechaNacimiento
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsPersonas.clEmail
                             </th>
                             <th class="cl_actions">
                                 @lib_lenguajes.RsMenu.lbAction
@@ -158,9 +195,11 @@
                             {
                                 <tr onmouseover="changeOver(this)"
                                     onmouseout="changeOut(this)">
+                                    <td>@elemento._TipoDocumento!.Nombre</td>
+                                    <td>@elemento.Documento</td>
                                     <td>@elemento.Nombre</td>
-                                    <td>@elemento.Tabla</td>
-                                    <td>@elemento.Accion</td>
+                                    <td>@elemento.FechaNacimiento</td>
+                                    <td>@elemento.Email</td>
                                     <td>
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbModicar"

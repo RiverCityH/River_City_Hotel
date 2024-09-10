@@ -232,6 +232,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Personas.
+        /// </summary>
+        public static string lbPersonas {
+            get {
+                return ResourceManager.GetString("lbPersonas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cargar.
         /// </summary>
         public static string lbRefrescar {

@@ -87,7 +87,8 @@ namespace asp_hoteles.Pages.Ventanas
                 MostrarLista = false;
                 Actual = new Personas()
                 {
-                    FechaNacimiento = DateTime.Now
+                    FechaNacimiento = DateTime.Now,
+                    Activo = true,
                 };
             }
             catch (Exception ex)

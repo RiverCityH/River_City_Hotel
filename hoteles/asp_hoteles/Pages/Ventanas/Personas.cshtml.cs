@@ -168,7 +168,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public void OnPostBtCiudad()
+        public void OnPostBtCiudades()
         {
             try
             {

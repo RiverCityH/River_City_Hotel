@@ -136,6 +136,7 @@ namespace asp_hoteles.Pages.Ventanas
                 MostrarLista = false;
                 CargarFactura();
                 Actual!.Factura = Factura!.Id;
+                Actual!.Total = Actual!.Valor * Actual!.Cantidad;
                 if (Actual!.Id == 0)
                     Actual = detallesAplicacion!.Guardar(Actual!);
                 else

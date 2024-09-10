@@ -153,6 +153,7 @@ namespace asp_hoteles.Pages.Ventanas
                     total += detalle.Total;
                 Factura.Total = total;
                 Factura = facturasAplicacion!.Modificar(Factura!);
+                Factura = null;
 
                 MostrarLista = true;
                 OnPostBtRefrescar();

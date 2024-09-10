@@ -97,6 +97,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ya existe la factura.
+        /// </summary>
+        public static string lbExisteFactura {
+            get {
+                return ResourceManager.GetString("lbExisteFactura", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ya existe el pais.
         /// </summary>
         public static string lbExistePais {
@@ -147,6 +156,15 @@ namespace lib_lenguajes {
         public static string lbNoExisteEmpleado {
             get {
                 return ResourceManager.GetString("lbNoExisteEmpleado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No existe la factura.
+        /// </summary>
+        public static string lbNoExisteFactura {
+            get {
+                return ResourceManager.GetString("lbNoExisteFactura", resourceCulture);
             }
         }
         

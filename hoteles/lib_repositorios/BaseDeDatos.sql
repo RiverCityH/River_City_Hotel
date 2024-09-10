@@ -346,8 +346,6 @@ BEGIN
 		@persona, @cargo,@arl,@pension,@eps,@tipoSangre,@estadoCivil);
 END
 
-DECLARE @ciudad INT
-DECLARE @tipo_documento INT
 IF NOT EXISTS (SELECT 1 FROM [Proveedores] WHERE [Documento] = '21467814')
 BEGIN
 	SET @ciudad = (SELECT [Id] FROM [Ciudades] WHERE [Nombre] = 'Medellin');
@@ -361,7 +359,6 @@ BEGIN
 		'distrihotel@email.com', 'Cl 75 # 92 - 16', @ciudad);
 END
 
-DECLARE @persona INT
 DECLARE @metodopago INT
 DECLARE @tipo INT
 
@@ -384,3 +381,4 @@ SELECT * FROM Tipos;
 SELECT * FROM Personas;
 SELECT * FROM Empleados;
 SELECT * FROM Proveedores;
+SELECT * FROM Facturas;

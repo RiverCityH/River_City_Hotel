@@ -206,6 +206,17 @@
                     "../Emergentes/Mensajes.cshtml")
             }
 
+            @if (Model.MostrarProveedores)
+            {
+                <div class='popup'>
+                    <div class='pp_inner'>
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                                "../Emergentes/ProveedoresPP.cshtml", Model.proveedoresPP)
+                        </div>
+                    </div>
+                </div>
+            }
             @if (Model.MostrarTipos)
             {
                 <div class='popup'>

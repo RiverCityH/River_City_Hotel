@@ -13,12 +13,15 @@ namespace asp_hoteles.Pages.Ventanas
         private ProductosAplicacion? productosAplicacion = null;
         public bool MostrarLista = true, 
             MostrarBorrar = false,
-            MostrarTipos = false;
-        public TiposPPModel? tiposPP = null; 
+            MostrarTipos = false,
+            MostrarProveedores = false;
+        public TiposPPModel? tiposPP = null;
+        public ProveedoresPPModel? proveedoresPP = null;
 
         public ProductosModel(
             ProductosAplicacion p_ProductosAplicacion,
-            TiposPPModel p_tiposPP)
+            TiposPPModel p_tiposPP,
+            ProveedoresPPModel p_proveedoresPP)
         {
             try
             {
@@ -26,6 +29,8 @@ namespace asp_hoteles.Pages.Ventanas
                     p_ProductosAplicacion : this.productosAplicacion;
                 this.tiposPP = this.tiposPP == null ?
                     p_tiposPP : this.tiposPP;
+                this.proveedoresPP = this.proveedoresPP == null ?
+                    p_proveedoresPP : this.proveedoresPP;
                 this.productosAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
@@ -161,6 +166,51 @@ namespace asp_hoteles.Pages.Ventanas
                 MostrarLista = true;
                 MostrarBorrar = false;
                 OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtProveedores()
+        {
+            try
+            {
+                MostrarLista = false;
+                MostrarProveedores = true;
+                if (!ChequearUsuario())
+                    return;
+                proveedoresPP!.ContextHttp = this.HttpContext;
+                proveedoresPP!.DataView = this.ViewData;
+                proveedoresPP!.OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtSelProveedor(string data)
+        {
+            try
+            {
+                MostrarLista = false;
+                if (!ChequearUsuario())
+                    return;
+                if (proveedoresPP == null)
+                    return;
+                proveedoresPP!.ContextHttp = this.HttpContext;
+                proveedoresPP!.DataView = this.ViewData;
+                proveedoresPP!.OnPostBtRefrescar();
+
+                var seleccionado = proveedoresPP!.Lista!.
+                    FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
+                if (seleccionado == null || Actual == null)
+                    return;
+                ModelState.Clear();
+                Actual!.Proveedor = seleccionado.Id;
+                Actual!._Proveedor = seleccionado;
             }
             catch (Exception ex)
             {

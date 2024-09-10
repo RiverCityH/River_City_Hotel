@@ -20,21 +20,34 @@ namespace lib_repositorios.Implementaciones
 
         public List<Facturas> Listar()
         {
-            return conexion!.ObtenerSet<Facturas>()
-                .Include(x => x._Persona)
-                .Include(x => x._MetodoPago)
-                .Include(x => x._Tipo)
-                .ToList();
+            return Buscar(x => x.Id > 0);
         }
 
         public List<Facturas> Buscar(Expression<Func<Facturas, bool>> condiciones)
         {
-            return conexion!.ObtenerSet<Facturas>()
+            var facturas = conexion!.ObtenerSet<Facturas>()
                 .Where(condiciones)
                 .Include(x => x._Persona)
                 .Include(x => x._MetodoPago)
                 .Include(x => x._Tipo)
                 .ToList();
+            var ids_facturas = facturas.Select(x => x.Id);
+
+            var detalles = conexion.ObtenerSet<Detalles>()
+                .Where(x => ids_facturas.Any(y => y == x.Factura))
+                .ToList();
+            detalles.ForEach(delegate (Detalles detalle)
+            {
+                detalle._Factura = null;
+            });
+
+            foreach (var factura in facturas)
+            {
+                factura.Detalles = detalles
+                    .Where(x => x.Factura == factura.Id)
+                    .ToList();
+            }
+            return facturas;
         }
 
         public Facturas Guardar(Facturas entidad)

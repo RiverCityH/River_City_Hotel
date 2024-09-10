@@ -1,4 +1,5 @@
 ﻿using lib_entidades_dominio;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace lib_repositorios.Implementaciones
@@ -19,12 +20,17 @@ namespace lib_repositorios.Implementaciones
 
         public List<Ciudades> Listar()
         {
-            return conexion!.Listar<Ciudades>();
+            return conexion!.ObtenerSet<Ciudades>()
+                .Include(x => x._Departamento)
+                .ToList();
         }
 
         public List<Ciudades> Buscar(Expression<Func<Ciudades, bool>> condiciones)
         {
-            return conexion!.Buscar(condiciones);
+            return conexion!.ObtenerSet<Ciudades>()
+                .Where(condiciones)
+                .Include(x => x._Departamento)
+                .ToList();
         }
 
         public Ciudades Guardar(Ciudades entidad)

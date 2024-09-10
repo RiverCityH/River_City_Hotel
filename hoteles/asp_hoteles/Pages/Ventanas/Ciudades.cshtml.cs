@@ -8,25 +8,25 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_hoteles.Pages.Ventanas
 {
-    public class DepartamentosModel : PageModel
+    public class CiudadesModel : PageModel
     {
-        private DepartamentosAplicacion? departamentosAplicacion = null;
+        private CiudadesAplicacion? CiudadesAplicacion = null;
         public bool MostrarLista = true, 
             MostrarBorrar = false,
             MostrarPaises = false;
-        public PaisesPPModel? paisesPP = null;
+        public DepartamentosPPModel? departamentosPP = null;
 
-        public DepartamentosModel(
-            DepartamentosAplicacion p_departamentosAplicacion,
-            PaisesPPModel p_paisesPP)
+        public CiudadesModel(
+            CiudadesAplicacion p_CiudadesAplicacion,
+            DepartamentosPPModel p_departamentosPP)
         {
             try
             {
-                this.departamentosAplicacion = this.departamentosAplicacion == null ?
-                    p_departamentosAplicacion : this.departamentosAplicacion;
-                this.paisesPP = this.paisesPP == null ?
-                    p_paisesPP : this.paisesPP;
-                this.departamentosAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
+                this.CiudadesAplicacion = this.CiudadesAplicacion == null ?
+                    p_CiudadesAplicacion : this.CiudadesAplicacion;
+                this.departamentosPP = this.departamentosPP == null ?
+                    p_departamentosPP : this.departamentosPP;
+                this.CiudadesAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
             {
@@ -34,8 +34,8 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        [BindProperty] public Departamentos? Actual { get; set; }
-        [BindProperty] public List<Departamentos>? Lista { get; set; }
+        [BindProperty] public Ciudades? Actual { get; set; }
+        [BindProperty] public List<Ciudades>? Lista { get; set; }
 
         public bool ChequearUsuario()
         {
@@ -65,7 +65,7 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 if (!ChequearUsuario())
                     return;
-                Lista = departamentosAplicacion!.Listar();
+                Lista = CiudadesAplicacion!.Listar();
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace asp_hoteles.Pages.Ventanas
                 if (!ChequearUsuario())
                     return;
                 MostrarLista = false;
-                Actual = new Departamentos();
+                Actual = new Ciudades();
             }
             catch (Exception ex)
             {
@@ -111,9 +111,9 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 MostrarLista = false;
                 if (Actual!.Id == 0)
-                    Actual = departamentosAplicacion!.Guardar(Actual!);
+                    Actual = CiudadesAplicacion!.Guardar(Actual!);
                 else
-                    Actual = departamentosAplicacion!.Modificar(Actual!);
+                    Actual = CiudadesAplicacion!.Modificar(Actual!);
                 MostrarLista = true;
                 OnPostBtRefrescar();
             }
@@ -145,7 +145,7 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                Actual = departamentosAplicacion!.Borrar(Actual!);
+                Actual = CiudadesAplicacion!.Borrar(Actual!);
                 OnPostBtRefrescar();
             }
             catch (Exception ex)
@@ -168,7 +168,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public void OnPostBtPaises()
+        public void OnPostBtDepartamentos()
         {
             try
             {
@@ -176,9 +176,9 @@ namespace asp_hoteles.Pages.Ventanas
                 MostrarPaises = true;
                 if (!ChequearUsuario())
                     return;
-                paisesPP!.ContextHttp = this.HttpContext;
-                paisesPP!.DataView = this.ViewData;
-                paisesPP!.OnPostBtRefrescar();
+                departamentosPP!.ContextHttp = this.HttpContext;
+                departamentosPP!.DataView = this.ViewData;
+                departamentosPP!.OnPostBtRefrescar();
             }
             catch (Exception ex)
             {
@@ -186,26 +186,26 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public void OnPostBtSelPais(string data)
+        public void OnPostBtSelDepartamento(string data)
         {
             try
             {
                 MostrarLista = false;
                 if (!ChequearUsuario())
                     return;
-                if (paisesPP == null)
+                if (departamentosPP == null)
                     return;
-                paisesPP!.ContextHttp = this.HttpContext;
-                paisesPP!.DataView = this.ViewData;
-                paisesPP!.OnPostBtRefrescar();
+                departamentosPP!.ContextHttp = this.HttpContext;
+                departamentosPP!.DataView = this.ViewData;
+                departamentosPP!.OnPostBtRefrescar();
 
-                var seleccionado = paisesPP.Lista!.
+                var seleccionado = departamentosPP.Lista!.
                     FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
                 if (seleccionado == null || Actual == null)
                     return;
                 ModelState.Clear();
-                Actual!.Pais = seleccionado.Id;
-                Actual!._Pais = seleccionado;
+                Actual!.Departamento = seleccionado.Id;
+                Actual!._Departamento = seleccionado;
             }
             catch (Exception ex)
             {

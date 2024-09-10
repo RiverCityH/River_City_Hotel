@@ -1,11 +1,11 @@
-﻿@model asp_hoteles.Pages.Emergentes.PaisesPPModel
+﻿@model asp_hoteles.Pages.Emergentes.DepartamentosPPModel
 @{
 
 }
 <center>
     <div>
         <div align="left">
-            <h3>@lib_lenguajes.RsMenu.lbPaises</h3>
+            <h3>@lib_lenguajes.RsMenu.lbDepartamentos</h3>
         </div>
         <div align="left"
             class="bt_panel_buttons">
@@ -27,6 +27,9 @@
                     <th>
                         @lib_lenguajes.RsPaises.clNombre
                     </th>
+                    <th>
+                        @lib_lenguajes.RsDepartamentos.clPais
+                    </th>
                     <th class="cl_actions">
                         @lib_lenguajes.RsMenu.lbAction
                     </th>
@@ -38,10 +41,11 @@
                         <tr onmouseover="changeOver(this)"
                             onmouseout="changeOut(this)">
                             <td>@elemento.Nombre</td>
+                            <td>@elemento._Pais!.Nombre</td>
                             <td>
                                 <input type="submit"
                                     value="@lib_lenguajes.RsMenu.lbSeleccionar"
-                               asp-page-handler="OnPostBtSelPais"
+                                    asp-page-handler="OnPostBtSelDepartamento"
                                     class="btn btn-secondary"
                                     asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
                             </td>

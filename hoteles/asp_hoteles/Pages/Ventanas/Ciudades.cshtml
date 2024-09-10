@@ -1,7 +1,7 @@
 ﻿@page
-@model asp_hoteles.Pages.Ventanas.DepartamentosModel
+@model asp_hoteles.Pages.Ventanas.CiudadesModel
 @{
-    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbDepartamentos;
+    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbCiudades;
 }
 <center>
     <div>
@@ -10,7 +10,7 @@
             @Html.AntiForgeryToken()
 
             <div align="left">
-                <h3>@lib_lenguajes.RsMenu.lbDepartamentos</h3>
+                <h3>@lib_lenguajes.RsMenu.lbCiudades</h3>
             </div>
             <div align="left"
                 class="bt_panel_buttons">
@@ -43,7 +43,7 @@
                 <input type="hidden"
                    asp-for="@Model.Actual!.Id" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!.Pais" />
+                   asp-for="@Model.Actual!.Departamento" />
             }
             @if (Model.MostrarBorrar ||
                  ViewData.ContainsKey("Mensaje"))
@@ -56,12 +56,12 @@
                  !ViewData.ContainsKey("Mensaje"))
             {
                 <div class="panel panel-default">
-                    <h3>@lib_lenguajes.RsDepartamentos.lbSingular</h3>
+                    <h3>@lib_lenguajes.RsCiudades.lbSingular</h3>
 
                     <div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsDepartamentos.lbNombre
+                                @lib_lenguajes.RsCiudades.lbNombre
                             </label>
                             <div class="col-lg-6">
                                 <input id="txNombre"
@@ -73,17 +73,17 @@
 
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsDepartamentos.lbPais
+                                @lib_lenguajes.RsCiudades.lbDepartamento
                             </label>
                             <div class="col-lg-6">
                                 <input id="txPais"
                                     disabled="disabled"
                                     class="cts_forms form-control"
                                     onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!._Pais!.Nombre" />
+                                    asp-for="@Model.Actual!._Departamento!.Nombre" />
                                 <input type="submit"
                                     value=" "
-                                    asp-page-handler="BtPaises"
+                                    asp-page-handler="BtDepartamentos"
                                     class="btn btn-secondary" />
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                     <div class='pp_inner'>
                         <div style='width:95%'>
                             @await Html.PartialAsync(
-                                "../Emergentes/PaisesPP.cshtml", Model.paisesPP)
+                                "../Emergentes/DepartamentosPP.cshtml", Model.departamentosPP)
                         </div>
                     </div>
                 </div>
@@ -145,10 +145,10 @@
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
                             <th>
-                                @lib_lenguajes.RsDepartamentos.clNombre
+                                @lib_lenguajes.RsCiudades.clNombre
                             </th>
                             <th>
-                                @lib_lenguajes.RsDepartamentos.clPais
+                                @lib_lenguajes.RsCiudades.clDepartamento
                             </th>
                             <th class="cl_actions">
                                 @lib_lenguajes.RsMenu.lbAction
@@ -161,7 +161,7 @@
                                 <tr onmouseover="changeOver(this)"
                                     onmouseout="changeOut(this)">
                                     <td>@elemento.Nombre</td>
-                                    <td>@elemento._Pais!.Nombre</td>
+                                    <td>@elemento._Departamento!.Nombre</td>
                                     <td>
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbModicar"

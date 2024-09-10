@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="RsCiudades.Designer.cs">
+      <DependentUpon>RsCiudades.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="RsErrores.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -35,6 +40,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="RsCiudades.resx">
+      <LastGenOutput>RsCiudades.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="RsErrores.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RsErrores.Designer.cs</LastGenOutput>

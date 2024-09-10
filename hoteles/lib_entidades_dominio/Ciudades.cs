@@ -9,8 +9,7 @@ namespace lib_entidades_dominio
         public virtual string? Nombre { get; set; }
         public virtual int Departamento { get; set; }
 
-        [ForeignKey("Departamento")] public virtual Departamentos? _Departamentos { get; set; }
+        [ForeignKey("Departamento")] public virtual Departamentos? _Departamento { get; set; }
         [NotMapped] public virtual ICollection<Proveedores>? Proveedores { get; set; }
-
     }
 }

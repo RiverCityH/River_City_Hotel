@@ -1,5 +1,6 @@
 ﻿using asp_hoteles.Pages.Emergentes;
 using lib_aplicaciones.Implementaciones;
+using lib_entidades_dominio;
 using lib_repositorios;
 using lib_repositorios.Implementaciones;
 
@@ -33,6 +34,7 @@ namespace asp_hoteles
             services.AddScoped<EmpleadosAplicacion, EmpleadosAplicacion>();
             // Emergentes
             services.AddScoped<PaisesPPModel, PaisesPPModel>();
+            services.AddScoped<DepartamentosPPModel, DepartamentosPPModel>();
 
             services.AddRazorPages();
             services.AddMvc();

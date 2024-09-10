@@ -133,6 +133,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ciudades.
+        /// </summary>
+        public static string lbCiudades {
+            get {
+                return ResourceManager.GetString("lbCiudades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Departamentos.
         /// </summary>
         public static string lbDepartamentos {
@@ -232,7 +241,7 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Seleccionar.
+        ///   Looks up a localized string similar to Escoger.
         /// </summary>
         public static string lbSeleccionar {
             get {

@@ -37,6 +37,9 @@ namespace lib_aplicaciones.Implementaciones
         public Facturas Guardar(Facturas entidad)
         {
             entidad.Id = 0;
+            entidad._Persona = null;
+            entidad._MetodoPago = null;
+            entidad._Tipo = null;
             if (this.iRepositorio.Existe(
                     x => x.Numero == entidad.Numero))
             {
@@ -53,6 +56,9 @@ namespace lib_aplicaciones.Implementaciones
 
         public Facturas Modificar(Facturas entidad)
         {
+            entidad._Persona = null;
+            entidad._MetodoPago = null;
+            entidad._Tipo = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {
@@ -71,6 +77,9 @@ namespace lib_aplicaciones.Implementaciones
 
         public Facturas Borrar(Facturas entidad)
         {
+            entidad._Persona = null;
+            entidad._MetodoPago = null;
+            entidad._Tipo = null;
             if (!this.iRepositorio.Existe(
                     x => x.Id == entidad.Id))
             {

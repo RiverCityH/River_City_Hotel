@@ -265,6 +265,10 @@ namespace asp_hoteles.Pages.Ventanas
                         Actual!.MetodoPago = seleccionado.Id;
                         Actual!._MetodoPago = seleccionado;
                         break;
+                    case "TiposFacturas":
+                        Actual!.Tipo = seleccionado.Id;
+                        Actual!._Tipo = seleccionado;
+                        break;
                 }
             }
             catch (Exception ex)

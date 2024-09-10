@@ -137,7 +137,7 @@
                                 <input type="submit"
                                    value=" "
                                    asp-page-handler="BtTipos"
-                                   asp-route-data="TiposFacturas"
+                                   asp-route-data="MetodoPago"
                                    class="btn btn-secondary" />
                             </div>
                         </div>
@@ -262,7 +262,7 @@
                             {
                                 <tr onmouseover="changeOver(this)"
                                     onmouseout="changeOut(this)">
-                                    <td>@elemento.Numero!</td>
+                                    <td>@elemento.Numero</td>
                                     <td>@elemento._Persona!.Nombre</td>
                                     <td>@elemento._Tipo!.Nombre</td>
                                     <td>@elemento._MetodoPago!.Nombre</td>

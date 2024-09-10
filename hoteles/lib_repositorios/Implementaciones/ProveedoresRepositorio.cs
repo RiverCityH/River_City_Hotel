@@ -1,4 +1,5 @@
 ﻿using lib_entidades_dominio;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace lib_repositorios.Implementaciones
@@ -19,12 +20,19 @@ namespace lib_repositorios.Implementaciones
 
         public List<Proveedores> Listar()
         {
-            return conexion!.Listar<Proveedores>();
+            return conexion!.ObtenerSet<Proveedores>()
+                .Include(x => x._TipoDocumento)
+                .Include(x => x._Ciudad)
+                .ToList();
         }
 
         public List<Proveedores> Buscar(Expression<Func<Proveedores, bool>> condiciones)
         {
-            return conexion!.Buscar(condiciones);
+            return conexion!.ObtenerSet<Proveedores>()
+                .Where(condiciones)
+                .Include(x => x._TipoDocumento)
+                .Include(x => x._Ciudad)
+                .ToList();
         }
 
         public Proveedores Guardar(Proveedores entidad)

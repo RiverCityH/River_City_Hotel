@@ -1,0 +1,240 @@
+﻿@page
+@model asp_hoteles.Pages.Ventanas.ProveedoresModel
+@{
+    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbProveedores;
+}
+<center>
+    <div>
+        <form method="POST"
+            enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+
+            <div align="left">
+                <h3>@lib_lenguajes.RsMenu.lbProveedores</h3>
+            </div>
+            <div align="left"
+                class="bt_panel_buttons">
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbRefrescar"
+                    asp-page-handler="BtRefrescar"
+                    class="btn btn-secondary"
+                    disabled="@(!Model.MostrarLista)" />
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbNuevo"
+                    asp-page-handler="BtNuevo"
+                    class="btn btn-secondary"
+                    disabled="@(!Model.MostrarLista)" />
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbGuardar"
+                    asp-page-handler="BtGuardar"
+                    class="btn btn-secondary"
+                    disabled="@(Model.MostrarLista)" />
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbCancelar"
+                    asp-page-handler="BtCancelar"
+                    class="btn btn-secondary"
+                    disabled="@(Model.MostrarLista)" />
+            </div>
+            
+            @if (!Model.MostrarLista ||
+                 Model.MostrarBorrar ||
+                 ViewData.ContainsKey("Mensaje"))
+            {
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Id" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.TipoDocumento" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!._TipoDocumento!.Nombre" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Ciudad" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!._Ciudad!.Nombre" />
+            }
+            @if (Model.MostrarBorrar ||
+                 ViewData.ContainsKey("Mensaje"))
+            {
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Documento" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Nombre" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Celular" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Email" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Direccion" />
+            }
+
+            @if (!Model.MostrarLista &&
+                 !ViewData.ContainsKey("Mensaje"))
+            {
+                <div class="panel panel-default">
+                    <h3>@lib_lenguajes.RsProveedores.lbSingular</h3>
+
+                    <div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProveedores.lbTipoDocumento
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmTipoDocumentos"
+                                   disabled="disabled"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!._TipoDocumento!.Nombre" />
+                                <input type="submit"
+                                   value=" "
+                                   asp-page-handler="BtTipos"
+                                   asp-route-data="TipoDocumentos"
+                                   class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProveedores.lbDocumento
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmDocumento"
+                                    class="cts_forms form-control"
+                                    onchange="keyUp(this)"
+                                    asp-for="@Model.Actual!.Documento" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsProveedores.lbNombre
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Nombre" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbCiudad
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmCiudad"
+                                    disabled="disabled"
+                                    class="cts_forms form-control"
+                                    onchange="keyUp(this)"
+                                    asp-for="@Model.Actual!._Ciudad!.Nombre" />
+                                <input type="submit"
+                                    value=" "
+                                    asp-page-handler="BtCiudades"
+                                    class="btn btn-secondary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewData.ContainsKey("Mensaje"))
+            {
+                @await Html.PartialAsync(
+                    "../Emergentes/Mensajes.cshtml")
+            }
+
+            @if (Model.MostrarTipos)
+            {
+                <div class='popup'>
+                    <div class='pp_inner'>
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                                "../Emergentes/TiposPP.cshtml", Model.tiposPP)
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.MostrarBorrar)
+            {
+                <div class='popup'>
+                    <div class='pp_del_inner'>
+                        <div style='width:95%'>
+                            <h2 align="left">
+                                @lib_lenguajes.RsMenu.lbMensaje
+                            </h2>
+
+                            <h4 align="left">
+                                @lib_lenguajes.RsMenu.lbBorrarEntidad
+                            </h4>
+                            <h6 align="left">
+                                @Model.Actual!.Documento
+                                , &nbsp;
+                                @Model.Actual!.Nombre
+                            </h6>
+                            <br />
+                            <br />
+                            <input type="submit"
+                               value="@lib_lenguajes.RsMenu.lbBorrar"
+                               asp-page-handler="BtBorrar"
+                               class="btn btn-secondary" />
+                            <input type="submit"
+                               value="@lib_lenguajes.RsMenu.lbCerrar"
+                               asp-page-handler="BtCancelar"
+                               class="btn btn-secondary" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.MostrarLista)
+            {
+                <div class="panel panel-default">
+                    <table class="tb_data table table-striped table-bordered table-hover">
+                        <tr>
+                            <th>
+                                @lib_lenguajes.RsProveedores.clTipoDocumento
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsProveedores.clDocumento
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsProveedores.clNombre
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsProveedores.clEmail
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsProveedores.clCiudad
+                            </th>
+                            <th class="cl_actions">
+                                @lib_lenguajes.RsMenu.lbAction
+                            </th>
+                        </tr>
+                        @if (Model != null && Model.Lista != null)
+                        {
+                            @foreach (var elemento in Model.Lista)
+                            {
+                                <tr onmouseover="changeOver(this)"
+                                    onmouseout="changeOut(this)">
+                                    <td>@elemento._TipoDocumento!.Nombre</td>
+                                    <td>@elemento.Documento</td>
+                                    <td>@elemento.Nombre</td>
+                                    <td>@elemento.Email</td>
+                                    <td>@elemento._Ciudad!.Nombre</td>
+                                    <td>
+                                        <input type="submit"
+                                            value="@lib_lenguajes.RsMenu.lbModicar"
+                                            asp-page-handler="BtModificar"
+                                            class="btn btn-secondary"
+                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
+                                        <input type="submit"
+                                            value="@lib_lenguajes.RsMenu.lbBorrar"
+                                            asp-page-handler="BtBorrarVal"
+                                            class="btn btn-secondary"
+                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                </div>
+            }
+        </form>
+    </div>
+</center>

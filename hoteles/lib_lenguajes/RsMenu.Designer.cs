@@ -250,6 +250,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Proveedores.
+        /// </summary>
+        public static string lbProveedores {
+            get {
+                return ResourceManager.GetString("lbProveedores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cargar.
         /// </summary>
         public static string lbRefrescar {

@@ -8,25 +8,28 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_hoteles.Pages.Ventanas
 {
-    public class ProductosModel : PageModel
+    public class ProveedoresModel : PageModel
     {
-        private ProductosAplicacion? productosAplicacion = null;
+        private ProveedoresAplicacion? proveedoresAplicacion = null;
         public bool MostrarLista = true, 
             MostrarBorrar = false,
-            MostrarTipos = false;
+            MostrarTipos = false,
+            MostrarCiudades = false;
+        public CiudadesPPModel? ciudadesPP = null;
         public TiposPPModel? tiposPP = null; 
 
-        public ProductosModel(
-            ProductosAplicacion p_ProductosAplicacion,
+        public ProveedoresModel(
+            ProveedoresAplicacion p_ProveedoresAplicacion,
+            CiudadesPPModel p_ciudadesPP,
             TiposPPModel p_tiposPP)
         {
             try
             {
-                this.productosAplicacion = this.productosAplicacion == null ?
-                    p_ProductosAplicacion : this.productosAplicacion;
+                this.proveedoresAplicacion = this.proveedoresAplicacion == null ?
+                    p_ProveedoresAplicacion : this.proveedoresAplicacion;
                 this.tiposPP = this.tiposPP == null ?
                     p_tiposPP : this.tiposPP;
-                this.productosAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
+                this.proveedoresAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
             {
@@ -34,8 +37,8 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        [BindProperty] public Productos? Actual { get; set; }
-        [BindProperty] public List<Productos>? Lista { get; set; }
+        [BindProperty] public Proveedores? Actual { get; set; }
+        [BindProperty] public List<Proveedores>? Lista { get; set; }
 
         public bool ChequearUsuario()
         {
@@ -65,7 +68,7 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 if (!ChequearUsuario())
                     return;
-                Lista = productosAplicacion!.Listar();
+                Lista = proveedoresAplicacion!.Listar();
             }
             catch (Exception ex)
             {
@@ -80,7 +83,7 @@ namespace asp_hoteles.Pages.Ventanas
                 if (!ChequearUsuario())
                     return;
                 MostrarLista = false;
-                Actual = new Productos();
+                Actual = new Proveedores();
             }
             catch (Exception ex)
             {
@@ -111,9 +114,9 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 MostrarLista = false;
                 if (Actual!.Id == 0)
-                    Actual = productosAplicacion!.Guardar(Actual!);
+                    Actual = proveedoresAplicacion!.Guardar(Actual!);
                 else
-                    Actual = productosAplicacion!.Modificar(Actual!);
+                    Actual = proveedoresAplicacion!.Modificar(Actual!);
                 MostrarLista = true;
                 OnPostBtRefrescar();
             }
@@ -145,7 +148,7 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                Actual = productosAplicacion!.Borrar(Actual!);
+                Actual = proveedoresAplicacion!.Borrar(Actual!);
                 OnPostBtRefrescar();
             }
             catch (Exception ex)
@@ -161,6 +164,51 @@ namespace asp_hoteles.Pages.Ventanas
                 MostrarLista = true;
                 MostrarBorrar = false;
                 OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtCiudades()
+        {
+            try
+            {
+                MostrarLista = false;
+                MostrarCiudades = true;
+                if (!ChequearUsuario())
+                    return;
+                ciudadesPP!.ContextHttp = this.HttpContext;
+                ciudadesPP!.DataView = this.ViewData;
+                ciudadesPP!.OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtSelCiudad(string data)
+        {
+            try
+            {
+                MostrarLista = false;
+                if (!ChequearUsuario())
+                    return;
+                if (ciudadesPP == null)
+                    return;
+                ciudadesPP!.ContextHttp = this.HttpContext;
+                ciudadesPP!.DataView = this.ViewData;
+                ciudadesPP!.OnPostBtRefrescar();
+
+                var seleccionado = ciudadesPP!.Lista!.
+                    FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
+                if (seleccionado == null || Actual == null)
+                    return;
+                ModelState.Clear();
+                Actual!.Ciudad = seleccionado.Id;
+                Actual!._Ciudad = seleccionado;
             }
             catch (Exception ex)
             {

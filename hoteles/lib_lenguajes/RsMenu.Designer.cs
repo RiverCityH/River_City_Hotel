@@ -241,6 +241,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Productos.
+        /// </summary>
+        public static string lbProductos {
+            get {
+                return ResourceManager.GetString("lbProductos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cargar.
         /// </summary>
         public static string lbRefrescar {

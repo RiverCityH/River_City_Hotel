@@ -30,7 +30,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -52,7 +52,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
                 return false;
             }
         }
@@ -69,7 +69,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -84,7 +84,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -101,7 +101,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -119,7 +119,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -137,7 +137,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -150,7 +150,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -164,7 +164,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -182,7 +182,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -209,7 +209,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
     }

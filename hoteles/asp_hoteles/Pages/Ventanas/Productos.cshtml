@@ -1,7 +1,7 @@
 ﻿@page
 @model asp_hoteles.Pages.Ventanas.PersonasModel
 @{
-    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbPersonas;
+    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbProductos;
 }
 <center>
     <div>
@@ -10,7 +10,7 @@
             @Html.AntiForgeryToken()
 
             <div align="left">
-                <h3>@lib_lenguajes.RsMenu.lbPersonas</h3>
+                <h3>@lib_lenguajes.RsMenu.lbProductos</h3>
             </div>
             <div align="left"
                 class="bt_panel_buttons">
@@ -45,15 +45,9 @@
                 <input type="hidden"
                    asp-for="@Model.Actual!.TipoDocumento" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!._TipoDocumento!.Nombre" />
-                <input type="hidden"
                    asp-for="@Model.Actual!.Ciudad" />
                 <input type="hidden"
-                   asp-for="@Model.Actual!._Ciudad!.Nombre" />
-                <input type="hidden"
                    asp-for="@Model.Actual!.Genero" />
-                <input type="hidden"
-                   asp-for="@Model.Actual!._Genero!.Nombre" />
             }
             @if (Model.MostrarBorrar ||
                  ViewData.ContainsKey("Mensaje"))

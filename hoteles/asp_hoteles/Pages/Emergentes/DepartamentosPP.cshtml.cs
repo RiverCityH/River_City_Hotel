@@ -23,7 +23,7 @@ namespace asp_hoteles.Pages.Emergentes
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
 
@@ -40,7 +40,7 @@ namespace asp_hoteles.Pages.Emergentes
             }
             catch (Exception ex)
             {
-                LogHelper.Log(ex);
+                LogHelper.Log(ex, ViewData!);
             }
         }
     }

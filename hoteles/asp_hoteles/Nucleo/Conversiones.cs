@@ -14,9 +14,8 @@ namespace asp_hoteles.Nucleo
 
                 return EncryptHelper.Encriptar(data.ToString()!);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                LogHelper.Log(ex);
                 return string.Empty;
             }
         }
@@ -30,9 +29,8 @@ namespace asp_hoteles.Nucleo
 
                 return EncryptHelper.Desencriptar(data.ToString()!);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                LogHelper.Log(ex);
                 return string.Empty;
             }
         }

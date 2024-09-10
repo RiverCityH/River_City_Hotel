@@ -1,4 +1,5 @@
 ﻿using asp_hoteles.Nucleo;
+using asp_hoteles.Pages.Emergentes;
 using lib_aplicaciones.Implementaciones;
 using lib_entidades_dominio;
 using lib_utilidades;
@@ -7,18 +8,26 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_hoteles.Pages.Ventanas
 {
-    public class PaisesModel : PageModel
+    public class ProductosModel : PageModel
     {
-        private PaisesAplicacion? paisesAplicacion = null;
-        public bool MostrarLista = true, MostrarBorrar = false;
+        private ProductosAplicacion? ProductosAplicacion = null;
+        public bool MostrarLista = true, 
+            MostrarBorrar = false,
+            MostrarTipos = false,
+            MostrarCiudades = false;
+        public TiposPPModel? tiposPP = null; 
 
-        public PaisesModel(PaisesAplicacion p_paisesAplicacion)
+        public ProductosModel(
+            ProductosAplicacion p_ProductosAplicacion,
+            TiposPPModel p_tiposPP)
         {
             try
             {
-                this.paisesAplicacion = this.paisesAplicacion == null ?
-                    p_paisesAplicacion : this.paisesAplicacion;
-                this.paisesAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
+                this.ProductosAplicacion = this.ProductosAplicacion == null ?
+                    p_ProductosAplicacion : this.ProductosAplicacion;
+                this.tiposPP = this.tiposPP == null ?
+                    p_tiposPP : this.tiposPP;
+                this.ProductosAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
             {
@@ -26,8 +35,8 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        [BindProperty] public Paises? Actual { get; set; }
-        [BindProperty] public List<Paises>? Lista { get; set; }
+        [BindProperty] public Productos? Actual { get; set; }
+        [BindProperty] public List<Productos>? Lista { get; set; }
 
         public bool ChequearUsuario()
         {
@@ -57,7 +66,7 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 if (!ChequearUsuario())
                     return;
-                Lista = paisesAplicacion!.Listar();
+                Lista = ProductosAplicacion!.Listar();
             }
             catch (Exception ex)
             {
@@ -72,7 +81,7 @@ namespace asp_hoteles.Pages.Ventanas
                 if (!ChequearUsuario())
                     return;
                 MostrarLista = false;
-                Actual = new Paises();
+                Actual = new Productos();
             }
             catch (Exception ex)
             {
@@ -103,9 +112,9 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 MostrarLista = false;
                 if (Actual!.Id == 0)
-                    Actual = paisesAplicacion!.Guardar(Actual!);
+                    Actual = ProductosAplicacion!.Guardar(Actual!);
                 else
-                    Actual = paisesAplicacion!.Modificar(Actual!);
+                    Actual = ProductosAplicacion!.Modificar(Actual!);
                 MostrarLista = true;
                 OnPostBtRefrescar();
             }
@@ -137,7 +146,7 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                Actual = paisesAplicacion!.Borrar(Actual!);
+                Actual = ProductosAplicacion!.Borrar(Actual!);
                 OnPostBtRefrescar();
             }
             catch (Exception ex)
@@ -153,6 +162,61 @@ namespace asp_hoteles.Pages.Ventanas
                 MostrarLista = true;
                 MostrarBorrar = false;
                 OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtTipos(string data)
+        {
+            try
+            {
+                MostrarLista = false;
+                MostrarTipos = true;
+                if (!ChequearUsuario())
+                    return;
+                tiposPP!.ContextHttp = this.HttpContext;
+                tiposPP!.DataView = this.ViewData;
+                tiposPP!.DataView["Tabla"] = data;
+                tiposPP!.OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtSelTipo(string data)
+        {
+            try
+            {
+                var split = data.Split("||");
+
+                MostrarLista = false;
+                if (!ChequearUsuario())
+                    return;
+                if (tiposPP == null)
+                    return;
+                tiposPP!.ContextHttp = this.HttpContext;
+                tiposPP!.DataView = this.ViewData;
+                tiposPP!.DataView["Tabla"] = split[1].Trim();
+                tiposPP!.OnPostBtRefrescar();
+
+                var seleccionado = tiposPP!.Lista!.
+                    FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(split[0].Trim()));
+                if (seleccionado == null || Actual == null)
+                    return;
+                ModelState.Clear();
+
+                switch (split[1].Trim())
+                {
+                    case "TipoDocumentos":
+                        //Actual!.TipoDocumento = seleccionado.Id;
+                        //Actual!._TipoDocumento = seleccionado;
+                        break;
+                }
             }
             catch (Exception ex)
             {

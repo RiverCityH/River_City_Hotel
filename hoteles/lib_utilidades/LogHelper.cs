@@ -4,19 +4,19 @@ namespace lib_utilidades
 {
     public class LogHelper
     {
-        public static ILogHelper? ILogHelper = null;
-
-        public static void Log(Exception exception, bool subError = false, [CallerMemberName] string caller = "", [CallerFilePath] string file = "")
+        public static void Log(
+            Exception exception,
+            IDictionary<string, object> ViewData,
+            bool subError = false, 
+            [CallerMemberName] string caller = "", 
+            [CallerFilePath] string file = "")
         {
-            if (ILogHelper == null)
+            if (ViewData == null)
                 return;
-
-            ILogHelper.Log(exception, subError, caller, file);
+            var mensaje = exception.ToString();
+            if (mensaje.Length >= 200)
+                mensaje = mensaje.Substring(0, 200);
+            ViewData!["Mensaje"] = mensaje;
         }
-    }
-
-    public interface ILogHelper
-    {
-        void Log(Exception exception, bool subError = false, [CallerMemberName] string caller = "", [CallerFilePath] string file = "");
     }
 }

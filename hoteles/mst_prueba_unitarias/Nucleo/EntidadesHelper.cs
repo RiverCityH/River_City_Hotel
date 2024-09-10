@@ -110,5 +110,22 @@ namespace mst_prueba_unitarias.Nucleo
                 Activo = true,
             };
         }
+        public static Productos ObtenerProductos()
+        {
+            return new Productos()
+            {
+                Id = 0,
+                Codigo = "KK08980",
+                Nombre = "Sprite",
+                Valor = 30000,
+                Costo = 0,
+                Cantidad = 3,
+                FechaIngreso = DateTime.Now,
+                FechaVencimiento = DateTime.Now,
+                Lote = null,
+                Categoria = 21,
+                Proveedor = 1
+            };
+        }
     }
 }

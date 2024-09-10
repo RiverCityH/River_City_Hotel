@@ -119,6 +119,25 @@ CREATE TABLE [Facturas]
 )
 GO
 
+CREATE TABLE [Productos]
+(
+	[Id] INT NOT NULL IDENTITY (1, 1),
+	[Codigo] NVARCHAR(35) NOT NULL,
+	[Nombre] NVARCHAR(35) NOT NULL,
+	[Valor] DECIMAL(10,2) NOT NULL,
+	[Costo] DECIMAL(10,2) NOT NULL,
+	[Cantidad] DECIMAL(10,2) NOT NULL,
+	[FechaIngreso] SMALLDATETIME NOT NULL,
+	[FechaVencimiento] SMALLDATETIME NULL,
+	[Lote] NVARCHAR(35) NULL,
+	[Categoria] INT NOT NULL,
+	[Proveedor] INT NOT NULL,
+	CONSTRAINT [PK_Productos] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Productos__Categoria] FOREIGN KEY ([Categoria]) REFERENCES [Tipos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Productos__Proveedor] FOREIGN KEY ([Proveedor]) REFERENCES [Proveedores] ([Id]) ON DELETE No Action ON UPDATE No Action,
+)
+GO
+
 IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Reserva')
 BEGIN
 	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
@@ -251,6 +270,18 @@ BEGIN
 	VALUES ('Efectivo', 'MetodoPago', 0);
 END 
 
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Habitación')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Habitación', 'Categoría', 0);
+END 
+
+IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Comestibles')
+BEGIN
+	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
+	VALUES ('Comestibles', 'Categoría', 0);
+END 
+
 IF NOT EXISTS (SELECT 1 FROM [Paises] WHERE [Nombre] = 'Colombia')
 BEGIN
 	INSERT INTO [Paises] ([Nombre])
@@ -372,6 +403,23 @@ BEGIN
 	VALUES (
 		'F0254', @persona, GETDATE(), 25.20,
 		@metodopago, @tipo, 1);
+END
+
+DECLARE @proveedor INT
+DECLARE @categoria INT
+IF NOT EXISTS (SELECT 1 FROM [Productos] WHERE [Codigo] = '74917')
+BEGIN
+	SET @proveedor = (SELECT [Id] FROM [Proveedores] WHERE [Nombre] = 'Distri Hoteles');
+	SET @categoria = (SELECT [Id] FROM [Tipos] WHERE [Nombre] = 'Comestibles');
+
+	INSERT INTO [Productos] (
+		[Codigo],[Nombre],[Valor],[Costo],
+		[Cantidad],[FechaIngreso],[FechaVencimiento],
+		[Lote],[Categoria],[Proveedor])
+	VALUES (
+		'74917', 'Doritos', 2200.22, 3000,22,GETDATE(),
+		GETDATE(), 'L41244LK', @categoria,@proveedor);
+	-- GJugugs54s56df
 END
 
 SELECT * FROM Paises;

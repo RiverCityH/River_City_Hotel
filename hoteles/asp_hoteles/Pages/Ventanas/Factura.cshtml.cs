@@ -88,15 +88,7 @@ namespace asp_hoteles.Pages.Ventanas
                     Factura = id_factura,
                 };
                 Lista = detallesAplicacion!.Buscar(detalle, "Factura");
-
-                var factura = new Facturas()
-                {
-                    Id = id_factura,
-                };
-                var facturas = facturasAplicacion!.Buscar(factura, "ID");
-                if (facturas.Count < 0)
-                    return;
-                Factura = facturas.FirstOrDefault();
+                CargarFactura();
             }
             catch (Exception ex)
             {
@@ -111,6 +103,7 @@ namespace asp_hoteles.Pages.Ventanas
                 if (!ChequearUsuario())
                     return;
                 MostrarLista = false;
+                CargarFactura();
                 Actual = new Detalles();
             }
             catch (Exception ex)
@@ -141,6 +134,8 @@ namespace asp_hoteles.Pages.Ventanas
             try
             {
                 MostrarLista = false;
+                CargarFactura();
+                Actual!.Factura = Factura!.Id;
                 if (Actual!.Id == 0)
                     Actual = detallesAplicacion!.Guardar(Actual!);
                 else
@@ -237,6 +232,29 @@ namespace asp_hoteles.Pages.Ventanas
                 ModelState.Clear();
                 Actual!.Producto = seleccionado.Id;
                 Actual!._Producto = seleccionado;
+                Actual!.Valor = seleccionado.Valor;
+                CargarFactura();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            }
+        }
+
+        private void CargarFactura()
+        {
+            try
+            {
+                if (Factura != null && Factura.Id != 0)
+                    return;
+                var factura = new Facturas()
+                {
+                    Id = id_factura,
+                };
+                var facturas = facturasAplicacion!.Buscar(factura, "ID");
+                if (facturas.Count < 0)
+                    return;
+                Factura = facturas.FirstOrDefault();
             }
             catch (Exception ex)
             {

@@ -85,16 +85,146 @@
                     <div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPersonas.lbNombre
+                                @lib_lenguajes.RsPersonas.lbTipoDocumento
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txPais"
+                                   disabled="disabled"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!._TipoDocumento!.Nombre" />
+                                <input type="submit"
+                                   value=" "
+                                   asp-page-handler="BtTipoDocumentos"
+                                   class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbDocumento
                             </label>
                             <div class="col-lg-6">
                                 <input id="txNombre"
                                     class="cts_forms form-control"
                                     onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!.Nombre" />
+                                    asp-for="@Model.Actual!.Documento" />
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbNombre
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Nombre" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbFechaNacimiento
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.FechaNacimiento" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbCelular
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Celular" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbGenero
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txPais"
+                                    disabled="disabled"
+                                    class="cts_forms form-control"
+                                    onchange="keyUp(this)"
+                                    asp-for="@Model.Actual!._Genero!.Nombre" />
+                                <input type="submit"
+                                    value=" "
+                                    asp-page-handler="BtGeneros"
+                                    class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbDireccion
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Direccion" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbEmail
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbContraseña
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Contraseña" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbConfirmar
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Confirmar" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbRestablecer
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Restablecer" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbToken
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Token" />
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
                                 @lib_lenguajes.RsPersonas.lbCiudad
@@ -109,6 +239,17 @@
                                     value=" "
                                     asp-page-handler="BtCiudades"
                                     class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbActivo
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="txNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Activo" />
                             </div>
                         </div>
                     </div>

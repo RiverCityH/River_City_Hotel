@@ -50,5 +50,18 @@ namespace lib_utilidades
                 }
             }
         }
+
+        public static bool EstaEncriptado(string value)
+        {
+            try
+            {
+                Desencriptar(value);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -119,6 +119,8 @@ namespace asp_hoteles.Pages.Ventanas
             try
             {
                 MostrarLista = false;
+                if (!EncryptHelper.EstaEncriptado(Actual!.Contraseña!))
+                    Actual!.Contraseña = EncryptHelper.Encriptar(Actual!.Contraseña!);
                 if (Actual!.Id == 0)
                     Actual = PersonasAplicacion!.Guardar(Actual!);
                 else

@@ -7,6 +7,9 @@
 - git commit -am "Descripcion"
 - git push
 
+- Remover todo lo de github
+- Control Panel\User Accounts\Credential Manager
+
 # Commandos dotnet 
 - dotnet run
 - dotnet restore

@@ -248,5 +248,14 @@ namespace lib_lenguajes {
                 return ResourceManager.GetString("lbSeleccionar", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipos.
+        /// </summary>
+        public static string lbTipos {
+            get {
+                return ResourceManager.GetString("lbTipos", resourceCulture);
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@page
-@model asp_hoteles.Pages.Ventanas.PaisesModel
+@model asp_hoteles.Pages.Ventanas.TiposModel
 @{
-    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbPaises;
+    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbTipos;
 }
 <center>
     <div>
@@ -10,7 +10,7 @@
             @Html.AntiForgeryToken()
 
             <div align="left">
-                <h3>@lib_lenguajes.RsMenu.lbPaises</h3>
+                <h3>@lib_lenguajes.RsMenu.lbTipos</h3>
             </div>
             <div align="left"
                 class="bt_panel_buttons">
@@ -48,24 +48,50 @@
             {
                 <input type="hidden"
                    asp-for="@Model.Actual!.Nombre" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Tabla" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Accion" />
             }
 
             @if (!Model.MostrarLista &&
                  !ViewData.ContainsKey("Mensaje"))
             {
                 <div class="panel panel-default">
-                    <h3>@lib_lenguajes.RsPaises.lbSingular</h3>
+                    <h3>@lib_lenguajes.RsTipos.lbSingular</h3>
 
                     <div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsPaises.lbNombre
+                                @lib_lenguajes.RsTipos.lbNombre
                             </label>
                             <div class="col-lg-6">
                                 <input id="tNombre"
                                     class="cts_forms form-control"
                                     onchange="keyUp(this)"
                                     asp-for="@Model.Actual!.Nombre" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsTipos.lbTabla
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="tNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Tabla" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsTipos.lbAccion
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="tNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Accion" />
                             </div>
                         </div>
                     </div>
@@ -114,7 +140,13 @@
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
                             <th>
-                                @lib_lenguajes.RsPaises.clNombre
+                                @lib_lenguajes.RsTipos.clNombre
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsTipos.clTabla
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsTipos.clAccion
                             </th>
                             <th class="cl_actions">
                                 @lib_lenguajes.RsMenu.lbAction
@@ -127,6 +159,8 @@
                                 <tr onmouseover="changeOver(this)"
                                     onmouseout="changeOut(this)">
                                     <td>@elemento.Nombre</td>
+                                    <td>@elemento.Tabla</td>
+                                    <td>@elemento.Accion</td>
                                     <td>
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbModicar"

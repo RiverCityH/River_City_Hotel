@@ -10,28 +10,24 @@ namespace asp_hoteles.Pages.Ventanas
 {
     public class FacturaModel : PageModel
     {
-        private FacturasAplicacion? facturasAplicacion = null;
+        private DetallesAplicacion? detallesAplicacion = null;
         public bool MostrarLista = true, 
             MostrarBorrar = false,
             MostrarTipos = false,
-            MostrarPersonas = false;
-        public PersonasPPModel? personasPP = null;
-        public TiposPPModel? tiposPP = null; 
+            MostrarProductos = false;
+        public ProductosPPModel? productosPP = null;
 
         public FacturaModel(
-            FacturasAplicacion p_FacturasAplicacion,
-            PersonasPPModel p_personasPP,
-            TiposPPModel p_tiposPP)
+            DetallesAplicacion p_detallesAplicacion,
+            ProductosPPModel p_productosPP)
         {
             try
             {
-                this.facturasAplicacion = this.facturasAplicacion == null ?
-                    p_FacturasAplicacion : this.facturasAplicacion;
-                this.personasPP = this.personasPP == null ?
-                    p_personasPP : this.personasPP;
-                this.tiposPP = this.tiposPP == null ?
-                    p_tiposPP : this.tiposPP;
-                this.facturasAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
+                this.detallesAplicacion = this.detallesAplicacion == null ?
+                    p_detallesAplicacion : this.detallesAplicacion;
+                this.productosPP = this.productosPP == null ?
+                    p_productosPP : this.productosPP;
+                this.detallesAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
             {
@@ -39,8 +35,8 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        [BindProperty] public Facturas? Actual { get; set; }
-        [BindProperty] public List<Facturas>? Lista { get; set; }
+        [BindProperty] public Detalles? Actual { get; set; }
+        [BindProperty] public List<Detalles>? Lista { get; set; }
 
         public bool ChequearUsuario()
         {
@@ -70,7 +66,7 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 if (!ChequearUsuario())
                     return;
-                Lista = facturasAplicacion!.Listar();
+                Lista = detallesAplicacion!.Listar();
             }
             catch (Exception ex)
             {
@@ -85,11 +81,7 @@ namespace asp_hoteles.Pages.Ventanas
                 if (!ChequearUsuario())
                     return;
                 MostrarLista = false;
-                Actual = new Facturas()
-                {
-                    Fecha = DateTime.Now,
-                    Activo = true,
-                };
+                Actual = new Detalles();
             }
             catch (Exception ex)
             {
@@ -120,9 +112,9 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 MostrarLista = false;
                 if (Actual!.Id == 0)
-                    Actual = facturasAplicacion!.Guardar(Actual!);
+                    Actual = detallesAplicacion!.Guardar(Actual!);
                 else
-                    Actual = facturasAplicacion!.Modificar(Actual!);
+                    Actual = detallesAplicacion!.Modificar(Actual!);
                 MostrarLista = true;
                 OnPostBtRefrescar();
             }
@@ -154,7 +146,7 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                Actual = facturasAplicacion!.Borrar(Actual!);
+                Actual = detallesAplicacion!.Borrar(Actual!);
                 OnPostBtRefrescar();
             }
             catch (Exception ex)
@@ -177,17 +169,17 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public void OnPostBtPersonas()
+        public void OnPostBtProductos()
         {
             try
             {
                 MostrarLista = false;
-                MostrarPersonas = true;
+                MostrarProductos = true;
                 if (!ChequearUsuario())
                     return;
-                personasPP!.ContextHttp = this.HttpContext;
-                personasPP!.DataView = this.ViewData;
-                personasPP!.OnPostBtRefrescar();
+                productosPP!.ContextHttp = this.HttpContext;
+                productosPP!.DataView = this.ViewData;
+                productosPP!.OnPostBtRefrescar();
             }
             catch (Exception ex)
             {
@@ -195,85 +187,26 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public void OnPostBtSelPersona(string data)
+        public void OnPostBtSelProducto(string data)
         {
             try
             {
                 MostrarLista = false;
                 if (!ChequearUsuario())
                     return;
-                if (personasPP == null)
+                if (productosPP == null)
                     return;
-                personasPP!.ContextHttp = this.HttpContext;
-                personasPP!.DataView = this.ViewData;
-                personasPP!.OnPostBtRefrescar();
+                productosPP!.ContextHttp = this.HttpContext;
+                productosPP!.DataView = this.ViewData;
+                productosPP!.OnPostBtRefrescar();
 
-                var seleccionado = personasPP!.Lista!.
+                var seleccionado = productosPP!.Lista!.
                     FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
                 if (seleccionado == null || Actual == null)
                     return;
                 ModelState.Clear();
-                Actual!.Persona = seleccionado.Id;
-                Actual!._Persona = seleccionado;
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex, ViewData!);
-            }
-        }
-
-        public void OnPostBtTipos(string data)
-        {
-            try
-            {
-                MostrarLista = false;
-                MostrarTipos = true;
-                if (!ChequearUsuario())
-                    return;
-                tiposPP!.ContextHttp = this.HttpContext;
-                tiposPP!.DataView = this.ViewData;
-                tiposPP!.DataView["Tabla"] = data;
-                tiposPP!.OnPostBtRefrescar();
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex, ViewData!);
-            }
-        }
-
-        public void OnPostBtSelTipo(string data)
-        {
-            try
-            {
-                var split = data.Split("||");
-
-                MostrarLista = false;
-                if (!ChequearUsuario())
-                    return;
-                if (tiposPP == null)
-                    return;
-                tiposPP!.ContextHttp = this.HttpContext;
-                tiposPP!.DataView = this.ViewData;
-                tiposPP!.DataView["Tabla"] = split[1].Trim();
-                tiposPP!.OnPostBtRefrescar();
-
-                var seleccionado = tiposPP!.Lista!.
-                    FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(split[0].Trim()));
-                if (seleccionado == null || Actual == null)
-                    return;
-                ModelState.Clear();
-
-                switch (split[1].Trim())
-                {
-                    case "MetodoPago":
-                        Actual!.MetodoPago = seleccionado.Id;
-                        Actual!._MetodoPago = seleccionado;
-                        break;
-                    case "TiposFacturas":
-                        Actual!.Tipo = seleccionado.Id;
-                        Actual!._Tipo = seleccionado;
-                        break;
-                }
+                Actual!.Producto = seleccionado.Id;
+                Actual!._Producto = seleccionado;
             }
             catch (Exception ex)
             {

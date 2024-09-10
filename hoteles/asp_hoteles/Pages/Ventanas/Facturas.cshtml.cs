@@ -177,6 +177,21 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
+        public RedirectResult OnPostBtDetalles()
+        {
+            var url = string.Empty;
+            try
+            {
+                url = "/Ventanas/Factura?data=" +
+                   EncryptHelper.Encriptar(Actual!.Id.ToString());
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex, ViewData!);
+            }
+            return Redirect(url);
+        }
+
         public void OnPostBtPersonas()
         {
             try

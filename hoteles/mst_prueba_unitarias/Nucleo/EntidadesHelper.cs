@@ -79,8 +79,8 @@ namespace mst_prueba_unitarias.Nucleo
                 TipoSangre = 14,
                 EstadoCivil = 16
             };
-
         }
+
         public static Proveedores ObtenerProveedores()
         {
             return new Proveedores()
@@ -110,6 +110,7 @@ namespace mst_prueba_unitarias.Nucleo
                 Activo = true,
             };
         }
+
         public static Productos ObtenerProductos()
         {
             return new Productos()
@@ -127,6 +128,7 @@ namespace mst_prueba_unitarias.Nucleo
                 Proveedor = 1
             };
         }
+
         public static Detalles ObtenerDetalles()
         {
             return new Detalles()

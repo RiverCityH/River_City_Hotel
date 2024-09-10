@@ -1,0 +1,290 @@
+﻿@page
+@model asp_hoteles.Pages.Ventanas.FacturasModel
+@{
+    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbFacturas;
+}
+<center>
+    <div>
+        <form method="POST"
+            enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+
+            <div align="left">
+                <h3>@lib_lenguajes.RsMenu.lbFacturas</h3>
+            </div>
+            <div align="left"
+                class="bt_panel_buttons">
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbRefrescar"
+                    asp-page-handler="BtRefrescar"
+                    class="btn btn-secondary"
+                    disabled="@(!Model.MostrarLista)" />
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbNuevo"
+                    asp-page-handler="BtNuevo"
+                    class="btn btn-secondary"
+                    disabled="@(!Model.MostrarLista)" />
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbGuardar"
+                    asp-page-handler="BtGuardar"
+                    class="btn btn-secondary"
+                    disabled="@(Model.MostrarLista)" />
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbCancelar"
+                    asp-page-handler="BtCancelar"
+                    class="btn btn-secondary"
+                    disabled="@(Model.MostrarLista)" />
+            </div>
+            
+            @if (!Model.MostrarLista ||
+                 Model.MostrarBorrar ||
+                 ViewData.ContainsKey("Mensaje"))
+            {
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Id" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Persona" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!._Persona!.Nombre" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Tipo" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!._Tipo!.Nombre" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.MetodoPago" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!._MetodoPago!.Nombre" />
+            }
+            @if (Model.MostrarBorrar ||
+                 ViewData.ContainsKey("Mensaje"))
+            {
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Numero" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Fecha" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Total" />
+                <input type="hidden"
+                   asp-for="@Model.Actual!.Activo" />
+            }
+
+            @if (!Model.MostrarLista &&
+                 !ViewData.ContainsKey("Mensaje"))
+            {
+                <div class="panel panel-default">
+                    <h3>@lib_lenguajes.RsFacturas.lbSingular</h3>
+
+                    <div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsFacturas.lbNumero
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmNumero"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Numero" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsFacturas.lbPersona
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmPersona"
+                                   disabled="disabled"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!._Persona!.Nombre" />
+                                <input type="submit"
+                                   value=" "
+                                   asp-page-handler="BtPersonas"
+                                   class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsFacturas.lbFecha
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmFecha"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Fecha" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsFacturas.lbTotal
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmTotal"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Total" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsFacturas.lbMetodoPago
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmMetodoPago"
+                                   disabled="disabled"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!._MetodoPago!.Nombre" />
+                                <input type="submit"
+                                   value=" "
+                                   asp-page-handler="BtTipos"
+                                   asp-route-data="TiposFacturas"
+                                   class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsFacturas.lbTipo
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmTipo"
+                                   disabled="disabled"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!._Tipo!.Nombre" />
+                                <input type="submit"
+                                   value=" "
+                                   asp-page-handler="BtTipos"
+                                   asp-route-data="TiposFacturas"
+                                   class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsFacturas.lbActivo
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmActivo"
+                                   type="checkbox"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Activo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewData.ContainsKey("Mensaje"))
+            {
+                @await Html.PartialAsync(
+                    "../Emergentes/Mensajes.cshtml")
+            }
+
+            @if (Model.MostrarPersonas)
+            {
+                <div class='popup'>
+                    <div class='pp_inner'>
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                                "../Emergentes/PersonasPP.cshtml", Model.personasPP)
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.MostrarTipos)
+            {
+                <div class='popup'>
+                    <div class='pp_inner'>
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                                "../Emergentes/TiposPP.cshtml", Model.tiposPP)
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.MostrarBorrar)
+            {
+                <div class='popup'>
+                    <div class='pp_del_inner'>
+                        <div style='width:95%'>
+                            <h2 align="left">
+                                @lib_lenguajes.RsMenu.lbMensaje
+                            </h2>
+
+                            <h4 align="left">
+                                @lib_lenguajes.RsMenu.lbBorrarEntidad
+                            </h4>
+                            <h6 align="left">
+                                @Model.Actual!.Numero
+                            </h6>
+                            <br />
+                            <br />
+                            <input type="submit"
+                               value="@lib_lenguajes.RsMenu.lbBorrar"
+                               asp-page-handler="BtBorrar"
+                               class="btn btn-secondary" />
+                            <input type="submit"
+                               value="@lib_lenguajes.RsMenu.lbCerrar"
+                               asp-page-handler="BtCancelar"
+                               class="btn btn-secondary" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.MostrarLista)
+            {
+                <div class="panel panel-default">
+                    <table class="tb_data table table-striped table-bordered table-hover">
+                        <tr>
+                            <th>
+                                @lib_lenguajes.RsFacturas.clNumero
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsFacturas.clPersona
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsFacturas.clTipo
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsFacturas.clMetodoPago
+                            </th>
+                            <th>
+                                @lib_lenguajes.RsFacturas.clTotal
+                            </th>
+                            <th class="cl_actions">
+                                @lib_lenguajes.RsMenu.lbAction
+                            </th>
+                        </tr>
+                        @if (Model != null && Model.Lista != null)
+                        {
+                            @foreach (var elemento in Model.Lista)
+                            {
+                                <tr onmouseover="changeOver(this)"
+                                    onmouseout="changeOut(this)">
+                                    <td>@elemento.Numero!</td>
+                                    <td>@elemento._Persona!.Nombre</td>
+                                    <td>@elemento._Tipo!.Nombre</td>
+                                    <td>@elemento._MetodoPago!.Nombre</td>
+                                    <td>@elemento.Total</td>
+                                    <td>
+                                        <input type="submit"
+                                            value="@lib_lenguajes.RsMenu.lbModicar"
+                                            asp-page-handler="BtModificar"
+                                            class="btn btn-secondary"
+                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
+                                        <input type="submit"
+                                            value="@lib_lenguajes.RsMenu.lbBorrar"
+                                            asp-page-handler="BtBorrarVal"
+                                            class="btn btn-secondary"
+                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                </div>
+            }
+        </form>
+    </div>
+</center>

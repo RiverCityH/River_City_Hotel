@@ -37,6 +37,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="RsFacturas.Designer.cs">
+      <DependentUpon>RsFacturas.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="RsProveedores.Designer.cs">
       <DependentUpon>RsProveedores.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -87,6 +92,10 @@
     </EmbeddedResource>
     <EmbeddedResource Update="RsEmpleados.resx">
       <LastGenOutput>RsEmpleados.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RsFacturas.resx">
+      <LastGenOutput>RsFacturas.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="RsProveedores.resx">

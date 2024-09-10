@@ -1,4 +1,5 @@
 ﻿using lib_entidades_dominio;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace lib_repositorios.Implementaciones
@@ -19,12 +20,21 @@ namespace lib_repositorios.Implementaciones
 
         public List<Facturas> Listar()
         {
-            return conexion!.Listar<Facturas>();
+            return conexion!.ObtenerSet<Facturas>()
+                .Include(x => x._Persona)
+                .Include(x => x._MetodoPago)
+                .Include(x => x._Tipo)
+                .ToList();
         }
 
         public List<Facturas> Buscar(Expression<Func<Facturas, bool>> condiciones)
         {
-            return conexion!.Buscar(condiciones);
+            return conexion!.ObtenerSet<Facturas>()
+                .Where(condiciones)
+                .Include(x => x._Persona)
+                .Include(x => x._MetodoPago)
+                .Include(x => x._Tipo)
+                .ToList();
         }
 
         public Facturas Guardar(Facturas entidad)

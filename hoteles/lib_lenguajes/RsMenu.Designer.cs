@@ -169,6 +169,15 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facturas.
+        /// </summary>
+        public static string lbFacturas {
+            get {
+                return ResourceManager.GetString("lbFacturas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guardar.
         /// </summary>
         public static string lbGuardar {

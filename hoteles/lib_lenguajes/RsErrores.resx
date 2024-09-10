@@ -126,6 +126,9 @@
   <data name="lbExisteDepartamento" xml:space="preserve">
     <value>Ya existe el departamento</value>
   </data>
+  <data name="lbExisteDetalle" xml:space="preserve">
+    <value>Ya existe el detalle</value>
+  </data>
   <data name="lbExisteEmpleado" xml:space="preserve">
     <value>Ya existe el empleado</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="lbNoExisteDepartamento" xml:space="preserve">
     <value>No existe el departamento</value>
+  </data>
+  <data name="lbNoExisteDetalle" xml:space="preserve">
+    <value>No existe el detalle</value>
   </data>
   <data name="lbNoExisteEmpleado" xml:space="preserve">
     <value>No existe el empleado</value>

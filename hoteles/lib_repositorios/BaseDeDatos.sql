@@ -138,6 +138,20 @@ CREATE TABLE [Productos]
 )
 GO
 
+CREATE TABLE [Detalles]
+(
+	[Id] INT NOT NULL IDENTITY (1, 1),
+	[Factura] INT NOT NULL,
+	[Producto] INT NOT NULL,
+	[Valor] DECIMAL(10,2) NOT NULL,
+	[Cantidad] DECIMAL(10,2) NOT NULL,
+	[Total] DECIMAL(10,2) NOT NULL,
+	CONSTRAINT [PK_Detalles] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Detalles__Factura] FOREIGN KEY ([Factura]) REFERENCES [Facturas] ([Id]) ON DELETE No Action ON UPDATE No Action,
+	CONSTRAINT [FK_Detalles__Producto] FOREIGN KEY ([Producto]) REFERENCES [Productos] ([Id]) ON DELETE No Action ON UPDATE No Action,
+)
+GO
+
 IF NOT EXISTS (SELECT 1 FROM [Tipos] WHERE [Nombre] = 'Reserva')
 BEGIN
 	INSERT INTO [Tipos] ([Nombre], [Tabla], [Accion])
@@ -419,7 +433,31 @@ BEGIN
 	VALUES (
 		'74917', 'Doritos', 2200.22, 3000,22,GETDATE(),
 		GETDATE(), 'L41244LK', @categoria,@proveedor);
-	-- GJugugs54s56df
+
+END
+
+INSERT INTO [Productos] (
+		[Codigo],[Nombre],[Valor],[Costo],
+		[Cantidad],[FechaIngreso],[FechaVencimiento],
+		[Lote],[Categoria],[Proveedor])
+	VALUES (
+		'48465', 'Margarita de pollo', 2200.22, 3000,22,GETDATE(),
+		GETDATE(), 'FA4689A', 21,1);
+
+
+DECLARE @producto INT
+DECLARE @factura INT
+IF NOT EXISTS (SELECT 1 FROM [Facturas] WHERE [Numero] = '484898')
+BEGIN
+	SET @producto = (SELECT [Id] FROM [Productos] WHERE [Nombre] = 'Doritos');
+	SET @factura = (SELECT [Id] FROM [Facturas] WHERE [Numero] = 'F0254');
+
+	INSERT INTO [Detalles] (
+		[Factura],[Producto],[Valor],
+		[Cantidad],[Total])
+	VALUES (
+		@factura, @producto, 50000.05, 5, 200000.20);
+
 END
 
 SELECT * FROM Paises;
@@ -430,3 +468,4 @@ SELECT * FROM Personas;
 SELECT * FROM Empleados;
 SELECT * FROM Proveedores;
 SELECT * FROM Facturas;
+SELECT * FROM Detalles;

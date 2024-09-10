@@ -127,5 +127,17 @@ namespace mst_prueba_unitarias.Nucleo
                 Proveedor = 1
             };
         }
+        public static Detalles ObtenerDetalles()
+        {
+            return new Detalles()
+            {
+                Id = 0,
+                Factura = 1,
+                Producto = 2,
+                Valor = 3000,
+                Cantidad = 4,
+                Total = 12000
+            };
+        }
     }
 }

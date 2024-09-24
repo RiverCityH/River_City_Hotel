@@ -3,59 +3,46 @@
 @{
     ViewData["Titulo"] = lib_lenguajes.RsIndex.lbTitulo;
 }
+
 @if (!Model.EstaLogueado)
 {
-    <div class="container"
-         align="left"
-         style="width:100%">
-        <h3>
-            @lib_lenguajes.RsIndex.lbTitulo
-        </h3>
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <main class="d-flex align-items-start justify-content-center" style="height: 100vh; background-color: #FFE8E8; padding-top: 50px;">
+        <div class="container" style="width: 60%;">
+            <h3 class="text-center" style="margin-bottom: 30px;">@lib_lenguajes.RsIndex.lbTitulo</h3>
 
-        <form method="POST">
-            <div style="width:60%">
-                <div class="form-group">
-                    <label class="control-label">
-                        @lib_lenguajes.RsIndex.lbUsuario
-                    </label>
+            <form method="POST">
+                <div class="form-group text-center">
+                    <label class="control-label">@lib_lenguajes.RsIndex.lbUsuario</label>
                     <input onchange="keyUp(this)"
-                       asp-for="@Model.Email"
-                       class="form-control" />
+                           asp-for="@Model.Email"
+                           class="form-control"
+                           style="max-width: 300px; margin: auto;" />
                 </div>
-                <div class="form-group">
-                    <label class="control-label">
-                        @lib_lenguajes.RsIndex.lbContraseña
-                    </label>
+                <div class="form-group text-center" style="margin-top: 15px;">
+                    <label class="control-label">@lib_lenguajes.RsIndex.lbContraseña</label>
                     <input type="password"
-                       onchange="keyUp(this)"
-                       asp-for="@Model.Contraseña"
-                       class="form-control" />
+                           onchange="keyUp(this)"
+                           asp-for="@Model.Contraseña"
+                           class="form-control"
+                           style="max-width: 300px; margin: auto;" />
                 </div>
 
-                <input type="submit"
-                   value="@lib_lenguajes.RsMenu.lbLimpiar"
-                   asp-page-handler="BtLimpiar"
-                   class="btn btn-secondary" />
-                <input type="submit"
-                   value="@lib_lenguajes.RsMenu.lbEntrar"
-                   asp-page-handler="BtEntrar"
-                   class="btn btn-secondary" />
-            </div>
-        </form>
-    </div>
+                <div class="text-center" style="margin-top: 20px;">
+                    <input type="submit" value="@lib_lenguajes.RsMenu.lbEntrar" asp-page-handler="BtEntrar" class="btn btn-danger" />
+                </div>
+            </form>
+        </div>
+    </main>
 }
 else
 {
-    <div class="text-center">
-        <h1 class="display-4">
-            @lib_lenguajes.RsIndex.lbBienvenido
-        </h1>
-
-        <form method="POST">
-            <input type="submit"
-               value="@lib_lenguajes.RsMenu.lbCerrar"
-               asp-page-handler="BtCerrar"
-               class="btn btn-default" />
-        </form>
-    </div>
+    <main class="d-flex align-items-center justify-content-center" style="height: 100vh; background-color: #FFE8E8;">
+        <div class="text-center">
+            <h1 class="display-4">@lib_lenguajes.RsIndex.lbBienvenido</h1>
+            <form method="POST">
+                <input type="submit" value="@lib_lenguajes.RsMenu.lbCerrar" asp-page-handler="BtCerrar" class="btn btn-default" />
+            </form>
+        </div>
+    </main>
 }

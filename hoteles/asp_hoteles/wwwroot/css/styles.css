@@ -1,0 +1,27 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.custom-bg {
+    background-color: #ff6666; 
+}
+
+.main-content {
+    background-color: #FFE8E8;
+
+
+}
+
+.footer1 {
+    background-color: #FFE8E8;
+}
+header1 {
+    margin: 0%;
+}
+
+.body-bg {
+    background-color: #FFE8E8;
+}
+.modal.bg {
+    background-color: #FFF0F0;
+}

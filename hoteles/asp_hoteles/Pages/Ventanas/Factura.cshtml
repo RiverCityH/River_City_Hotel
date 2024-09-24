@@ -17,22 +17,22 @@
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbRefrescar"
                     asp-page-handler="BtRefrescar"
-                    class="btn btn-secondary"
+                    class="btn btn-danger"
                     disabled="@(!Model.MostrarLista)" />
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbNuevo"
                     asp-page-handler="BtNuevo"
-                    class="btn btn-secondary"
+                    class="btn btn-danger"
                     disabled="@(!Model.MostrarLista)" />
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbGuardar"
                     asp-page-handler="BtGuardar"
-                    class="btn btn-secondary"
+                    class="btn btn-danger"
                     disabled="@(Model.MostrarLista)" />
                 <input type="submit"
                     value="@lib_lenguajes.RsMenu.lbCancelar"
                     asp-page-handler="BtCancelar"
-                    class="btn btn-secondary"
+                    class="btn btn-danger"
                     disabled="@(Model.MostrarLista)" />
             </div>
             
@@ -124,7 +124,7 @@
                                 <input type="submit"
                                    value=" "
                                    asp-page-handler="BtProductos"
-                                   class="btn btn-secondary" />
+                                       class="btn btn-danger mt-2" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -203,11 +203,11 @@
                             <input type="submit"
                                value="@lib_lenguajes.RsMenu.lbBorrar"
                                asp-page-handler="BtBorrar"
-                               class="btn btn-secondary" />
+                               class="btn btn-danger" />
                             <input type="submit"
                                value="@lib_lenguajes.RsMenu.lbCerrar"
                                asp-page-handler="BtCancelar"
-                               class="btn btn-secondary" />
+                               class="btn btn-danger" />
                         </div>
                     </div>
                 </div>
@@ -248,12 +248,12 @@
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbModicar"
                                             asp-page-handler="BtModificar"
-                                            class="btn btn-secondary"
+                                            class="btn btn-danger"
                                             asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
                                         <input type="submit"
                                             value="@lib_lenguajes.RsMenu.lbBorrar"
                                             asp-page-handler="BtBorrarVal"
-                                            class="btn btn-secondary"
+                                            class="btn btn-danger"
                                             asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
                                     </td>
                                 </tr>

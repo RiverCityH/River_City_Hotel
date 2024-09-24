@@ -18,15 +18,20 @@
     <link rel="stylesheet"
           href="~/css/site.css" />
     <link rel="stylesheet"
+          href="~/css/styles.css" />
+    <link rel="stylesheet"
           href="~/css/buttons.css" />
     <link rel="stylesheet"
           href="~/css/colors.css" />
     <link rel="stylesheet"
           href="~/css/screens.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+<body style="background-color:#FFE8E8">
+        <main class="main-content">
+    <header >
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light custom-bg border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" 
                     asp-area="" 
@@ -117,14 +122,15 @@
             </div>
         </nav>
     </header>
+  
     <div class="container">
-        <main role="main" 
-            class="pb-3">
+        <main role="main"
+              class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer footer1 text-muted">
         <div class="container">
             &copy; @lib_lenguajes.RsMenu.lbAño - @lib_lenguajes.RsMenu.lbApp
         </div>
@@ -141,5 +147,7 @@
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)
+    </main>
 </body>
+
 </html>

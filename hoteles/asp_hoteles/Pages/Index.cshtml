@@ -11,16 +11,16 @@
 	<meta name="viewport"
 		  content="width=device-width, initial-scale=1.0" />
 	<title>River City Hotel</title>
-	<link rel="stylesheet" href="stylesC.css" />
+	<link rel="stylesheet" href="~/css/stylesC.css" />
 </head>
-<body class="bodyindex">
+<body class="body2">
 	<header class="header">
 		<a href="#" id="logo"><img src="img/mylogo.png" alt=""></a>
 		<nav class="navbar">
 			<a href="#">Inicio</a>
-			<a href="habitaciones.html">Habitaciones</a>
+			<a href="#habitaciones">Habitaciones</a>
 			<a href="#footer">Contacto</a>
-			<a href="quienessomos.html">¿Quiénes Somos?</a>
+			<a href="#quienessomos">Acerca de nosotros</a>
 		</nav>
 		<div class="icons">
 			<a href="" class="InicioSesion">Iniciar Sesión / Registrarse</a>
@@ -74,52 +74,58 @@
 			<div class="container-categories">
 				<div class="card-category category-presidencial">
 					<p>Habitación Presidencial</p>
-					<a class="habi" href="habitaciones.html">
+					<a class="habi" href="#habitaciones">
 						<span>Ver Más</span>
 					</a>
 				</div>
-				<div class="card-category category-vip">
+				<div class="card-category category-vip" >
 					<p>Habitación Vip</p>
-					<a class="habi" href="habitaciones.html">
+					<a class="habi" href="#habitaciones">
 						<span>Ver Más</span>
 					</a>
 				</div>
 				<div class="card-category category-estelar">
 					<p>Habitación Estelar</p>
-					<a class="habi" href="habitaciones.html">
+					<a class="habi" href="#habitaciones">
 						<span>Ver Más</span>
 					</a>
 				</div>
 
 				<div class="card-category category-premium">
 					<p>Habitación Premium</p>
-					<a class="habi" href="habitaciones.html">
+					<a class="habi" href="#habitaciones">
 						<span>Ver Más</span>
 					</a>
 				</div>
 				<div class="card-category category-basica">
 					<p>Habitación Básica</p>
-					<a class="habi" href="habitaciones.html">
+					<a class="habi" href="#habitaciones">
 						<span>Ver Más</span>
 					</a>
 				</div>
 			</div>
 		</section>
+		<p>
+
+		</p>
+		<p>
+
+		</p>
 
 		<section class="container top-products">
 			<h1 class="heading-1">Galería</h1>
 		</section>
 
 		<section class="gallery">
-			<img src="img/gallery1.jpg"
+			<img src="~/img/gallery1.jpg"
 				 class="gallery-img-1" />
-			<img src="img/gallery2.jpg"
+			<img src="~/img/gallery2.jpg"
 				 class="gallery-img-2" />
-			<img src="img/gallery3.jpg"
+			<img src="~/img/gallery3.jpg"
 				 class="gallery-img-3" />
-			<img src="img/gallery4.jpg"
+			<img src="~/img/gallery4.jpg"
 				 class="gallery-img-4" />
-			<img src="img/gallery5.jpg"
+			<img src="~/img/gallery5.jpg"
 				 class="gallery-img-5" />
 		</section>
 
@@ -175,6 +181,140 @@
 				</div>
 			</div>
 		</section>
+	</main>
+	<section class="container blogs">
+		<p>
+
+		</p>
+		<h1 class="heading-2" id="habitaciones">Información Habitaciones</h1>
+
+		<div class="container-blogs">
+			<div class="card-blog">
+				<div class="container-img">
+					<img src="img/presidencial-category.jpg" alt="Imagen Blog 1" />
+				</div>
+				<div class="content-blog">
+					<h3>Habitación Presidencial</h3>
+					<span>Info:</span>
+					<p>
+						Espaciosa suite con sala de estar separada, comedor, y 3 habitaciones.
+						Incluye baños lujosos, acabados de alta gama y servicios exclusivos como mayordomo y acceso privado.
+						Generalmente cuenta con una cama king size en cada habitación principal.
+						Puede alojar cómodamente de 2 a 4 personas, dependiendo de la configuración y del número de habitaciones adicionales.
+					</p>
+				</div>
+			</div>
+			<div class="card-blog">
+				<div class="container-img">
+					<img src="img/vip-category.jpg" alt="Imagen Blog 2" />
+				</div>
+				<div class="content-blog">
+					<h3>Habitación Vip</h3>
+					<span>Info:</span>
+					<p>
+						Amplia habitación con una cama king o varias camas queen, baño de mármol con jacuzzi y ducha de lujo.
+						Diseño elegante con muebles de calidad superior y vistas panorámicas. Diseñada para alojar de 2 a 3
+						personas cómodamente.
+					</p>
+				</div>
+			</div>
+			<div class="card-blog">
+				<div class="container-img">
+					<img src="img/estelar-category.jpg" alt="Imagen Blog 3" />
+				</div>
+				<div class="content-blog">
+					<h3>Habitación Estelar</h3>
+					<span>Info:</span>
+					<p>
+						Habitación de lujo con cama king o queen, baño de mármol y servicios premium como minibar
+						surtido y acceso a áreas de descanso exclusivas. Adecuada para alojar de 2 a 3 personas.
+					</p>
+				</div>
+			</div>
+			<div class="card-blog">
+				<div class="container-img">
+					<img src="img/premium-category.jpg" alt="Imagen Blog 1" />
+				</div>
+				<div class="content-blog">
+					<h3>Habitación Premium</h3>
+					<span>Info:</span>
+					<p>
+						Cómoda habitación con una o dos camas, baño bien equipado y decoración moderna.
+						Incluye servicios como wifi de alta velocidad y televisores de pantalla plana.
+						Habitación con una cama king size o dos camas individuales, ideal para 1 o 2 personas.
+					</p>
+				</div>
+			</div>
+			<div class="card-blog">
+				<div class="container-img">
+					<img src="img/basica-category.jpg" alt="Imagen Blog 2" />
+				</div>
+				<div class="content-blog">
+					<h3>Habitación Básica</h3>
+					<span>Info:</span>
+					<p>
+						Habitación funcional con una cama doble o dos camas individuales, baño estándar y
+						mobiliario sencillo. Ofrece comodidades esenciales como televisión y escritorio,
+						ideal para estancias cortas sin lujos adicionales.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container blogs">
+		<h1 class="heading-1" id="quienessomos">¿Quiénes Somos?</h1>
+
+		<div class="container-blogs">
+			<div class="card-blog">
+
+				<div class="content-blog">
+					<h3>Acerca de nosotros</h3>
+					<p>
+						En River City Hotel, nos destacamos como un oasis de lujo y comodidad en el corazón de
+						nuestra vibrante ciudad. Con una ubicación privilegiada y un diseño arquitectónico que
+						combina elegancia contemporánea con detalles sofisticados, ofrecemos a nuestros huéspedes
+						una experiencia única y memorable. Nuestro compromiso con la excelencia se refleja en cada
+						detalle, desde nuestras lujosas habitaciones hasta nuestros servicios personalizados, creando
+						un ambiente donde el bienestar y la satisfacción de nuestros huéspedes son nuestra prioridad absoluta.
+					</p>
+				</div>
+			</div>
+			<div class="card-blog">
+
+				<div class="content-blog">
+					<h3>Visión</h3>
+					<p>
+						Como líderes en la industria hotelera, nuestra visión es ser reconocidos como el destino preferido por
+						viajeros exigentes que buscan no solo alojamiento de lujo, sino una experiencia de hospitalidad verdaderamente
+						excepcional. Nos esforzamos por ser innovadores en nuestro enfoque, adoptando tecnologías avanzadas y prácticas
+						sostenibles que mejoren continuamente nuestra oferta y contribuyan positivamente a la comunidad y el medio ambiente.
+						Aspiramos a ser un lugar donde el lujo encuentre su expresión más completa en un ambiente de calidez, elegancia y
+						servicio personalizado, siendo un referente de excelencia y hospitalidad de clase mundial.
+					</p>
+				</div>
+			</div>
+			<div class="card-blog">
+
+				<div class="content-blog">
+					<h3>Misión</h3>
+					<p>
+						Nuestra misión en River City Hotel es proporcionar a nuestros huéspedes una hospitalidad
+						excepcional y un entorno que supere todas las expectativas. Nos dedicamos a ofrecer servicios
+						de alta calidad, instalaciones de primer nivel y experiencias personalizadas que conviertan cada
+						estancia en una experiencia inolvidable. Nos esforzamos por mantener un estándar de excelencia en
+						todo lo que hacemos, asegurando que cada huésped se sienta valorado, bienvenido y cuidado durante
+						su tiempo con nosotros.
+					</p>
+				</div>
+			</div>
+		</div>
+		<p>
+
+		</p>
+		<p>
+
+		</p>
+	</section>
 	</main>
 
 	<footer class="footer" id="footer">
@@ -234,6 +374,7 @@
 					<ul>
 						<li><a href="#">Mi cuenta</a></li>
 						<li><a href="">Reservas</a></li>
+						<a alt="Administracion" href="/Admin"><i class="fa-solid fa-user"></i></a>
 					</ul>
 				</div>
 
@@ -257,7 +398,7 @@
 					Desarrollado para Servicio Nacional de Aprendizaje &copy; 2024
 				</p>
 
-				<img src="img/payment.png" alt="Pagos">
+				<img src="~/css/img/payment.png">
 			</div>
 		</div>
 	</footer>

@@ -13,7 +13,8 @@
 
             <form method="POST">
                 <div class="form-group text-center">
-                    <label class="control-label">@lib_lenguajes.RsAdmin.lbUsuario</label>
+                    <label class="control-label">@lib_lenguajes.RsIndex.lbUsuario</label>
+                    <label class="control-label">@lib_lenguajes.RsIndex.lbUsuario</label>
                     <input onchange="keyUp(this)"
                            asp-for="@Model.Email"
                            class="form-control"
@@ -39,7 +40,7 @@ else
 {
     <main class="d-flex align-items-center justify-content-center" style="height: 100vh; background-color: #FFE8E8;">
         <div class="text-center">
-            <h1 class="display-4">@lib_lenguajes.RsAdmin.lbBienvenido</h1>
+            <h1 class="display-4">@lib_lenguajes.RsIndex.lbBienvenido</h1>
             <form method="POST">
                 <input type="submit" value="@lib_lenguajes.RsMenu.lbCerrar" asp-page-handler="BtCerrar" class="btn btn-default" />
             </form>

@@ -12,7 +12,7 @@
             <input type="submit"
                 value="@lib_lenguajes.RsMenu.lbRefrescar"
                 asp-page-handler="BtPaises"
-                class="btn btn-secondary" />
+                class="btn btn-danger" />
         </div>
             
         @if (ViewData.ContainsKey("Mensaje"))
@@ -46,7 +46,7 @@
                                 <input type="submit"
                                     value="@lib_lenguajes.RsMenu.lbSeleccionar"
                                     asp-page-handler="BtSelProveedor"
-                                    class="btn btn-secondary"
+                                    class="btn btn-danger"
                                     asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
                             </td>
                         </tr>

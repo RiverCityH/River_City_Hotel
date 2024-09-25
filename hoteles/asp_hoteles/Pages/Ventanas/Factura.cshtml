@@ -174,7 +174,7 @@
             @if (Model.MostrarProductos)
             {
                 <div class='popup'>
-                    <div class='pp_inner'>
+                    <div class='pp_inner' style="background-color:#FFF0F0;">
                         <div style='width:95%'>
                             @await Html.PartialAsync(
                                 "../Emergentes/ProductosPP.cshtml", Model.productosPP)
@@ -186,7 +186,7 @@
             @if (Model.MostrarBorrar)
             {
                 <div class='popup'>
-                    <div class='pp_del_inner'>
+                    <div class='pp_del_inner' style="background-color:#FFF0F0;">
                         <div style='width:95%'>
                             <h2 align="left">
                                 @lib_lenguajes.RsMenu.lbMensaje

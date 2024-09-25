@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -17,10 +17,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RsErrores.resx</DependentUpon>
     </Compile>
-    <Compile Update="RsIndex.Designer.cs">
+    <Compile Update="RsAdmin.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>RsIndex.resx</DependentUpon>
+      <DependentUpon>RsAdmin.resx</DependentUpon>
     </Compile>
     <Compile Update="RsMenu.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -83,9 +83,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RsErrores.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="RsIndex.resx">
+    <EmbeddedResource Update="RsAdmin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RsIndex.Designer.cs</LastGenOutput>
+      <LastGenOutput>RsAdmin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="RsMenu.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

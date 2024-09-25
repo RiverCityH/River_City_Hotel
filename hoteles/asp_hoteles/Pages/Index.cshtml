@@ -1,48 +1,265 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Titulo"] = lib_lenguajes.RsIndex.lbTitulo;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0" />
+	<title>River City Hotel</title>
+	<link rel="stylesheet" href="stylesC.css" />
+</head>
+<body class="bodyindex">
+	<header class="header">
+		<a href="#" id="logo"><img src="img/mylogo.png" alt=""></a>
+		<nav class="navbar">
+			<a href="#">Inicio</a>
+			<a href="habitaciones.html">Habitaciones</a>
+			<a href="#footer">Contacto</a>
+			<a href="quienessomos.html">¿Quiénes Somos?</a>
+		</nav>
+		<div class="icons">
+			<a href="" class="InicioSesion">Iniciar Sesión / Registrarse</a>
+		</div>
 
-@if (!Model.EstaLogueado)
-{
-    <link rel="stylesheet" href="~/css/styles.css" />
-    <main class="d-flex align-items-start justify-content-center" style="height: 100vh; background-color: #FFE8E8; padding-top: 50px;">
-        <div class="container" style="width: 60%;">
-            <h3 class="text-center" style="margin-bottom: 30px;">@lib_lenguajes.RsIndex.lbTitulo</h3>
 
-            <form method="POST">
-                <div class="form-group text-center">
-                    <label class="control-label">@lib_lenguajes.RsIndex.lbUsuario</label>
-                    <input onchange="keyUp(this)"
-                           asp-for="@Model.Email"
-                           class="form-control"
-                           style="max-width: 300px; margin: auto;" />
-                </div>
-                <div class="form-group text-center" style="margin-top: 15px;">
-                    <label class="control-label">@lib_lenguajes.RsIndex.lbContraseña</label>
-                    <input type="password"
-                           onchange="keyUp(this)"
-                           asp-for="@Model.Contraseña"
-                           class="form-control"
-                           style="max-width: 300px; margin: auto;" />
-                </div>
+	</header>
 
-                <div class="text-center" style="margin-top: 20px;">
-                    <input type="submit" value="@lib_lenguajes.RsMenu.lbEntrar" asp-page-handler="BtEntrar" class="btn btn-danger" />
-                </div>
-            </form>
-        </div>
-    </main>
-}
-else
-{
-    <main class="d-flex align-items-center justify-content-center" style="height: 100vh; background-color: #FFE8E8;">
-        <div class="text-center">
-            <h1 class="display-4">@lib_lenguajes.RsIndex.lbBienvenido</h1>
-            <form method="POST">
-                <input type="submit" value="@lib_lenguajes.RsMenu.lbCerrar" asp-page-handler="BtCerrar" class="btn btn-default" />
-            </form>
-        </div>
-    </main>
-}
+	<section class="banner">
+		<div class="content-banner">
+			<p>River City Hotel</p>
+			<h2>100% Calidad <br />La mejor comodidad</h2>
+			<a href="reservas.html">Reservar ahora</a>
+		</div>
+	</section>
+
+	<main class="main-content">
+		<section class="container container-features">
+			<div class="card-feature">
+				<i class="fa-solid fa-location-dot"></i>
+				<div class="feature-content">
+					<span>Ubicación estratégica</span>
+					<p>Se garantiza una experiencia particular</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-wallet"></i>
+				<div class="feature-content">
+					<span>Contrareembolso</span>
+					<p>100% garantía de devolución de dinero</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-bed"></i>
+				<div class="feature-content">
+					<span>Comfort asegurado</span>
+					<p>Las mejores habitaciones que encontrarás</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-phone"></i>
+				<div class="feature-content">
+					<span>Servicio al cliente 24/7</span>
+					<p>LLámenos 24/7 al 123-456-7890</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="container top-categories">
+			<h1 class="heading-1">Habitaciones</h1>
+			<div class="container-categories">
+				<div class="card-category category-presidencial">
+					<p>Habitación Presidencial</p>
+					<a class="habi" href="habitaciones.html">
+						<span>Ver Más</span>
+					</a>
+				</div>
+				<div class="card-category category-vip">
+					<p>Habitación Vip</p>
+					<a class="habi" href="habitaciones.html">
+						<span>Ver Más</span>
+					</a>
+				</div>
+				<div class="card-category category-estelar">
+					<p>Habitación Estelar</p>
+					<a class="habi" href="habitaciones.html">
+						<span>Ver Más</span>
+					</a>
+				</div>
+
+				<div class="card-category category-premium">
+					<p>Habitación Premium</p>
+					<a class="habi" href="habitaciones.html">
+						<span>Ver Más</span>
+					</a>
+				</div>
+				<div class="card-category category-basica">
+					<p>Habitación Básica</p>
+					<a class="habi" href="habitaciones.html">
+						<span>Ver Más</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="container top-products">
+			<h1 class="heading-1">Galería</h1>
+		</section>
+
+		<section class="gallery">
+			<img src="img/gallery1.jpg"
+				 class="gallery-img-1" />
+			<img src="img/gallery2.jpg"
+				 class="gallery-img-2" />
+			<img src="img/gallery3.jpg"
+				 class="gallery-img-3" />
+			<img src="img/gallery4.jpg"
+				 class="gallery-img-4" />
+			<img src="img/gallery5.jpg"
+				 class="gallery-img-5" />
+		</section>
+
+
+		<section class="container blogs">
+			<h1 class="heading-1">Servicios</h1>
+
+			<div class="container-blogs">
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="img/blog-1.jpg" alt="Imagen Blog 1" />
+					</div>
+					<div class="content-blog">
+						<h3>Servicio Gimnasio</h3>
+						<span>Info:</span>
+						<p>
+							El gimnasio del hotel está equipado con máquinas modernas de cardio y fuerza,
+							ideal para todo tipo de entrenamiento. Ofrece un ambiente cómodo y bien iluminado,
+							con asistencia de instructores capacitados. Se proporcionan toallas limpias y agua
+							fresca para una experiencia de ejercicio completa y confortable.
+						</p>
+					</div>
+				</div>
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="img/blog-2.jpg" alt="Imagen Blog 2" />
+					</div>
+					<div class="content-blog">
+						<h3>Servicio Restaurante</h3>
+						<span>Info:</span>
+						<p>
+							El restaurante del hotel ofrece una experiencia gastronómica excepcional con un menú
+							variado que combina sabores locales e internacionales. El ambiente es acogedor y elegante,
+							perfecto para disfrutar de desayunos, almuerzos y cenas. Nuestro equipo de chefs expertos
+							se esfuerza por utilizar ingredientes frescos y de alta calidad en cada plato, asegurando
+							una experiencia culinaria memorable para todos nuestros huéspedes.
+						</p>
+					</div>
+				</div>
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="img/blog-3.jpg" alt="Imagen Blog 3" />
+					</div>
+					<div class="content-blog">
+						<h3>Servicio Coworking</h3>
+						<span>Info:</span>
+						<p>
+							El espacio de coworking del hotel ofrece un ambiente profesional con tecnología moderna y WiFi rápido.
+							Ideal para trabajar eficientemente, cuenta con áreas cómodas, salas de reuniones equipadas y servicios
+							como café y snacks. Perfecto para profesionales en movimiento.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer" id="footer">
+		<div class="container container-footer">
+			<div class="menu-footer">
+				<div class="contact-info">
+					<p class="title-footer">Información de Contacto</p>
+					<ul>
+						<li>
+							Dirección: 71 Pennington Lane Vernon Rockville, CT
+							06066
+						</li>
+						<li>Teléfono: 3023821470</li>
+						<li>EmaiL: rivercityhotel85@gmail.com</li>
+					</ul>
+					<div class="social-icons">
+						<a href="https://www.facebook.com/?locale=es_LA" class="iconosredes">
+							<span class="facebook">
+								<i class="fa-brands fa-facebook-f"></i>
+							</span>
+						</a>
+						<a href="https://x.com/?lang=es_LA" class="iconosredes">
+							<span class="twitter">
+								<i class="fa-brands fa-twitter"></i>
+							</span>
+						</a>
+						<a href="https://www.youtube.com" class="iconosredes">
+							<span class="youtube">
+								<i class="fa-brands fa-youtube"></i>
+							</span>
+						</a>
+						<a href="https://co.pinterest.com" class="iconosredes">
+							<span class="pinterest">
+								<i class="fa-brands fa-pinterest-p"></i>
+							</span>
+						</a>
+						<a href="https://www.instagram.com" class="iconosredes">
+							<span class="instagram">
+								<i class="fa-brands fa-instagram"></i>
+							</span>
+						</a>
+
+
+					</div>
+				</div>
+
+				<div class="information">
+					<p class="title-footer">Información</p>
+					<ul>
+						<li><a href="quienessomos.html">Acerca de Nosotros</a></li>
+					</ul>
+				</div>
+
+				<div class="my-account">
+					<p class="title-footer">Mi cuenta</p>
+
+					<ul>
+						<li><a href="#">Mi cuenta</a></li>
+						<li><a href="">Reservas</a></li>
+					</ul>
+				</div>
+
+				<div class="newsletter">
+					<p class="title-footer">Contáctanos</p>
+
+					<div class="content">
+						<p>
+							Escribe tu email y mándanos tus inquietudes
+							y recomendaciones.
+						</p>
+						<input type="email" placeholder="Ingresa el correo aquí...">
+						<input type="text" placeholder="Ingresa tu inquietud aquí...">
+						<button>Enviar</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="copyright">
+				<p>
+					Desarrollado para Servicio Nacional de Aprendizaje &copy; 2024
+				</p>
+
+				<img src="img/payment.png" alt="Pagos">
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"></script>
+</body>
+</html>

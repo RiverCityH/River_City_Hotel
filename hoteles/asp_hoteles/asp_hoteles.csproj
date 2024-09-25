@@ -15,4 +15,11 @@
     <ProjectReference Include="..\lib_utilidades\lib_utilidades.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

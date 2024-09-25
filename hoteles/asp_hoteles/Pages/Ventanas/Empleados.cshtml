@@ -215,7 +215,7 @@
             @if (Model.MostrarPersonas)
             {
                 <div class='popup'>
-                    <div class='pp_inner'>
+                    <div class='pp_inner' style="background-color:#FFF0F0;">
                         <div style='width:95%'>
                             @await Html.PartialAsync(
                                 "../Emergentes/PersonasPP.cshtml", Model.personasPP)
@@ -226,7 +226,7 @@
             @if (Model.MostrarTipos)
             {
                 <div class='popup'>
-                    <div class='pp_inner'>
+                    <div class='pp_inner' style="background-color:#FFF0F0;">
                         <div style='width:95%'>
                             @await Html.PartialAsync(
                                 "../Emergentes/TiposPP.cshtml", Model.tiposPP)

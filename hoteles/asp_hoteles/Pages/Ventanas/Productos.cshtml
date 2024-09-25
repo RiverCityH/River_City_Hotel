@@ -212,7 +212,7 @@
             @if (Model.MostrarProveedores)
             {
                 <div class='popup'>
-                    <div class='pp_inner'>
+                    <div class='pp_inner' style="background-color:#FFF0F0;">
                         <div style='width:95%'>
                             @await Html.PartialAsync(
                                 "../Emergentes/ProveedoresPP.cshtml", Model.proveedoresPP)
@@ -223,7 +223,7 @@
             @if (Model.MostrarTipos)
             {
                 <div class='popup'>
-                    <div class='pp_inner'>
+                    <div class='pp_inner' style="background-color:#FFF0F0;">
                         <div style='width:95%'>
                             @await Html.PartialAsync(
                                 "../Emergentes/TiposPP.cshtml", Model.tiposPP)
@@ -235,7 +235,7 @@
             @if (Model.MostrarBorrar)
             {
                 <div class='popup'>
-                    <div class='pp_del_inner'>
+                    <div class='pp_del_inner' style="background-color:#FFF0F0;">
                         <div style='width:95%'>
                             <h2 align="left">
                                 @lib_lenguajes.RsMenu.lbMensaje

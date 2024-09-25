@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_hoteles.Pages
 {
-    public class IndexModel : PageModel
+    public class AdminModel : PageModel
     {
         private PersonasAplicacion? personasAplicacion = null;
         public bool EstaLogueado = false;
 
-        public IndexModel(PersonasAplicacion p_personasAplicacion)
+        public AdminModel(PersonasAplicacion p_personasAplicacion)
         {
             try
             {

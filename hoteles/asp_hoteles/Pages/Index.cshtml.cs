@@ -7,5 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_hoteles.Pages
 {
-   
+    public class IndexModel : PageModel
+    {
+       
+    }
 }

@@ -2,7 +2,7 @@
 @{
 
 }
-<center>
+<center style="background-color:#FFF0F0;">
     <div>
         <div align="left">
             <h3>@lib_lenguajes.RsMenu.lbTipos</h3>
@@ -12,7 +12,7 @@
             <input type="submit"
                 value="@lib_lenguajes.RsMenu.lbRefrescar"
                 asp-page-handler="BtPaises"
-                class="btn btn-secondary" />
+                class="btn btn-danger" />
         </div>
             
         @if (ViewData.ContainsKey("Mensaje"))
@@ -21,7 +21,7 @@
                 "../Emergentes/Mensajes.cshtml")
         }
 
-        <div class="panel panel-default">
+        <div class="panel panel-default" >
             <table class="tb_data table table-striped table-bordered table-hover">
                 <tr>
                     <th>
@@ -42,7 +42,7 @@
                                 <input type="submit"
                                     value="@lib_lenguajes.RsMenu.lbSeleccionar"
                                     asp-page-handler="BtSelTipo"
-                                    class="btn btn-secondary"
+                                    class="btn btn-danger"
                                     asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id) || @Model.DataView!["Tabla"]!.ToString() "/>
                             </td>
                         </tr>

@@ -30,7 +30,7 @@ namespace lib_aplicaciones.Implementaciones
             {
                 case "DOCUMENTO": condiciones = x => x.Documento == entidad.Documento; break;
                 case "NOMBRE": condiciones = x => x.Nombre == entidad.Nombre; break;
-                case "LOGIN": condiciones = x => x.Email == entidad.Email && x.Contraseña == entidad.Contraseña && x.Activo; break;
+                case "LOGIN": condiciones = x => x.Email == entidad.Email && x.Contraseña == entidad.Contraseña && x.Activo && x.Confirmar; break;
                 default: condiciones = x => x.Id != 0; break;
             }
             return this.iRepositorio.Buscar(condiciones);

@@ -6,32 +6,35 @@ using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace asp_hoteles.Pages.Ventanas
+namespace asp_hoteles.Pages
 {
-    public class ProveedoresModel : PageModel
+    public class RegistrarseModel : PageModel
     {
-        private ProveedoresAplicacion? proveedoresAplicacion = null;
-        public bool MostrarLista = true, 
-            MostrarBorrar = false,
-            MostrarTipos = false,
+        private PersonasAplicacion? PersonasAplicacion = null;
+        public bool MostrarTipos = false,
             MostrarCiudades = false;
         public CiudadesPPModel? ciudadesPP = null;
-        public TiposPPModel? tiposPP = null; 
+        public TiposPPModel? tiposPP = null;
 
-        public ProveedoresModel(
-            ProveedoresAplicacion p_ProveedoresAplicacion,
+        public RegistrarseModel(
+            PersonasAplicacion p_PersonasAplicacion,
             CiudadesPPModel p_ciudadesPP,
             TiposPPModel p_tiposPP)
         {
             try
             {
-                this.proveedoresAplicacion = this.proveedoresAplicacion == null ?
-                    p_ProveedoresAplicacion : this.proveedoresAplicacion;
-                this.tiposPP = this.tiposPP == null ?
-                    p_tiposPP : this.tiposPP;
+                this.PersonasAplicacion = this.PersonasAplicacion == null ?
+                    p_PersonasAplicacion : this.PersonasAplicacion;
                 this.ciudadesPP = this.ciudadesPP == null ?
                     p_ciudadesPP : this.ciudadesPP;
-                this.proveedoresAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
+                this.tiposPP = this.tiposPP == null ?
+                    p_tiposPP : this.tiposPP;
+                this.PersonasAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
+                Actual = new Personas() 
+                { 
+                    FechaNacimiento = DateTime.Now,
+                    Activo = true
+                };
             }
             catch (Exception ex)
             {
@@ -39,8 +42,7 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        [BindProperty] public Proveedores? Actual { get; set; }
-        [BindProperty] public List<Proveedores>? Lista { get; set; }
+        [BindProperty] public Personas? Actual { get; set; }
 
         public bool ChequearUsuario()
         {
@@ -63,110 +65,21 @@ namespace asp_hoteles.Pages.Ventanas
             }
         }
 
-        public virtual void OnGet() { OnPostBtRefrescar(); }
-
-        public void OnPostBtRefrescar()
-        {
-            try
-            {
-                if (!ChequearUsuario())
-                    return;
-                Lista = proveedoresAplicacion!.Listar();
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex, ViewData!);
-            }
-        }
-
-        public virtual void OnPostBtNuevo()
-        {
-            try
-            {
-                if (!ChequearUsuario())
-                    return;
-                MostrarLista = false;
-                Actual = new Proveedores();
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex, ViewData!);
-            }
-        }
-
-        public virtual void OnPostBtModificar(string data)
-        {
-            try
-            {
-                if (!ChequearUsuario())
-                    return;
-                MostrarLista = false;
-                OnPostBtRefrescar();
-                Actual = Lista!
-                    .FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex, ViewData!);
-            }
-        }
+        public virtual void OnGet() { }
 
         public virtual void OnPostBtGuardar()
         {
             try
             {
-                MostrarLista = false;
+                if (!EncryptHelper.EstaEncriptado(Actual!.Contraseña!))
+                    Actual!.Contraseña = EncryptHelper.Encriptar(Actual!.Contraseña!);
+
+                Actual!.Token = EncryptHelper.Encriptar(Actual!.Email + DateTime.Now.ToString());
                 if (Actual!.Id == 0)
-                    Actual = proveedoresAplicacion!.Guardar(Actual!);
-                else
-                    Actual = proveedoresAplicacion!.Modificar(Actual!);
-                MostrarLista = true;
-                OnPostBtRefrescar();
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex, ViewData!);
-            }
-        }
+                    Actual = PersonasAplicacion!.Guardar(Actual!);
 
-        public virtual void OnPostBtBorrarVal(string data)
-        {
-            try
-            {
-                if (!ChequearUsuario())
-                    return;
-                MostrarBorrar = true;
-                ViewData!["MostrarLista"] = MostrarLista;
-                OnPostBtRefrescar();
-                Actual = Lista!
-                    .FirstOrDefault(x => x.Id.ToString() == EsconderID.Desencriptar(data));
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex, ViewData!);
-            }
-        }
-
-        public virtual void OnPostBtBorrar()
-        {
-            try
-            {
-                Actual = proveedoresAplicacion!.Borrar(Actual!);
-                OnPostBtRefrescar();
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex, ViewData!);
-            }
-        }
-
-        public void OnPostBtCancelar()
-        {
-            try
-            {
-                MostrarLista = true;
-                MostrarBorrar = false;
-                OnPostBtRefrescar();
+                EmailHelper.SendEmail("rivercityhotel85@gmail.com", "riverhotel.1234", Actual!.Email, null, "Verificacion de cuenta",
+                    Actual!.Token!);
             }
             catch (Exception ex)
             {
@@ -178,10 +91,7 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                MostrarLista = false;
                 MostrarCiudades = true;
-                if (!ChequearUsuario())
-                    return;
                 ciudadesPP!.ContextHttp = this.HttpContext;
                 ciudadesPP!.DataView = this.ViewData;
                 ciudadesPP!.OnPostBtRefrescar();
@@ -196,9 +106,6 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                MostrarLista = false;
-                if (!ChequearUsuario())
-                    return;
                 if (ciudadesPP == null)
                     return;
                 ciudadesPP!.ContextHttp = this.HttpContext;
@@ -223,10 +130,7 @@ namespace asp_hoteles.Pages.Ventanas
         {
             try
             {
-                MostrarLista = false;
                 MostrarTipos = true;
-                if (!ChequearUsuario())
-                    return;
                 tiposPP!.ContextHttp = this.HttpContext;
                 tiposPP!.DataView = this.ViewData;
                 tiposPP!.DataView["Tabla"] = data;
@@ -244,9 +148,6 @@ namespace asp_hoteles.Pages.Ventanas
             {
                 var split = data.Split("||");
 
-                MostrarLista = false;
-                if (!ChequearUsuario())
-                    return;
                 if (tiposPP == null)
                     return;
                 tiposPP!.ContextHttp = this.HttpContext;
@@ -265,6 +166,10 @@ namespace asp_hoteles.Pages.Ventanas
                     case "TipoDocumentos":
                         Actual!.TipoDocumento = seleccionado.Id;
                         Actual!._TipoDocumento = seleccionado;
+                        break;
+                    case "Generos":
+                        Actual!.Genero = seleccionado.Id;
+                        Actual!._Genero = seleccionado;
                         break;
                 }
             }

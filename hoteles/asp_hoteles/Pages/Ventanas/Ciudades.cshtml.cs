@@ -48,6 +48,7 @@ namespace asp_hoteles.Pages.Ventanas
                     return false;
                 }
                 ViewData!["Logueado"] = true;
+                ViewData["Rol"] = HttpContext!.Session.GetObject<string>("Rol");
                 return true;
             }
             catch (Exception ex)

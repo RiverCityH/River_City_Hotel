@@ -344,7 +344,7 @@ BEGIN
 	VALUES (
 		@tipo_documento, '4561321', 'Juan Esteban Rios',GETDATE(), 
 		'3004567852',@genero, 'Cra 75 # 24 - 16', 'juan@email.com',
-		'R3PkoE6RJmq6Q42lhfKzmQ==', 0, 0, NULL, @ciudad, 1);
+		'R3PkoE6RJmq6Q42lhfKzmQ==', 1, 0, NULL, @ciudad, 1);
 	-- GJugugs54s56df
 END
 
@@ -361,7 +361,7 @@ BEGIN
 	VALUES (
 		@tipo_documento, '134588', 'Persona de prueba',GETDATE(), 
 		'3004567852',@genero, 'Cra 75 # 24 - 16', 'test@email.com',
-		'Wya7ZA1yjymnqyhiS1/FmQ==', 0, 0, NULL, @ciudad, 1);
+		'Wya7ZA1yjymnqyhiS1/FmQ==', 1, 0, NULL, @ciudad, 1);
 	-- dfg654Iiu76877
 END
 

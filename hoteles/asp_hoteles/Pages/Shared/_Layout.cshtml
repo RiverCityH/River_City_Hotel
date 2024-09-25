@@ -35,7 +35,7 @@
             <div class="container">
                 <a class="navbar-brand" 
                     asp-area="" 
-                    asp-page="/Index">
+                    asp-page="/Admin">
                     @lib_lenguajes.RsMenu.lbApp
                 </a>
                 <button class="navbar-toggler" 
@@ -53,69 +53,127 @@
                     <ul class="navbar-nav flex-grow-1">
                         @if (ViewData.ContainsKey("Logueado"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" 
-                                    asp-area="" 
-                                    asp-page="/Ventanas/Paises">
-                                    @lib_lenguajes.RsMenu.lbPaises
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" 
-                                    asp-area="" 
-                                    asp-page="/Ventanas/Departamentos">
-                                    @lib_lenguajes.RsMenu.lbDepartamentos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" 
-                                    asp-area="" 
-                                    asp-page="/Ventanas/Ciudades">
-                                    @lib_lenguajes.RsMenu.lbCiudades
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" 
-                                    asp-area="" 
-                                    asp-page="/Ventanas/Tipos">
-                                    @lib_lenguajes.RsMenu.lbTipos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" 
-                                    asp-area="" 
-                                    asp-page="/Ventanas/Personas">
-                                    @lib_lenguajes.RsMenu.lbPersonas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/Empleados">
-                                    @lib_lenguajes.RsMenu.lbEmpleados
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/Proveedores">
-                                    @lib_lenguajes.RsMenu.lbProveedores
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" 
-                                    asp-area="" 
-                                    asp-page="/Ventanas/Productos">
-                                    @lib_lenguajes.RsMenu.lbProductos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" 
-                                    asp-area="" 
-                                    asp-page="/Ventanas/Facturas">
-                                    @lib_lenguajes.RsMenu.lbFacturas
-                                </a>
-                            </li>
+                            if (ViewData.ContainsKey("Rol") && ViewData["Rol"].ToString() == "0")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Paises">
+                                        @lib_lenguajes.RsMenu.lbPaises
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Departamentos">
+                                        @lib_lenguajes.RsMenu.lbDepartamentos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Ciudades">
+                                        @lib_lenguajes.RsMenu.lbCiudades
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Tipos">
+                                        @lib_lenguajes.RsMenu.lbTipos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Personas">
+                                        @lib_lenguajes.RsMenu.lbPersonas
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Empleados">
+                                        @lib_lenguajes.RsMenu.lbEmpleados
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Proveedores">
+                                        @lib_lenguajes.RsMenu.lbProveedores
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Productos">
+                                        @lib_lenguajes.RsMenu.lbProductos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Facturas">
+                                        @lib_lenguajes.RsMenu.lbFacturas
+                                    </a>
+                                </li>
+                            }
+                            if (ViewData.ContainsKey("Rol") && ViewData["Rol"].ToString() == "1")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Tipos">
+                                        @lib_lenguajes.RsMenu.lbTipos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Personas">
+                                        @lib_lenguajes.RsMenu.lbPersonas
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Empleados">
+                                        @lib_lenguajes.RsMenu.lbEmpleados
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Proveedores">
+                                        @lib_lenguajes.RsMenu.lbProveedores
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Productos">
+                                        @lib_lenguajes.RsMenu.lbProductos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Facturas">
+                                        @lib_lenguajes.RsMenu.lbFacturas
+                                    </a>
+                                </li>
+                            }
+                            if (ViewData.ContainsKey("Rol") && ViewData["Rol"].ToString() == "2")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                        asp-area=""
+                                        asp-page="/Ventanas/Facturas">
+                                        @lib_lenguajes.RsMenu.lbFacturas
+                                    </a>
+                                </li>
+                            }
                         }
                     </ul>
                 </div>

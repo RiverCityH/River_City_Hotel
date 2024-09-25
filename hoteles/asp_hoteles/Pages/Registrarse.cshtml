@@ -1,0 +1,210 @@
+﻿@page
+@model asp_hoteles.Pages.RegistrarseModel
+@{
+    ViewData["Titulo"] = lib_lenguajes.RsMenu.lbPersonas;
+}
+<center>
+    <div>
+        <form method="POST"
+            enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+
+            <div align="left">
+                <h3>@lib_lenguajes.RsMenu.lbPersonas</h3>
+            </div>
+            <div align="left"
+                class="bt_panel_buttons">
+                <input type="submit"
+                    value="@lib_lenguajes.RsMenu.lbGuardar"
+                    asp-page-handler="BtGuardar"
+                    class="btn btn-danger" />
+            </div>
+            
+            
+            <input type="hidden"
+                asp-for="@Model.Actual!.Id" />
+            <input type="hidden"
+                asp-for="@Model.Actual!.TipoDocumento" />
+            <input type="hidden"
+                asp-for="@Model.Actual!._TipoDocumento!.Nombre" />
+            <input type="hidden"
+                asp-for="@Model.Actual!.Ciudad" />
+            <input type="hidden"
+                asp-for="@Model.Actual!._Ciudad!.Nombre" />
+            <input type="hidden"
+                asp-for="@Model.Actual!.Genero" />
+            <input type="hidden"
+                asp-for="@Model.Actual!._Genero!.Nombre" />
+            <input type="hidden"
+                asp-for="@Model.Actual!.Activo" />
+            
+
+            @if (!ViewData.ContainsKey("Mensaje"))
+            {
+                <div class="panel panel-default">
+                    <h3>@lib_lenguajes.RsPersonas.lbSingular</h3>
+
+                    <div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbTipoDocumento
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmTipoDocumentos"
+                                   disabled="disabled"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!._TipoDocumento!.Nombre" />
+                                <input type="submit"
+                                   value=" "
+                                   asp-page-handler="BtTipos"
+                                   asp-route-data="TipoDocumentos"
+                                       class="btn btn-danger mt-2" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbDocumento
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmDocumento"
+                                    class="cts_forms form-control"
+                                    onchange="keyUp(this)"
+                                    asp-for="@Model.Actual!.Documento" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbNombre
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmNombre"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Nombre" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbFechaNacimiento
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmFechaNacimiento"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.FechaNacimiento" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbCelular
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmCelular"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Celular" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbGenero
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmGenero"
+                                    disabled="disabled"
+                                    class="cts_forms form-control"
+                                    onchange="keyUp(this)"
+                                    asp-for="@Model.Actual!._Genero!.Nombre" />
+                                <input type="submit"
+                                    value=" "
+                                    asp-route-data="Generos"
+                                    asp-page-handler="BtTipos"
+                                       class="btn btn-danger mt-2" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbDireccion
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmDireccion"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Direccion" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbEmail
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmEmail"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbContraseña
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmContraseña"
+                                   class="cts_forms form-control"
+                                   onchange="keyUp(this)"
+                                   asp-for="@Model.Actual!.Contraseña" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                @lib_lenguajes.RsPersonas.lbCiudad
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmCiudad"
+                                    disabled="disabled"
+                                    class="cts_forms form-control"
+                                    onchange="keyUp(this)"
+                                    asp-for="@Model.Actual!._Ciudad!.Nombre" />
+                                <input type="submit"
+                                    value=" "
+                                    asp-page-handler="BtCiudades"
+                                       class="btn btn-danger mt-2" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewData.ContainsKey("Mensaje"))
+            {
+                @await Html.PartialAsync(
+                    "./Emergentes/Mensajes.cshtml")
+            }
+
+            @if (Model.MostrarCiudades)
+            {
+                <div class='popup'>
+                    <div class='pp_inner' style="background-color:#FFF0F0;">
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                                "./Emergentes/CiudadesPP.cshtml", Model.ciudadesPP)
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.MostrarTipos)
+            {
+                <div class='popup'>
+                    <div class='pp_inner' style="background-color:#FFF0F0;">
+                        <div style='width:95%'>
+                            @await Html.PartialAsync(
+                                "./Emergentes/TiposPP.cshtml", Model.tiposPP)
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </form>
+    </div>
+</center>

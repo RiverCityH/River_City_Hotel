@@ -8,18 +8,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\img\banner.jpg" />
+    <None Include="wwwroot\img\basica-category.jpg" />
+    <None Include="wwwroot\img\blog-1.jpg" />
+    <None Include="wwwroot\img\blog-2.jpg" />
+    <None Include="wwwroot\img\blog-3.jpg" />
+    <None Include="wwwroot\img\estelar-category.jpg" />
+    <None Include="wwwroot\img\gallery1.jpg" />
+    <None Include="wwwroot\img\gallery2.jpg" />
+    <None Include="wwwroot\img\gallery3.jpg" />
+    <None Include="wwwroot\img\gallery4.jpg" />
+    <None Include="wwwroot\img\gallery5.jpg" />
+    <None Include="wwwroot\img\premium-category.jpg" />
+    <None Include="wwwroot\img\presidencial-category.jpg" />
+    <None Include="wwwroot\img\vip-category.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\lib_aplicaciones\lib_aplicaciones.csproj" />
     <ProjectReference Include="..\lib_entidades_dominio\lib_entidades_dominio.csproj" />
     <ProjectReference Include="..\lib_lenguajes\lib_lenguajes.csproj" />
     <ProjectReference Include="..\lib_repositorios\lib_repositorios.csproj" />
     <ProjectReference Include="..\lib_utilidades\lib_utilidades.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Pages\Index.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>

@@ -14,7 +14,6 @@
             <form method="POST">
                 <div class="form-group text-center">
                     <label class="control-label">@lib_lenguajes.RsAdmin.lbUsuario</label>
-                    <label class="control-label">@lib_lenguajes.RsAdmin.lbUsuario</label>
                     <input onchange="keyUp(this)"
                            asp-for="@Model.Email"
                            class="form-control"
@@ -39,11 +38,45 @@
 else
 {
     <main class="d-flex align-items-center justify-content-center" style="height: 100vh; background-color: #FFE8E8;">
-        <div class="text-center">
-            <h1 class="display-4">@lib_lenguajes.RsAdmin.lbBienvenido</h1>
-            <form method="POST">
-                <input type="submit" value="@lib_lenguajes.RsMenu.lbCerrar" asp-page-handler="BtCerrar" class="btn btn-default" />
-            </form>
-        </div>
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h1 class="display-4">@lib_lenguajes.RsAdmin.lbBienvenido</h1>
+                    <form method="POST">
+                        <input type="submit" value="@lib_lenguajes.RsMenu.lbCerrar" asp-page-handler="BtCerrar" class="btn btn-default" />
+                    </form>
+                </div>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-header custom-bg text-white">
+                                <h5>Reservas</h5>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="display-4">150</h2>
+                                <p>Total de Reservas</p>
+                                <button class="btn btn-danger">Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-header custom-bg text-white">
+                                <h5>Ingresos</h5>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="display-4">$20,000</h2>
+                                <p>Total de Ingresos</p>
+                                <button class="btn btn-danger">Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center mb-4">
+                        <button class="btn btn-danger btn-lg">Actualizar Datos</button>
+                    </div>
+                </div>
+            </div>
     </main>
 }

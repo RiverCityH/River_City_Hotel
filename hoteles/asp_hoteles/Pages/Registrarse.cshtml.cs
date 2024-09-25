@@ -78,8 +78,11 @@ namespace asp_hoteles.Pages
                 if (Actual!.Id == 0)
                     Actual = PersonasAplicacion!.Guardar(Actual!);
 
-                EmailHelper.SendEmail("rivercityhotel85@gmail.com", "riverhotel.1234", Actual!.Email, null, "Verificacion de cuenta",
-                    Actual!.Token!);
+                var body = "Token: " + Actual!.Token! +
+                    "<br />Url: http://localhost:5264/Validar";
+
+                EmailHelper.SendEmail("rivercityhotel85@gmail.com", "axtqfpurrehwkyui", Actual!.Email, null, "Verificacion de cuenta",
+                    body);
             }
             catch (Exception ex)
             {

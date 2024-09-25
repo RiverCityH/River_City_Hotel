@@ -30,6 +30,7 @@ namespace lib_utilidades
             mailMessage.From = new MailAddress(userEmail);
             mailMessage.Subject = subject;
             mailMessage.Body = messageBody;
+            mailMessage.IsBodyHtml = true; 
 
             if (cc != null)
             {

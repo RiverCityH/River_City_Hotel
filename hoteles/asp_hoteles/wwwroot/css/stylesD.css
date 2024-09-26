@@ -1,0 +1,20 @@
+﻿.gradient-custom-2 
+{
+    /* Fallback para navegadores antiguos */
+    background: #ff7e7e;
+    /* Degradado en navegadores modernos */
+    background: linear-gradient(to right, #ff4d4d, #e60000);
+}
+
+
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+.gradient-form {
+    height: 100vh !important;
+}

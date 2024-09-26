@@ -10,14 +10,17 @@ namespace asp_hoteles.Pages
     public class AdminModel : PageModel
     {
         private PersonasAplicacion? personasAplicacion = null;
+        private EmpleadosAplicacion? empleadosAplicacion = null;
         public bool EstaLogueado = false;
 
-        public AdminModel(PersonasAplicacion p_personasAplicacion)
+        public AdminModel(PersonasAplicacion p_personasAplicacion, EmpleadosAplicacion p_empleadosAplicacion)
         {
             try
             {
                 this.personasAplicacion = this.personasAplicacion == null ?
                     p_personasAplicacion : this.personasAplicacion;
+                this.empleadosAplicacion = this.empleadosAplicacion == null ?
+                    p_empleadosAplicacion : this.empleadosAplicacion;
                 this.personasAplicacion.Configurar(Startup.Configuration!["ConectionString"]!);
             }
             catch (Exception ex)
@@ -35,6 +38,7 @@ namespace asp_hoteles.Pages
                 {
                     EstaLogueado = true;
                     ViewData["Logueado"] = true;
+                    ViewData["Rol"] = HttpContext!.Session.GetObject<string>("Rol");
                 }
             }
             catch (Exception ex)
@@ -70,7 +74,7 @@ namespace asp_hoteles.Pages
                     return;
                 }
 
-                var persona = new Personas() 
+                var persona = new Personas()
                 {
                     Id = 0,
                     Email = this.Email,
@@ -83,9 +87,26 @@ namespace asp_hoteles.Pages
                     return;
                 }
 
+                var empleado = new Empleados()
+                {
+                    Id = 0,
+                    Persona = persona.Id,
+                };
+                var cargo = 2;
+
+                var empleados = empleadosAplicacion!.Buscar(empleado, "PERSONA");
+                if (empleados.Count > 0)
+                {
+                    empleado = empleados[0];
+                    cargo = empleado._Cargo!.Accion;
+                }
+                persona = personas[0];
+
                 OnPostBtLimpiar();
                 ViewData["Logueado"] = true;
+                ViewData["Rol"] = cargo;
                 HttpContext.Session.SetObject("Usuario", Email!);
+                HttpContext.Session.SetObject("Rol", cargo);
                 EstaLogueado = true;
             }
             catch (Exception ex)

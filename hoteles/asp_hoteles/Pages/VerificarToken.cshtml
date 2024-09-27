@@ -1,0 +1,26 @@
+﻿@page
+@model asp_hoteles.Pages.VerificarTokenModel
+@{
+    Layout = null;
+}
+<body>
+    <div>
+        <h2>Verificación de Token</h2>
+        <form method="post">
+            <div>
+                <label>Email:</label>
+                <input type="email" asp-for="Email" required />
+            </div>
+            <div>
+                <label>Token:</label>
+                <input type="text" asp-for="Token" required />
+            </div>
+            <button type="submit">Verificar</button>
+        </form>
+
+        @if (!string.IsNullOrEmpty(Model.Mensaje))
+        {
+            <p>@Model.Mensaje</p>
+        }
+    </div>
+</body>

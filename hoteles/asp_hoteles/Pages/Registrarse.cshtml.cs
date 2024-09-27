@@ -79,7 +79,8 @@ namespace asp_hoteles.Pages
                     Actual = PersonasAplicacion!.Guardar(Actual!);
 
                 var body = "Token: " + Actual!.Token! +
-                    "<br />Url: http://localhost:5264/Validar";
+                "<br />Por favor, haga clic en el siguiente enlace para verificar su cuenta: " +
+                "<a href=\"http://localhost:5264/VerificarToken?email=" + Actual!.Email + "\">Verificar cuenta</a>";
 
                 EmailHelper.SendEmail("rivercityhotel85@gmail.com", "axtqfpurrehwkyui", Actual!.Email, null, "Verificacion de cuenta",
                     body);

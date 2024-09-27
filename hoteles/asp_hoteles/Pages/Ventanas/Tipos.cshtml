@@ -5,93 +5,66 @@
 }
 <center>
     <div>
-        <form method="POST"
-            enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             @Html.AntiForgeryToken()
 
             <div align="left">
                 <h3>@lib_lenguajes.RsMenu.lbTipos</h3>
             </div>
-            <div align="left"
-                class="bt_panel_buttons">
-                <input type="submit"
-                    value="@lib_lenguajes.RsMenu.lbRefrescar"
-                    asp-page-handler="BtRefrescar"
-                    class="btn btn-danger"
-                    disabled="@(!Model.MostrarLista)" />
-                <input type="submit"
-                    value="@lib_lenguajes.RsMenu.lbNuevo"
-                    asp-page-handler="BtNuevo"
-                       class="btn btn-danger"
-                    disabled="@(!Model.MostrarLista)" />
-                <input type="submit"
-                    value="@lib_lenguajes.RsMenu.lbGuardar"
-                    asp-page-handler="BtGuardar"
-                    class="btn btn-danger"
-                    disabled="@(Model.MostrarLista)" />
-                <input type="submit"
-                    value="@lib_lenguajes.RsMenu.lbCancelar"
-                    asp-page-handler="BtCancelar"
-                       class="btn btn-danger"
-                    disabled="@(Model.MostrarLista)" />
+            <div align="left" class="bt_panel_buttons">
+                <input type="submit" value="@lib_lenguajes.RsMenu.lbRefrescar" asp-page-handler="BtRefrescar" class="btn btn-danger" disabled="@(!Model.MostrarLista)" />
+                <input type="submit" value="@lib_lenguajes.RsMenu.lbNuevo" asp-page-handler="BtNuevo" class="btn btn-danger" disabled="@(!Model.MostrarLista)" />
+                <input type="submit" value="@lib_lenguajes.RsMenu.lbGuardar" asp-page-handler="BtGuardar" class="btn btn-danger" disabled="@(Model.MostrarLista)" />
+                <input type="submit" value="@lib_lenguajes.RsMenu.lbCancelar" asp-page-handler="BtCancelar" class="btn btn-danger" disabled="@(Model.MostrarLista)" />
             </div>
-            
-            @if (!Model.MostrarLista ||
-                 Model.MostrarBorrar ||
-                 ViewData.ContainsKey("Mensaje"))
+
+            @if (!Model.MostrarLista || Model.MostrarBorrar || ViewData.ContainsKey("Mensaje"))
             {
-                <input type="hidden"
-                   asp-for="@Model.Actual!.Id" />
+                <input type="hidden" asp-for="@Model.Actual!.Id" />
             }
-            @if (Model.MostrarBorrar ||
-                 ViewData.ContainsKey("Mensaje"))
+            @if (Model.MostrarBorrar || ViewData.ContainsKey("Mensaje"))
             {
-                <input type="hidden"
-                   asp-for="@Model.Actual!.Nombre" />
-                <input type="hidden"
-                   asp-for="@Model.Actual!.Tabla" />
-                <input type="hidden"
-                   asp-for="@Model.Actual!.Accion" />
+                <input type="hidden" asp-for="@Model.Actual!.Nombre" />
+                <input type="hidden" asp-for="@Model.Actual!.Tabla" />
+                <input type="hidden" asp-for="@Model.Actual!.Accion" />
             }
 
-            @if (!Model.MostrarLista &&
-                 !ViewData.ContainsKey("Mensaje"))
+            @if (!Model.MostrarLista && !ViewData.ContainsKey("Mensaje"))
             {
                 <div class="panel panel-default">
                     <h3>@lib_lenguajes.RsTipos.lbSingular</h3>
 
                     <div>
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsTipos.lbNombre
-                            </label>
+                            <label class="col-lg-4 control-label">@lib_lenguajes.RsTipos.lbNombre</label>
                             <div class="col-lg-6">
-                                <input id="nmNombre"
-                                    class="cts_forms form-control"
-                                    onchange="keyUp(this)"
-                                    asp-for="@Model.Actual!.Nombre" />
+                                <input id="nmNombre" class="cts_forms form-control" onchange="keyUp(this)" asp-for="@Model.Actual!.Nombre" />
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsTipos.lbTabla
-                            </label>
+                            <label class="col-lg-4 control-label">@lib_lenguajes.RsTipos.lbTabla</label>
                             <div class="col-lg-6">
-                                <input id="nmTabla"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Tabla" />
+                                <select id="nmCategoria" class="cts_forms form-control" asp-for="@Model.Actual!.Tabla">
+                                    <option value="TiposFacturas">Tipos Facturas</option>
+                                    <option value="TipoDocumentos">Tipo Documentos</option>
+                                    <option value="Generos">Géneros</option>
+                                    <option value="Cargo">Cargo</option>
+                                    <option value="ARL">ARL</option>
+                                    <option value="Pension">Pensión</option>
+                                    <option value="EPS">EPS</option>
+                                    <option value="TipoSangre">Tipo de Sangre</option>
+                                    <option value="EstadoCivil">Estado Civil</option>
+                                    <option value="MetodoPago">Método de Pago</option>
+                                    <option value="Categoría">Categoría</option>
+                                </select>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                @lib_lenguajes.RsTipos.lbAccion
-                            </label>
+                            <label class="col-lg-4 control-label">@lib_lenguajes.RsTipos.lbAccion</label>
                             <div class="col-lg-6">
-                                <input id="nmAccion"
-                                   class="cts_forms form-control"
-                                   onchange="keyUp(this)"
-                                   asp-for="@Model.Actual!.Accion" />
+                                <input id="nmAccion" class="cts_forms form-control" onchange="keyUp(this)" asp-for="@Model.Actual!.Accion" />
                             </div>
                         </div>
                     </div>
@@ -100,8 +73,7 @@
 
             @if (ViewData.ContainsKey("Mensaje"))
             {
-                @await Html.PartialAsync(
-                    "../Emergentes/Mensajes.cshtml")
+                @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
             }
 
             @if (Model.MostrarBorrar)
@@ -109,26 +81,12 @@
                 <div class='popup'>
                     <div class='pp_del_inner' style="background-color:#FFF0F0;">
                         <div style='width:95%'>
-                            <h2 align="left">
-                                @lib_lenguajes.RsMenu.lbMensaje
-                            </h2>
-
-                            <h4 align="left">
-                                @lib_lenguajes.RsMenu.lbBorrarEntidad
-                            </h4>
-                            <h6 align="left">
-                                @Model.Actual!.Nombre
-                            </h6>
-                            <br />
-                            <br />
-                            <input type="submit"
-                               value="@lib_lenguajes.RsMenu.lbBorrar"
-                               asp-page-handler="BtBorrar"
-                               class="btn btn-danger" />
-                            <input type="submit"
-                               value="@lib_lenguajes.RsMenu.lbCerrar"
-                               asp-page-handler="BtCancelar"
-                               class="btn btn-danger" />
+                            <h2 align="left">@lib_lenguajes.RsMenu.lbMensaje</h2>
+                            <h4 align="left">@lib_lenguajes.RsMenu.lbBorrarEntidad</h4>
+                            <h6 align="left">@Model.Actual!.Nombre</h6>
+                            <br /><br />
+                            <input type="submit" value="@lib_lenguajes.RsMenu.lbBorrar" asp-page-handler="BtBorrar" class="btn btn-danger" />
+                            <input type="submit" value="@lib_lenguajes.RsMenu.lbCerrar" asp-page-handler="BtCancelar" class="btn btn-danger" />
                         </div>
                     </div>
                 </div>
@@ -139,39 +97,22 @@
                 <div class="panel panel-default">
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
-                            <th>
-                                @lib_lenguajes.RsTipos.clNombre
-                            </th>
-                            <th>
-                                @lib_lenguajes.RsTipos.clTabla
-                            </th>
-                            <th>
-                                @lib_lenguajes.RsTipos.clAccion
-                            </th>
-                            <th class="cl_actions">
-                                @lib_lenguajes.RsMenu.lbAction
-                            </th>
+                            <th>@lib_lenguajes.RsTipos.clNombre</th>
+                            <th>@lib_lenguajes.RsTipos.clTabla</th>
+                            <th>@lib_lenguajes.RsTipos.clAccion</th>
+                            <th class="cl_actions">@lib_lenguajes.RsMenu.lbAction</th>
                         </tr>
                         @if (Model != null && Model.Lista != null)
                         {
                             @foreach (var elemento in Model.Lista)
                             {
-                                <tr onmouseover="changeOver(this)"
-                                    onmouseout="changeOut(this)">
+                                <tr onmouseover="changeOver(this)" onmouseout="changeOut(this)">
                                     <td>@elemento.Nombre</td>
                                     <td>@elemento.Tabla</td>
                                     <td>@elemento.Accion</td>
                                     <td>
-                                        <input type="submit"
-                                            value="@lib_lenguajes.RsMenu.lbModicar"
-                                            asp-page-handler="BtModificar"
-                                            class="btn btn-danger"
-                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
-                                        <input type="submit"
-                                            value="@lib_lenguajes.RsMenu.lbBorrar"
-                                            asp-page-handler="BtBorrarVal"
-                                            class="btn btn-danger"
-                                            asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)"/>
+                                        <input type="submit" value="@lib_lenguajes.RsMenu.lbModicar" asp-page-handler="BtModificar" class="btn btn-danger" asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)" />
+                                        <input type="submit" value="@lib_lenguajes.RsMenu.lbBorrar" asp-page-handler="BtBorrarVal" class="btn btn-danger" asp-route-data="@asp_hoteles.Nucleo.EsconderID.Encriptar(elemento.Id)" />
                                     </td>
                                 </tr>
                             }

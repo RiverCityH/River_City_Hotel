@@ -90,5 +90,21 @@ namespace lib_aplicaciones.Implementaciones
             entidad = this.iRepositorio.Borrar(entidad);
             return entidad;
         }
+
+        public Personas VerificarToken(string email, string token)
+        {
+            var persona = this.iRepositorio.Buscar(x => x.Email == email && x.Token == token).FirstOrDefault();
+
+            if (persona == null)
+            {
+                throw new Exception("Token inválido o usuario no encontrado.");
+            }
+
+            persona.Confirmar = true;
+            return this.iRepositorio.Modificar(persona);
+        }
+
+
+
     }
 }

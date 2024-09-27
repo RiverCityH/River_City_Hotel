@@ -115,7 +115,7 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tabla: .
+        ///   Looks up a localized string similar to Categoria:.
         /// </summary>
         public static string lbTabla {
             get {

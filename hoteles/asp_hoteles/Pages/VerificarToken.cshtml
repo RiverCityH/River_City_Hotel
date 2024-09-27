@@ -3,19 +3,52 @@
 @{
     Layout = null;
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FFE8E8;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h2 {
+            background-color: #ec3f3f;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: #FFF0F0;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
 <body>
-    <div>
+    <div class="form-container mt-5">
         <h2>Verificación de Token</h2>
         <form method="post">
-            <div>
-                <label>Email:</label>
-                <input type="email" asp-for="Email" required />
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" asp-for="Email" class="form-control" id="email" required />
             </div>
-            <div>
-                <label>Token:</label>
-                <input type="text" asp-for="Token" required />
+            <div class="form-group">
+                <label for="token">Token:</label>
+                <input type="text" asp-for="Token" class="form-control" id="token" required />
             </div>
-            <button type="submit">Verificar</button>
+            <button type="submit" class="btn btn-danger">Verificar</button>
         </form>
 
         @if (!string.IsNullOrEmpty(Model.Mensaje))

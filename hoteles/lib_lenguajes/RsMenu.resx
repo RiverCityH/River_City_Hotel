@@ -184,7 +184,7 @@
     <value>Paises</value>
   </data>
   <data name="lbPersonas" xml:space="preserve">
-    <value>Personas</value>
+    <value>Usuarios</value>
   </data>
   <data name="lbProductos" xml:space="preserve">
     <value>Productos</value>
@@ -199,6 +199,6 @@
     <value>Escoger</value>
   </data>
   <data name="lbTipos" xml:space="preserve">
-    <value>Tipos</value>
+    <value>Categorías</value>
   </data>
 </root>

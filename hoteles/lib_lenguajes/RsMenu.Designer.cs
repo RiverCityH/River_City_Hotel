@@ -259,7 +259,7 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Personas.
+        ///   Busca una cadena traducida similar a Usuarios.
         /// </summary>
         public static string lbPersonas {
             get {
@@ -304,7 +304,7 @@ namespace lib_lenguajes {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Tipos.
+        ///   Busca una cadena traducida similar a Categorías.
         /// </summary>
         public static string lbTipos {
             get {
